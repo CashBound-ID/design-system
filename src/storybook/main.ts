@@ -1,4 +1,5 @@
-import type { StorybookConfig } from '@storybook/react-vite';
+import type { StorybookConfig } from '@storybook/react-webpack5';
+import path from 'path';
 
 const config: StorybookConfig = {
   addons: [
@@ -6,11 +7,43 @@ const config: StorybookConfig = {
     '@chromatic-com/storybook',
     '@storybook/addon-interactions'
   ],
-  framework: {
-    name: '@storybook/react-vite',
-    options: {}
+  framework: '@storybook/react-webpack5',
+  stories: ['../**/*.mdx', '../**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  typescript: {
+    reactDocgen: 'react-docgen-typescript'
   },
-  stories: ['../**/*.mdx', '../**/*.stories.@(js|jsx|mjs|ts|tsx)']
+  webpackFinal: async (config) => {
+    if (config.module?.rules) {
+      config.module.rules.push({
+        exclude: /node_modules(?!\/@amplio)/,
+        test: /\.(js|jsx|ts|tsx)$/,
+        use: {
+          loader: 'swc-loader',
+          options: {
+            jsc: {
+              parser: { syntax: 'typescript', tsx: true },
+              transform: {
+                react: {
+                  importSource: 'react',
+                  runtime: 'automatic'
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    if (config.resolve) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@': path.resolve(__dirname, '../')
+      };
+      config.resolve.extensions?.push('.ts', '.tsx');
+    }
+
+    return config;
+  }
 };
 
 export default config;
