@@ -7,6 +7,9 @@ const config: StorybookConfig = {
     '@chromatic-com/storybook',
     '@storybook/addon-interactions'
   ],
+  docs: {
+    defaultName: 'Documentation'
+  },
   framework: '@storybook/react-webpack5',
   stories: ['../**/*.mdx', '../**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   typescript: {
@@ -31,6 +34,11 @@ const config: StorybookConfig = {
             }
           }
         }
+      });
+
+      config.module.rules.push({
+        test: /\.s[ac]ss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       });
     }
 

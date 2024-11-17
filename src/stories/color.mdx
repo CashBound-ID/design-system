@@ -1,0 +1,111 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+import { DEFAULT_COLOR } from '@/constant/theme';
+ 
+<Meta title="Token/Colors" />
+
+# Color
+
+Our color principles built based on the recognition of cashbound brand colors to create not only consistent and usable.
+
+## Color Palette
+Our color palette totals 110 colors, including 9 primary colors and their derivative colors.
+These colors can basically include the need for color in background applications design.
+
+<ColorPalette>
+  <ColorItem
+    title="Common Colors"
+    colors={{ WHITE: '#FFFFFF', BLACK: '#000' }}
+  />
+
+
+  <ColorItem
+    title="Violet Colors"
+    colors={new Array(12).fill(null).map((_, index) => {
+      return (index + 1) * 100
+    }).reduce((result, item) => {
+      result[item] = DEFAULT_COLOR[`VIOLET${item}`]
+      return result
+    }, {})}
+  />
+
+  <ColorItem
+    title="Green Cash Colors"
+    colors={new Array(12).fill(null).map((_, index) => {
+      return (index + 1) * 100
+    }).reduce((result, item) => {
+      result[item] = DEFAULT_COLOR[`GREENCASH${item}`]
+      return result
+    }, {})}
+  />
+
+  <ColorItem
+    title="Gray Mauve Colors"
+    colors={new Array(12).fill(null).map((_, index) => {
+      return (index + 1) * 100
+    }).reduce((result, item) => {
+      result[item] = DEFAULT_COLOR[`GRAYMAUVE${item}`]
+      return result
+    }, {})}
+  />
+
+  <ColorItem
+    title="Red Tomato Colors"
+    colors={new Array(12).fill(null).map((_, index) => {
+      return (index + 1) * 100
+    }).reduce((result, item) => {
+      result[item] = DEFAULT_COLOR[`REDTOMATO${item}`]
+      return result
+    }, {})}
+  />
+
+  <ColorItem
+    title="Purple Colors"
+    colors={new Array(12).fill(null).map((_, index) => {
+      return (index + 1) * 100
+    }).reduce((result, item) => {
+      result[item] = DEFAULT_COLOR[`PURPLE${item}`]
+      return result
+    }, {})}
+  />
+
+  <ColorItem
+    title="Blue Colors"
+    colors={new Array(12).fill(null).map((_, index) => {
+      return (index + 1) * 100
+    }).reduce((result, item) => {
+      result[item] = DEFAULT_COLOR[`BLUE${item}`]
+      return result
+    }, {})}
+  />
+
+  <ColorItem
+    title="Green Grass Colors"
+    colors={new Array(12).fill(null).map((_, index) => {
+      return (index + 1) * 100
+    }).reduce((result, item) => {
+      result[item] = DEFAULT_COLOR[`GREENGRASS${item}`]
+      return result
+    }, {})}
+  />
+
+  <ColorItem
+    title="Yellow Amber Colors"
+    colors={new Array(12).fill(null).map((_, index) => {
+      return (index + 1) * 100
+    }).reduce((result, item) => {
+      result[item] = DEFAULT_COLOR[`YELLOWAMBER${item}`]
+      return result
+    }, {})}
+  />
+
+  <ColorItem
+    title="Orange Colors"
+    colors={new Array(12).fill(null).map((_, index) => {
+      return (index + 1) * 100
+    }).reduce((result, item) => {
+      result[item] = DEFAULT_COLOR[`ORANGE${item}`]
+      return result
+    }, {})}
+  />
+</ColorPalette>
