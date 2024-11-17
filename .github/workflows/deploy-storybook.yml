@@ -1,0 +1,38 @@
+name: Build and Publish Storybook to GitHub Pages
+
+on:
+  push:
+    branches:
+      - "main"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Create .npmrc
+        run: |
+          echo "auto-install-peers=true > ~/.npmrc"
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" > ~/.npmrc
+          echo "@fit-hub-indonesia:registry=https://npm.pkg.github.com" >> ~/.npmrc
+
+      - name: Install PNPM
+        run: npm install -g pnpm@^9.12.0
+
+      - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+        with:
+          install_command: pnpm install
+          build_command: pnpm run build:storybook
+          path: storybook-static
+          checkout: false

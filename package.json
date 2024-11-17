@@ -51,10 +51,10 @@
       "plugin:storybook/recommended"
     ]
   },
-  "name": "cashbound-design-system",
+  "name": "design-system",
   "private": true,
   "scripts": {
-    "build-storybook": "storybook build",
+    "build-storybook": "storybook build -c src/storybook",
     "lint": "eslint .",
     "prepare": "ts-patch install -s",
     "storybook": "storybook dev -p 6006 -c src/storybook"

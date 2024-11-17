@@ -26,3 +26,4 @@ dist-ssr
 .cache
 *storybook.log
 .npmrc
+storybook-static
