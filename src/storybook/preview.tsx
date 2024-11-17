@@ -1,10 +1,15 @@
 import { useContext } from 'react';
 
+import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 import * as DocBlock from '@storybook/blocks';
 import type { Preview } from '@storybook/react';
 
+import DesignSystemProvider from '@/context/DesignSystem';
+
+import { DEFAULT_THEME } from '@/constant/theme';
+
 const HowToImportDocs = () => {
-  const x = useContext(DocBlock.DocsContext);
+  const context = useContext(DocBlock.DocsContext);
 
   const {
     'component-name': componentName,
@@ -12,7 +17,7 @@ const HowToImportDocs = () => {
     'source-code': sourceCode
   } =
     // @ts-expect-error irfanandriansyah10@gmail.com expected error since we want to extract import path from stories parameters
-    x?.primaryStory?.parameters || {};
+    context?.primaryStory?.parameters || {};
 
   if (!(componentName || importPath)) return null;
 
@@ -48,6 +53,12 @@ import ${componentName} from '${importPath}';
 };
 
 const preview: Preview = {
+  decorators: [
+    withThemeFromJSXProvider({
+      Provider: DesignSystemProvider,
+      themes: { Default: DEFAULT_THEME }
+    })
+  ],
   parameters: {
     controls: {
       matchers: {
@@ -69,7 +80,8 @@ const preview: Preview = {
         );
       },
       toc: true
-    }
+    },
+    layout: 'centered'
   },
 
   tags: ['autodocs']

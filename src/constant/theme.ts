@@ -2,6 +2,7 @@ import type {
   Color,
   FontFamily,
   FontWeight,
+  Theme,
   TypographyModifier
 } from '@/types/theme';
 
@@ -427,4 +428,12 @@ export const DEFAULT_COLOR: Color = {
   YELLOWAMBER700: _YELLOWAMBER700,
   YELLOWAMBER800: _YELLOWAMBER800,
   YELLOWAMBER900: _YELLOWAMBER900
+};
+
+export const DEFAULT_THEME: Theme = {
+  color: DEFAULT_COLOR,
+  elements: {},
+  fontFamily: DEFAULT_FONT_FAMILY,
+  fontWeight: DEFAULT_FONT_WEIGHT,
+  typography: DEFAULT_TYPOGRAPHY_MODIFIER
 };

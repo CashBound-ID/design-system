@@ -1,0 +1,71 @@
+// Font Family
+
+$font-family-kind: primary, secondary;
+$font-family: (
+  primary: var(--font-primary),
+  secondary: var(--font-secondary)
+);
+
+// Font Weight
+
+$font-weight-kind: (
+  bold,
+  medium,
+  regular
+);
+$font-weight: (
+  bold: var(--font-weight-bold),
+  medium: var(--font-weight-medium),
+  regular: var(--font-weight-regular)
+);
+
+// Text Modifier
+
+$text-modifier-kind: (
+  body-lg,
+  body-md,
+  body-sm,
+  body-xs,
+  body-xxs,
+  heading-2xl,
+  heading-lg,
+  heading-md,
+  heading-sm,
+  heading-xl
+);
+$text-modifier-font-size: (
+  body-lg:var(--text-body-lg-size),
+  body-md: var(--text-body-md-size),
+  body-sm: var(--text-body-sm-size),
+  body-xs: var(--text-body-xs-size),
+  body-xxs: var(--text-body-xxs-size),
+  heading-2xl: var(--text-heading-2xl-size),
+  heading-lg: var(--text-heading-lg-size),
+  heading-md: var(--text-heading-md-size),
+  heading-sm: var(--text-heading-sm-size),
+  heading-xl: var(--text-heading-xl-size)
+);
+$text-modifier-letter-spacing: (
+  body-lg: var(--text-body-lg-letter-spacing),
+  body-md: var(--text-body-md-letter-spacing),
+  body-sm: var(--text-body-sm-letter-spacing),
+  body-xs: var(--text-body-xs-letter-spacing),
+  body-xxs: var(--text-body-xxs-letter-spacing),
+  heading-2xl: var(--text-heading-2xl-letter-spacing),
+  heading-lg: var(--text-heading-lg-letter-spacing),
+  heading-md: var(--text-heading-md-letter-spacing),
+  heading-sm: var(--text-heading-sm-letter-spacing),
+  heading-xl: var(--text-heading-xl-letter-spacing)
+);
+$text-modifier-line-height: (
+  body-lg: var(--text-body-lg-line-height),
+  body-md: var(--text-body-md-line-height),
+  body-sm: var(--text-body-sm-line-height),
+  body-xs: var(--text-body-xs-line-height),
+  body-xxs: var(--text-body-xxs-line-height),
+  heading-2xl: var(--text-heading-2xl-line-height),
+  heading-lg: var(--text-heading-lg-line-height),
+  heading-md: var(--text-heading-md-line-height),
+  heading-sm: var(--text-heading-sm-line-height),
+  heading-xl: var(--text-heading-xl-line-height)
+);
