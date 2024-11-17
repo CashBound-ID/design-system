@@ -1,0 +1,38 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-standard-scss",
+    "stylelint-config-recommended-scss",
+    "@stylistic/stylelint-config"
+  ],
+  "plugins": [
+    "stylelint-order",
+    "stylelint-scss"
+  ],
+  "rules": {
+    "@stylistic/indentation": 2,
+    "at-rule-empty-line-before": ["never", {"except": ["after-same-name", "inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless", "first-nested"]}],
+    "block-no-empty": true,
+    "comment-empty-line-before": "never",
+    "comment-no-empty": true,
+    "custom-property-empty-line-before": "never",
+    "declaration-block-no-duplicate-custom-properties": true,
+    "declaration-empty-line-before": "never",
+    "no-duplicate-selectors": true,
+    "no-empty-source": true,
+    "order/order": [
+      [
+        "custom-properties",
+        "declarations"
+      ],
+      {
+        "disableFix": false
+      }
+    ],
+    "order/properties-alphabetical-order": true,
+    "rule-empty-line-before": "always",
+    "scss/at-if-no-null": null,
+    "scss/dollar-variable-colon-space-after": "always",
+    "selector-class-pattern": null
+  }
+}

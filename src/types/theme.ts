@@ -81,3 +81,18 @@ export interface Color
     YellowAmberColor,
     OrangeColor,
     CommonColor {}
+
+/////////////////////////////////////////////////////////////////////////////
+// Generic Theme Section
+/////////////////////////////////////////////////////////////////////////////
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface CustomElementStyle {}
+
+export interface Theme {
+  color: Color;
+  elements: CustomElementStyle;
+  fontFamily: FontFamily;
+  fontWeight: FontWeight;
+  typography: TypographyModifier;
+}

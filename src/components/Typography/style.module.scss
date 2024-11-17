@@ -1,0 +1,38 @@
+@use "sass:map";
+
+@use "@/styles/variables" as var;
+
+.typography {
+  display: block;
+  width: 100%;
+
+  // Font Family Styling
+
+  @each $family in var.$font-family-kind {
+    &[data-font-family="#{$family}"] {
+      font-family: map.get(var.$font-family, $family);
+    }
+  }
+
+  // Font Weight Styling
+
+  @each $weight in var.$font-weight-kind {
+    &[data-font-weight="#{$weight}"] {
+      font-weight: map.get(var.$font-weight, $weight);
+    }
+  }
+
+  &[data-italic="true"] {
+    font-style: italic;
+  }
+
+  // Text Modifier Styling
+
+  @each $modifier in var.$text-modifier-kind {
+    &[data-modifier="#{$modifier}"] {
+      font-size: map.get(var.$text-modifier-font-size, $modifier);
+      letter-spacing: map.get(var.$text-modifier-letter-spacing, $modifier);
+      line-height: map.get(var.$text-modifier-line-height, $modifier);
+    }
+  }
+}
