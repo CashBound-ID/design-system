@@ -12,7 +12,7 @@ const config: StorybookConfig = {
     defaultName: 'Documentation'
   },
   framework: '@storybook/react-webpack5',
-  staticDirs: ['../../public'],
+  staticDirs: [{ from: '../../public', to: '/assets' }],
   stories: ['../**/*.mdx', '../**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   webpackFinal: async (config) => {
     if (config.module?.rules) {
