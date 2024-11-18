@@ -80,8 +80,7 @@ const preview: Preview = {
         );
       },
       toc: true
-    },
-    layout: 'centered'
+    }
   },
 
   tags: ['autodocs']
