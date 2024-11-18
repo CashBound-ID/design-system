@@ -12,10 +12,8 @@ const config: StorybookConfig = {
     defaultName: 'Documentation'
   },
   framework: '@storybook/react-webpack5',
+  staticDirs: ['../../public'],
   stories: ['../**/*.mdx', '../**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-  typescript: {
-    reactDocgen: 'react-docgen-typescript'
-  },
   webpackFinal: async (config) => {
     if (config.module?.rules) {
       config.module.rules.push({

@@ -118,6 +118,7 @@ const meta = {
       }
     },
     'import-path': '@cashbound-id/design-system/typography',
+    layout: 'centered',
     'source-code': 'src/components/Typography'
   },
   tags: ['autodocs'],
