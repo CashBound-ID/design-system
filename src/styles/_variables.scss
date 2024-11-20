@@ -1,6 +1,5 @@
 // Font Family
 
-$font-family-kind: primary, secondary;
 $font-family: (
   primary: var(--font-primary),
   secondary: var(--font-secondary)
@@ -8,11 +7,6 @@ $font-family: (
 
 // Font Weight
 
-$font-weight-kind: (
-  bold,
-  medium,
-  regular
-);
 $font-weight: (
   bold: var(--font-weight-bold),
   medium: var(--font-weight-medium),
@@ -68,4 +62,33 @@ $text-modifier-line-height: (
   heading-md: var(--text-heading-md-line-height),
   heading-sm: var(--text-heading-sm-line-height),
   heading-xl: var(--text-heading-xl-line-height)
+);
+
+// Grid Pallete
+$grid-palette: (1,2,3,4,5,6,7,8,9,10,11,12);
+
+// Transition
+$transition-duration: var(--transition-duration);
+$transition-timing-fn: var(--transition-timing-fn);
+
+// Box Shadow
+$shadow: (
+  default: var(--shadow-default),
+  element: var(--shadow-element),
+  lg: var(--shadow-lg),
+  md: var(--shadow-md),
+  sm: var(--shadow-sm),
+  xl: var(--shadow-xl),
+  button: var(--shadow-button)
+);
+
+// Border Radius
+$radius: (
+  circle: var(--radius-circle),
+  lg: var(--radius-lg),
+  md: var(--radius-md),
+  sm: var(--radius-sm),
+  square: var(--radius-square),
+  xl: var(--radius-xl),
+  xs: var(--radius-xs),
 );

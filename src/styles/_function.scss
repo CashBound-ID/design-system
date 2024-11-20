@@ -1,0 +1,14 @@
+@use "sass:map";
+@function get-attribute($map, $keys...) {
+
+  @each $key in $keys {
+    $map: map.get($map, $key);
+
+    @if $map == null {
+
+      @return null;
+    }
+  }
+
+  @return $map;
+}

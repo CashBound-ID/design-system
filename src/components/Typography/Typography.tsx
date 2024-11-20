@@ -1,6 +1,8 @@
 import type { PropsWithChildren } from 'react';
 import { createElement, useMemo } from 'react';
 
+import { cx } from '@/utils/css';
+
 import * as styles from './style.module.scss';
 import type { TypographyProps } from './types';
 
@@ -16,6 +18,7 @@ const Typography = <T extends Element>(
 ) => {
   const {
     children,
+    className,
     color,
     display = 'block',
     ellipsis,
@@ -27,7 +30,7 @@ const Typography = <T extends Element>(
     style: styleProps = {},
     tag = 'p',
     textAlign = 'left',
-    textDecoration = 'none',
+    textDecoration,
     ...res
   } = props;
 
@@ -66,7 +69,7 @@ const Typography = <T extends Element>(
     tag,
     {
       ...res,
-      className: styles['typography'],
+      className: cx(styles['typography'], className),
       'data-font-family': fontFamily,
       'data-font-weight': fontWeight,
       'data-italic': Boolean(italic),

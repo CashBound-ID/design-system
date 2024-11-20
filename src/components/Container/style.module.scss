@@ -1,0 +1,12 @@
+.container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+  width: 100%;
+
+  @media (width >= 1280px) {
+    max-width: 1200px;
+    padding: 0;
+  }
+}

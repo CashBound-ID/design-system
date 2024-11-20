@@ -1,0 +1,92 @@
+@use "@/styles/variables" as var;
+
+.grid {
+  display: block;
+  margin: auto;
+  width: 100%;
+
+  &-row {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  &-item {
+    flex: 1 0 0;
+    max-width: 100%;
+    min-height: 1px;
+
+    @each $size in var.$grid-palette {
+      &[data-col="#{$size}"] {
+        flex: 0 0 #{100% * ($size / 12)};
+        max-width: #{100% * ($size / 12)};
+      }
+
+      &[data-col="auto"] {
+        flex: 0 0 auto;
+        max-width: auto;
+      }
+
+      @media (width <= 576px) {
+        &[data-col-xs="#{$size}"] {
+          flex: 0 0 #{100% * ($size / 12)};
+          max-width: #{100% * ($size / 12)};
+        }
+
+        &[data-col-xs="auto"] {
+          flex: 0 0 auto;
+          max-width: auto;
+        }
+      }
+
+      @media (width >= 576px) {
+        &[data-col-sm="#{$size}"] {
+          flex: 0 0 #{100% * ($size / 12)};
+          max-width: #{100% * ($size / 12)};
+        }
+
+        &[data-col-sm="auto"] {
+          flex: 0 0 auto;
+          max-width: auto;
+        }
+      }
+
+      @media (width >= 768px) {
+        &[data-col-md="#{$size}"] {
+          flex: 0 0 #{100% * ($size / 12)};
+          max-width: #{100% * ($size / 12)};
+        }
+
+        &[data-col-md="auto"] {
+          flex: 0 0 auto;
+          max-width: auto;
+        }
+      }
+
+      @media (width >= 992px) {
+        &[data-col-lg="#{$size}"] {
+          flex: 0 0 #{100% * ($size / 12)};
+          max-width: #{100% * ($size / 12)};
+        }
+
+        &[data-col-lg="auto"] {
+          flex: 0 0 auto;
+          max-width: auto;
+        }
+      }
+
+      @media (width >= 1200px) {
+        &[data-col-xl="#{$size}"] {
+          flex: 0 0 #{100% * ($size / 12)};
+          max-width: #{100% * ($size / 12)};
+        }
+
+        &[data-col-xl="auto"] {
+          flex: 0 0 auto;
+          max-width: auto;
+        }
+      }
+    }
+  }
+}

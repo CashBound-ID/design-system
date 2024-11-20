@@ -54,7 +54,7 @@ const Flex = (props: PropsWithChildren<FlexProps>) => {
   return createElement(tag, {
     ...res,
     style: {
-      align,
+      alignItems: align,
       display: 'flex',
       flex,
       flexDirection: vertical ? 'column' : 'initial',

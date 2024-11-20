@@ -1,8 +1,13 @@
 import type {
   Color,
+  CustomElementStyle,
   FontFamily,
   FontWeight,
+  Radius,
+  Shadow,
+  Spacing,
   Theme,
+  Transition,
   TypographyModifier
 } from '@/types/theme';
 
@@ -430,10 +435,67 @@ export const DEFAULT_COLOR: Color = {
   YELLOWAMBER900: _YELLOWAMBER900
 };
 
+/////////////////////////////////////////////////////////////////////////////
+// Shadow Constant
+/////////////////////////////////////////////////////////////////////////////
+
+export const DEFAULT_SHADOW: Shadow = {
+  button: '0px 1px 2px 0px rgba(0, 0, 0, 0.16)',
+  default:
+    '0px 0.5px 1.75px 0px rgba(0, 0, 0, 0.04), 0px 1.85px 6.25px 0px rgba(0, 0, 0, 0.19)',
+  element: 'rgba(16, 24, 32, 0.04) 0px 1px 2px 1px',
+  lg: 'rgba(16, 24, 32, 0.1) 0px 10px 32px 0px, rgba(16, 24, 32, 0.08) 0px 1px 3px 0px',
+  md: 'rgba(16, 24, 32, 0.06) 0px 2px 6px 0px',
+  sm: 'rgba(16, 24, 32, 0.06) 0px 0px 6px 0px',
+  xl: 'rgba(16, 24, 32, 0.16) 0px 10px 20px 0px, rgba(16, 24, 32, 0.04) 0px 1px 2px 0px'
+};
+
+/////////////////////////////////////////////////////////////////////////////
+// Border Radius
+/////////////////////////////////////////////////////////////////////////////
+
+export const DEFAULT_RADIUS: Radius = {
+  circle: '50%',
+  lg: '12px',
+  md: '8px',
+  sm: '4px',
+  square: '0px',
+  xl: '16px',
+  xs: '2px'
+};
+
+/////////////////////////////////////////////////////////////////////////////
+// Spacing Constant
+/////////////////////////////////////////////////////////////////////////////
+
+export const DEFAULT_SPACING: Spacing = {
+  lg: '16px',
+  md: '12px',
+  sm: '8px',
+  xl: '24px',
+  xs: '4px',
+  xxl: '32px'
+};
+
+/////////////////////////////////////////////////////////////////////////////
+// Transition Constant
+/////////////////////////////////////////////////////////////////////////////
+
+export const DEFAULT_TRANSITION: Transition = {
+  duration: '300ms',
+  timingFunction: 'cubic-bezier(0.63, 0.01, 0.29, 1)'
+};
+
+export const DEFAULT_CUSTOM_ELEMENT: CustomElementStyle = {};
+
 export const DEFAULT_THEME: Theme = {
   color: DEFAULT_COLOR,
   elements: {},
   fontFamily: DEFAULT_FONT_FAMILY,
   fontWeight: DEFAULT_FONT_WEIGHT,
+  radius: DEFAULT_RADIUS,
+  shadow: DEFAULT_SHADOW,
+  spacing: DEFAULT_SPACING,
+  transition: DEFAULT_TRANSITION,
   typography: DEFAULT_TYPOGRAPHY_MODIFIER
 };

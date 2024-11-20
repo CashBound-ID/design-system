@@ -34,6 +34,7 @@ const Icon = (props: IconProps) => {
       {...res}
       style={{
         color,
+        display: 'inline-block',
         fontSize: size,
         height: size,
         margin,

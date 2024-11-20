@@ -8,17 +8,17 @@
 
   // Font Family Styling
 
-  @each $family in var.$font-family-kind {
-    &[data-font-family="#{$family}"] {
-      font-family: map.get(var.$font-family, $family);
+  @each $key, $value in var.$font-family {
+    &[data-font-family="#{$key}"] {
+      font-family: #{$value};
     }
   }
 
   // Font Weight Styling
 
-  @each $weight in var.$font-weight-kind {
-    &[data-font-weight="#{$weight}"] {
-      font-weight: map.get(var.$font-weight, $weight);
+  @each $key, $value in var.$font-weight {
+    &[data-font-weight="#{$key}"] {
+      font-weight: #{$value};
     }
   }
 

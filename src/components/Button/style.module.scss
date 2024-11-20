@@ -1,0 +1,384 @@
+@use "sass:map";
+
+@use "@/styles/variables" as var;
+
+@use "@/styles/function" as func;
+
+$button-theme: (
+  fill: (
+    primary: (
+      init: (
+        background-color: var(--VIOLET900),
+        text-color: var(--WHITE),
+        border-color: var(--VIOLET900),
+        shadow: map.get(var.$shadow, button),
+        text-decoration: initial
+      ),
+      hover: (
+        background-color: var(--VIOLET1000),
+        text-color: var(--WHITE),
+        border-color: var(--VIOLET1000),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      focus: (
+        background-color: var(--VIOLET900),
+        text-color: var(--WHITE),
+        border-color: var(--VIOLET900),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      active: (
+        background-color: var(--VIOLET1200),
+        text-color: var(--WHITE),
+        border-color: var(--VIOLET1200),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      disabled: (
+        background-color: var(--GRAYMAUVE500),
+        text-color: rgb(0 0 0 / 30%),
+        border-color: var(--GRAYMAUVE700),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      loading: (
+        background-color: var(--VIOLET1000),
+        text-color: var(--WHITE),
+        border-color: var(--VIOLET1000),
+        shadow: initial,
+        text-decoration: initial
+      ),
+    )
+  ),
+  outline: (
+    primary: (
+      init: (
+        background-color: var(--WHITE),
+        text-color: var(--VIOLET1200),
+        border-color: var(--VIOLET900),
+        shadow: map.get(var.$shadow, button),
+        text-decoration: initial
+      ),
+      hover: (
+        background-color: var(--VIOLET200),
+        text-color: var(--VIOLET1200),
+        border-color: var(--VIOLET900),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      focus: (
+        background-color: var(--WHITE),
+        text-color: var(--VIOLET1200),
+        border-color: var(--VIOLET900),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      active: (
+        background-color: var(--VIOLET400),
+        text-color: var(--VIOLET1200),
+        border-color: var(--VIOLET900),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      disabled: (
+        background-color: var(--GRAYMAUVE500),
+        text-color: var(--GRAYMAUVE900),
+        border-color: var(--GRAYMAUVE700),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      loading: (
+        background-color: var(--WHITE),
+        text-color: var(--VIOLET1200),
+        border-color: var(--VIOLET900),
+        shadow: initial,
+        text-decoration: initial
+      ),
+    )
+  ),
+  text: (
+    primary: (
+      init: (
+        background-color: initial,
+        text-color: var(--VIOLET1200),
+        border-color: transparent,
+        shadow: initial,
+        text-decoration: initial
+      ),
+      hover: (
+        background-color: initial,
+        text-color: var(--VIOLET1100),
+        border-color: transparent,
+        shadow: initial,
+        text-decoration: underline
+      ),
+      focus: (
+        background-color: initial,
+        text-color: var(--VIOLET1200),
+        border-color: transparent,
+        shadow: initial,
+        text-decoration: initial
+      ),
+      active: (
+        background-color: initial,
+        text-color: var(--VIOLET1200),
+        border-color: transparent,
+        shadow: initial,
+        text-decoration: underline
+      ),
+      disabled: (
+        background-color: initial,
+        text-color: var(--GRAYMAUVE900),
+        border-color: transparent,
+        shadow: initial,
+        text-decoration: initial
+      ),
+      loading: (
+        background-color: initial,
+        text-color: var(--VIOLET1200),
+        border-color: transparent,
+        shadow: initial,
+        text-decoration: initial
+      ),
+    )
+  )
+);
+$button-size: (
+  fill: (
+    lg: (
+      padding: 12px,
+      padding-with-pre-icon: 12px 16px 12px 12px,
+      padding-with-post-icon: 12px 12px 12px 16px,
+      height: 44px,
+      border-radius: map.get(var.$radius, md)
+    ),
+    md: (
+      padding: 6px 12px,
+      padding-with-pre-icon: 6px 16px 6px 12px,
+      padding-with-post-icon: 6px 12px 6px 16px,
+      height: 32px,
+      border-radius: map.get(var.$radius, md)
+    ),
+    sm: (
+      padding: 4px 12px,
+      padding-with-pre-icon: 4px 16px 4px 12px,
+      padding-with-post-icon: 4px 12px 4px 16px,
+      height: 24px,
+      border-radius: map.get(var.$radius, md)
+    )
+  ),
+  outline: (
+    lg: (
+      padding: 12px,
+      padding-with-pre-icon: 12px 16px 12px 12px,
+      padding-with-post-icon: 12px 12px 12px 16px,
+      height: 44px,
+      border-radius: map.get(var.$radius, md)
+    ),
+    md: (
+      padding: 6px 12px,
+      padding-with-pre-icon: 6px 16px 6px 12px,
+      padding-with-post-icon: 6px 12px 6px 16px,
+      height: 32px,
+      border-radius: map.get(var.$radius, md)
+    ),
+    sm: (
+      padding: 4px 12px,
+      padding-with-pre-icon: 4px 16px 4px 12px,
+      padding-with-post-icon: 4px 12px 4px 16px,
+      height: 24px,
+      border-radius: map.get(var.$radius, md)
+    )
+  ),
+  text: (
+    lg: (
+      padding: 12px 4px,
+      padding-with-pre-icon: 12px 4px,
+      padding-with-post-icon: 12px 4px,
+      height: 44px,
+      border-radius: map.get(var.$radius, md)
+    ),
+    md: (
+      padding: 6px 4px,
+      padding-with-pre-icon: 6px 4px,
+      padding-with-post-icon: 6px 4px,
+      height: 32px,
+      border-radius: map.get(var.$radius, md)
+    ),
+    sm: (
+      padding: 4px,
+      padding-with-pre-icon: 4px,
+      padding-with-post-icon: 4px,
+      height: 24px,
+      border-radius: map.get(var.$radius, md)
+    )
+  ),
+);
+
+.button {
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all var.$transition-duration var.$transition-timing-fn;
+
+  .button-container {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    opacity: 1;
+    transition: all var.$transition-duration var.$transition-timing-fn;
+
+    .button-text {
+      width: fit-content;
+    }
+
+    .button-text,
+    .button-icon {
+      transition: all var.$transition-duration var.$transition-timing-fn;
+    }
+  }
+
+  &[data-block="true"] {
+    width: 100%;
+  }
+
+  &[data-loading="true"] {
+
+    .button-container {
+      opacity: 0;
+    }
+  }
+
+  @each $variant-name, $variant in $button-theme {
+    &[data-variant="#{$variant-name}"] {
+      $button-size: func.get-attribute($button-size, #{$variant-name});
+
+      @each $size-name, $size in $button-size {
+
+        &[data-size="#{$size-name}"] {
+          border-radius: func.get-attribute($size, border-radius);
+          height: func.get-attribute($size, height);
+          min-height: func.get-attribute($size, height);
+          padding: func.get-attribute($size, padding);
+
+          &[data-icon] {
+
+            &[data-icon-position="post"] {
+              padding: func.get-attribute($size, padding-with-post-icon);
+
+              .button-container {
+                flex-direction: row-reverse;
+              }
+            }
+
+            &[data-icon-position="pre"] {
+              padding: func.get-attribute($size, padding-with-pre-icon);
+            }
+          }
+        }
+      }
+
+      @each $modifier-name, $modifier in $variant {
+
+        &[data-modifier="#{$modifier-name}"] {
+          background-color: func.get-attribute($modifier, init, background-color);
+          border-color: func.get-attribute($modifier, init, border-color);
+          box-shadow: func.get-attribute($modifier, init, shadow);
+
+          .button-text,
+          .button-icon {
+            color: func.get-attribute($modifier, init, text-color);
+          }
+
+          .button-text {
+            text-decoration: func.get-attribute($modifier, init, text-decoration);
+          }
+
+          &:hover {
+            background-color: func.get-attribute($modifier, hover, background-color);
+            border-color: func.get-attribute($modifier, hover, border-color);
+            box-shadow: func.get-attribute($modifier, hover, shadow);
+
+            .button-text,
+            .button-icon {
+              color: func.get-attribute($modifier, hover, text-color);
+            }
+
+            .button-text {
+              text-decoration: func.get-attribute($modifier, hover, text-decoration);
+            }
+          }
+
+          &:focus {
+            background-color: func.get-attribute($modifier, focus, background-color);
+            border-color: func.get-attribute($modifier, focus, border-color);
+            box-shadow: func.get-attribute($modifier, focus, shadow);
+
+            .button-text,
+            .button-icon {
+              color: func.get-attribute($modifier, focus, text-color);
+            }
+
+            .button-text {
+              text-decoration: func.get-attribute($modifier, focus, text-decoration);
+            }
+          }
+
+          &:active {
+            background-color: func.get-attribute($modifier, active, background-color);
+            border-color: func.get-attribute($modifier, active, border-color);
+            box-shadow: func.get-attribute($modifier, active, shadow);
+
+            .button-text,
+            .button-icon {
+              color: func.get-attribute($modifier, active, text-color);
+            }
+
+            .button-text {
+              text-decoration: func.get-attribute($modifier, active, text-decoration);
+            }
+          }
+
+          &[data-loading="true"],
+          &[data-loading="true"]:hover,
+          &[data-loading="true"]:focus,
+          &[data-loading="true"]:active {
+            background-color: func.get-attribute($modifier, loading, background-color);
+            border-color: func.get-attribute($modifier, loading, border-color);
+            box-shadow: func.get-attribute($modifier, loading, shadow);
+
+            .button-text,
+            .button-icon {
+              color: func.get-attribute($modifier, loading, text-color);
+            }
+
+            .button-text {
+              text-decoration: func.get-attribute($modifier, loading, text-decoration);
+            }
+          }
+
+          &[disabled],
+          &[disabled]:hover,
+          &[disabled]:focus,
+          &[disabled]:active {
+            background-color: func.get-attribute($modifier, disabled, background-color);
+            border-color: func.get-attribute($modifier, disabled, border-color);
+            box-shadow: func.get-attribute($modifier, disabled, shadow);
+
+            .button-text,
+            .button-icon {
+              color: func.get-attribute($modifier, disabled, text-color);
+            }
+
+            .button-text {
+              text-decoration: func.get-attribute($modifier, disabled, text-decoration);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -82,17 +82,70 @@ export interface Color
     OrangeColor,
     CommonColor {}
 
+export interface Shadow {
+  button: string;
+  default: string;
+  element: string;
+  lg: string;
+  md: string;
+  sm: string;
+  xl: string;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// Spacing Types
+/////////////////////////////////////////////////////////////////////////////
+export interface Spacing {
+  lg: string;
+  md: string;
+  sm: string;
+  xl: string;
+  xs: string;
+  xxl: string;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// Border Radius Types
+/////////////////////////////////////////////////////////////////////////////
+export interface Radius {
+  circle: string;
+  lg: string;
+  md: string;
+  sm: string;
+  square: string;
+  xl: string;
+  xs: string;
+}
+
 /////////////////////////////////////////////////////////////////////////////
 // Generic Theme Section
 /////////////////////////////////////////////////////////////////////////////
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface CustomElementStyle {}
+export interface Transition {
+  duration: string;
+  timingFunction: string;
+}
+
+export interface CustomElementStyle {
+  /**
+   * Button Component
+   */
+  'button-lg-icon-size'?: number;
+  'button-lg-text-modifier'?: keyof TypographyModifier;
+  'button-md-icon-size'?: number;
+  'button-md-text-modifier'?: keyof TypographyModifier;
+  'button-sm-icon-size'?: number;
+  'button-sm-text-modifier'?: keyof TypographyModifier;
+}
 
 export interface Theme {
   color: Color;
   elements: CustomElementStyle;
   fontFamily: FontFamily;
   fontWeight: FontWeight;
+  radius: Radius;
+  shadow: Shadow;
+  spacing: Spacing;
+  transition: Transition;
   typography: TypographyModifier;
 }

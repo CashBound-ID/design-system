@@ -36,7 +36,7 @@ import ${componentName} from '${importPath}';
         You can start using the component now.
         {Boolean(sourceCode) && (
           <>
-            If you're interested in the source code, you can view it by
+            &nbsp;If you're curious in the source code, you can view it by
             following{' '}
             <a
               href={`https://github.com/CashBound-ID/cashbound-design-system/tree/main/${sourceCode}`}

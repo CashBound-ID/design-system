@@ -1,0 +1,35 @@
+@use "sass:map";
+
+@use "@/styles/variables" as var;
+
+.card {
+  overflow: hidden;
+  position: relative;
+  transition:
+    box-shadow var.$transition-duration var.$transition-timing-fn,
+    background var.$transition-duration var.$transition-timing-fn;
+  width: 100%;
+
+  // Box Shadow Styling
+
+  @each $key, $value in var.$shadow {
+    &[data-shadow="#{$key}"] {
+      box-shadow: #{$value};
+    }
+
+    &:hover,
+    &:active {
+      &[data-shadow-on-interact="#{$key}"] {
+        box-shadow: #{$value};
+      }
+    }
+  }
+
+  // Border-radius Styling
+
+  @each $key, $value in var.$radius {
+    &[data-radius="#{$key}"] {
+      border-radius: #{$value};
+    }
+  }
+}

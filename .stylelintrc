@@ -10,6 +10,7 @@
     "stylelint-scss"
   ],
   "rules": {
+    "custom-property-pattern": "",
     "@stylistic/indentation": 2,
     "at-rule-empty-line-before": ["never", {"except": ["after-same-name", "inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless", "first-nested"]}],
     "block-no-empty": true,

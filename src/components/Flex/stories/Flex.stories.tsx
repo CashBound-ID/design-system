@@ -1,11 +1,8 @@
-import type { PropsWithChildren } from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Flex from '@/components/Flex';
-import Typography from '@/components/Typography';
 
-import { GRAYMAUVE300, GRAYMAUVE1100 } from '@/constant/theme';
+import CardPreview from '@/storybook/components/CardPreview';
 
 const meta = {
   argTypes: {
@@ -32,24 +29,14 @@ export default meta;
 
 type Story = StoryObj<typeof Flex>;
 
-const SampleBox = (props: PropsWithChildren<unknown>) => {
-  return (
-    <div style={{ backgroundColor: GRAYMAUVE300, width: '25%' }}>
-      <Typography textAlign="center" color={GRAYMAUVE1100}>
-        {props.children}
-      </Typography>
-    </div>
-  );
-};
-
 export const Basic: Story = {
   args: {
     children: (
       <>
-        <SampleBox>Box 1</SampleBox>
-        <SampleBox>Box 2</SampleBox>
-        <SampleBox>Box 3</SampleBox>
-        <SampleBox>Box 4</SampleBox>
+        <CardPreview>Box 1</CardPreview>
+        <CardPreview>Box 2</CardPreview>
+        <CardPreview>Box 3</CardPreview>
+        <CardPreview>Box 4</CardPreview>
       </>
     ),
     gap: 8
