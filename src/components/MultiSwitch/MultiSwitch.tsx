@@ -21,10 +21,12 @@ function MultiSwitch<T = Record<string, unknown>>(
   return (
     <>
       {Children.map(children, (child) => {
+        let items = [];
+        if (Array.isArray(matchs)) items = matchs;
+        else items = [matchs];
+
         if (
-          [...[Array.isArray(matchs) ? matchs : [matchs]]].find((item) =>
-            isCompoundComponentValid(child, String(item))
-          )
+          items.find((item) => isCompoundComponentValid(child, String(item)))
         ) {
           if (additionalProps) {
             return cloneElement(child as ReactElement, additionalProps);

@@ -13,6 +13,8 @@ function BottomNavigation<T extends number | string>(
   const { children, onChange, position, value } = props;
   const [tempValue, setValue] = useState<T>(value);
 
+  console.log(children);
+
   const injectedProps = useMemo(() => {
     return {
       onSelectItem: setValue,
