@@ -1,0 +1,31 @@
+@use "sass:map";
+
+@use "@/styles/variables" as var;
+
+@use "@/styles/animation";
+
+.spinner {
+  align-items: center;
+  border-radius: map.get(var.$radius, circle);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  &[data-wrap-container="true"] {
+
+    &[data-with-shadow="true"] {
+      background-color: var(--WHITE);
+      box-shadow: map.get(var.$shadow, lg);
+    }
+  }
+
+  &[data-position-center="true"] {
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+  }
+
+  &-content {
+    animation: keyframe-rotation 0.6s linear infinite;
+  }
+}

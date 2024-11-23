@@ -21,7 +21,7 @@ const meta = {
           'The Grid component is a flexible and responsive layout system for creating structured designs. It supports customizable columns, spacing, and alignment to adapt to various screen sizes.'
       }
     },
-    'import-path': '@cashbound-id/design-system/Grid',
+    'import-path': '@cashbound-id/design-system/grid',
     'source-code': 'src/components/Grid'
   },
   subcomponents: {

@@ -1,0 +1,178 @@
+@use "sass:map";
+
+@use "@/styles/variables" as var;
+
+@use "@/styles/function" as func;
+
+@use "@/styles/mixin" as mixin;
+
+$button-icon-theme: (
+  "transparent": (
+    init: (
+      background-color: transparent,
+      icon-color: var(--GRAYMAUVE1200)
+    ),
+    hover: (
+      background-color: var(--GRAYMAUVE300),
+      icon-color: var(--GRAYMAUVE1200)
+    ),
+    focus: (
+      background-color: var(--GRAYMAUVE300),
+      icon-color: var(--GRAYMAUVE1200)
+    ),
+    active: (
+      background-color: var(--GRAYMAUVE400),
+      icon-color: var(--GRAYMAUVE1200)
+    ),
+    disabled: (
+      background-color: transparent,
+      icon-color: rgb(0 0 0 / 30%)
+    ),
+    loading: (
+      background-color: transparent,
+      icon-color: var(--GRAYMAUVE1200)
+    ),
+  ),
+  primary: (
+    init: (
+      background-color: var(--VIOLET300),
+      icon-color: var(--VIOLET900)
+    ),
+    hover: (
+      background-color: var(--VIOLET400),
+      icon-color: var(--VIOLET900)
+    ),
+    focus: (
+      background-color: var(--VIOLET300),
+      icon-color: var(--VIOLET900)
+    ),
+    active: (
+      background-color: var(--VIOLET500),
+      icon-color: var(--VIOLET1000)
+    ),
+    disabled: (
+      background-color: transparent,
+      icon-color: rgb(0 0 0 / 30%)
+    ),
+    loading: (
+      background-color: transparent,
+      icon-color: var(--VIOLET900)
+    ),
+  )
+);
+$button-icon-size: (
+  lg: (
+    size: 44px,
+    border-radius: map.get(var.$radius, md)
+  ),
+  md: (
+    size: 40px,
+    border-radius: map.get(var.$radius, md)
+  ),
+  sm: (
+    size: 32px,
+    border-radius: map.get(var.$radius, md)
+  )
+);
+
+.button-icon {
+  align-items: center;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  transition: all var.$transition-duration var.$transition-timing-fn;
+
+  @include mixin.button-ripple;
+
+  &-spinner {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-content {
+    opacity: 1;
+    transition: all var.$transition-duration var.$transition-timing-fn;
+  }
+
+  &[data-loading="true"] {
+
+    .button-icon-content {
+      opacity: 0;
+    }
+  }
+
+  @each $size-name, $size in $button-icon-size {
+
+    &[data-size="#{$size-name}"] {
+      border-radius: func.get-attribute($size, border-radius);
+      height: func.get-attribute($size, size);
+      min-height: func.get-attribute($size, size);
+      min-width: func.get-attribute($size, size);
+      width: func.get-attribute($size, size);
+    }
+  }
+
+  @each $variant-name, $variant in $button-icon-theme {
+    &[data-variant="#{$variant-name}"] {
+      background-color: func.get-attribute($variant, init, background-color);
+
+      .button-icon-content {
+        color: func.get-attribute($variant, init, icon-color);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+
+        &:hover {
+          background-color: func.get-attribute($variant, hover, background-color);
+
+          .button-icon-content {
+            color: func.get-attribute($variant, hover, icon-color);
+          }
+        }
+
+        &:focus {
+          background-color: func.get-attribute($variant, focus, background-color);
+
+          .button-icon-content {
+            color: func.get-attribute($variant, focus, icon-color);
+          }
+        }
+
+        &:active {
+          background-color: func.get-attribute($variant, active, background-color);
+
+          .button-icon-content {
+            color: func.get-attribute($variant, active, icon-color);
+          }
+        }
+      }
+
+      &[data-loading="true"],
+      &[data-loading="true"]:hover,
+      &[data-loading="true"]:focus,
+      &[data-loading="true"]:active {
+        background-color: func.get-attribute($variant, loading, background-color);
+
+        .button-icon-content {
+          color: func.get-attribute($variant, loading, icon-color);
+        }
+      }
+
+      &[disabled],
+      &[disabled]:hover,
+      &[disabled]:focus,
+      &[disabled]:active {
+        background-color: func.get-attribute($variant, disabled, background-color);
+
+        .button-icon-content {
+          color: func.get-attribute($variant, disabled, icon-color);
+        }
+      }
+    }
+  }
+}

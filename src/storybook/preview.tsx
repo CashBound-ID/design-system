@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import * as DocBlock from '@storybook/blocks';
 import type { Preview } from '@storybook/react';
 
@@ -80,6 +81,10 @@ const preview: Preview = {
         );
       },
       toc: true
+    },
+    viewport: {
+      defaultViewport: 'iphone12',
+      viewports: INITIAL_VIEWPORTS
     }
   },
 

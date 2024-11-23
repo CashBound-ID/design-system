@@ -20,7 +20,7 @@ const meta = {
       }
     },
     'import-path': '@cashbound-id/design-system/Icon',
-    'source-code': 'src/components/Icon'
+    'source-code': 'src/components/icon'
   },
   tags: ['autodocs'],
   title: 'General/Icon'

@@ -19,7 +19,7 @@ const meta = {
           'The Container component is typically used as a wrapper for sections, styled with a maximum width of 1200px. On tablets and mobile devices, it automatically adjusts to a full-width layout (100%).'
       }
     },
-    'import-path': '@cashbound-id/design-system/Container',
+    'import-path': '@cashbound-id/design-system/container',
     'source-code': 'src/components/Container'
   },
   tags: ['autodocs'],

@@ -84,11 +84,13 @@ export interface Color
 
 export interface Shadow {
   button: string;
+  'button-hover': string;
   default: string;
   element: string;
   lg: string;
   md: string;
   sm: string;
+  snackbar: string;
   xl: string;
 }
 
@@ -130,12 +132,19 @@ export interface CustomElementStyle {
   /**
    * Button Component
    */
-  'button-lg-icon-size'?: number;
-  'button-lg-text-modifier'?: keyof TypographyModifier;
-  'button-md-icon-size'?: number;
-  'button-md-text-modifier'?: keyof TypographyModifier;
-  'button-sm-icon-size'?: number;
-  'button-sm-text-modifier'?: keyof TypographyModifier;
+  'button-general--lg-icon-size'?: number;
+  'button-general--lg-text-modifier'?: keyof TypographyModifier;
+  'button-general--md-icon-size'?: number;
+  'button-general--md-text-modifier'?: keyof TypographyModifier;
+  'button-general--sm-icon-size'?: number;
+  'button-general--sm-text-modifier'?: keyof TypographyModifier;
+
+  /**
+   * Button Icon Component
+   */
+  'button-icon--lg-icon-size'?: number;
+  'button-icon--md-icon-size'?: number;
+  'button-icon--sm-icon-size'?: number;
 }
 
 export interface Theme {

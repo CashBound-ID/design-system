@@ -1,0 +1,153 @@
+@use "sass:map";
+
+@use "@/styles/variables" as var;
+
+@use "@/styles/function" as func;
+
+$chip-theme: (
+  init: (
+    text-color: var(--GRAYMAUVE1100),
+    icon-color: rgb(0 0 0 / 60%),
+    background-color: var(--WHITE),
+    border-color: var(--GRAYMAUVE300),
+  ),
+  hover: (
+    text-color: var(--GRAYMAUVE1200),
+    icon-color: var(--GRAYMAUVE1200),
+    background-color: var(--VIOLET200),
+    border-color: var(--VIOLET400)
+  ),
+  focus: (
+    text-color: var(--GRAYMAUVE1100),
+    icon-color: var(--GRAYMAUVE1100),
+    background-color: var(--WHITE),
+    border-color: var(--GRAYMAUVE300)
+  ),
+  active: (
+    text-color: var(--GRAYMAUVE1200),
+    icon-color: var(--GRAYMAUVE1200),
+    background-color: var(--VIOLET300),
+    border-color: var(--VIOLET500)
+  ),
+  selected: (
+    text-color: var(--GRAYMAUVE1200),
+    icon-color: var(--GRAYMAUVE1200),
+    background-color: var(--WHITE),
+    border-color: var(--VIOLET800)
+  ),
+  disabled: (
+    text-color: rgb(0 0 0 / 30%),
+    icon-color: rgb(0 0 0 / 30%),
+    background-color: var(--GRAYMAUVE500),
+    border-color: var(--GRAYMAUVE700)
+  ),
+);
+
+.chip {
+  align-items: center;
+  background-color: func.get-attribute($chip-theme, init, background-color);
+  border: 1px solid;
+  border-color: func.get-attribute($chip-theme, init, border-color);
+  border-radius: 24px;
+  display: flex;
+  gap: 8px;
+  padding: 6px 12px;
+  transition: all var.$transition-duration var.$transition-timing-fn;
+  width: fit-content;
+
+  &[data-clickable="true"]:not([data-disabled="true"], [data-selected="true"]) {
+    cursor: pointer;
+  }
+
+  &[data-icon="true"] {
+    border-radius: 24px;
+    padding: 6px 16px 6px 12px;
+  }
+
+  .chip-text,
+  .chip-icon {
+    transition: all var.$transition-duration var.$transition-timing-fn;
+  }
+
+  .chip-text {
+    color: func.get-attribute($chip-theme, init, text-color);
+  }
+
+  .chip-icon {
+    color: func.get-attribute($chip-theme, init, icon-color);
+  }
+
+  &[data-selected="true"] {
+    background-color: func.get-attribute($chip-theme, selected, background-color);
+    border-color: func.get-attribute($chip-theme, selected, border-color);
+
+    .chip-text {
+      color: func.get-attribute($chip-theme, selected, text-color);
+    }
+
+    .chip-icon {
+      color: func.get-attribute($chip-theme, selected, icon-color);
+    }
+  }
+
+  &[data-disabled="true"] {
+    background-color: func.get-attribute($chip-theme, disabled, background-color);
+    border-color: func.get-attribute($chip-theme, disabled, border-color);
+
+    .chip-text {
+      color: func.get-attribute($chip-theme, disabled, text-color);
+    }
+
+    .chip-icon {
+      color: func.get-attribute($chip-theme, disabled, icon-color);
+    }
+  }
+
+  &:hover {
+
+    &:not([data-disabled="true"], [data-selected="true"]):is([data-clickable="true"]) {
+      background-color: func.get-attribute($chip-theme, hover, background-color);
+      border-color: func.get-attribute($chip-theme, hover, border-color);
+
+      .chip-text {
+        color: func.get-attribute($chip-theme, hover, text-color);
+      }
+
+      .chip-icon {
+        color: func.get-attribute($chip-theme, hover, icon-color);
+      }
+    }
+  }
+
+  &:focus {
+
+    &:not([data-disabled="true"], [data-selected="true"]):is([data-clickable="true"]) {
+      background-color: func.get-attribute($chip-theme, focus, background-color);
+      border-color: func.get-attribute($chip-theme, focus, border-color);
+
+      .chip-text {
+        color: func.get-attribute($chip-theme, focus, text-color);
+      }
+
+      .chip-icon {
+        color: func.get-attribute($chip-theme, focus, icon-color);
+      }
+    }
+  }
+
+  &:active {
+
+    &:not([data-disabled="true"], [data-selected="true"]):is([data-clickable="true"]) {
+      background-color: func.get-attribute($chip-theme, active, background-color);
+      border-color: func.get-attribute($chip-theme, active, border-color);
+
+      .chip-text {
+        color: func.get-attribute($chip-theme, active, text-color);
+      }
+
+      .chip-icon {
+        color: func.get-attribute($chip-theme, active, icon-color);
+      }
+    }
+  }
+}

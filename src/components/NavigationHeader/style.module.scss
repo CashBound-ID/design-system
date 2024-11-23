@@ -1,0 +1,30 @@
+@use "sass:map";
+
+@use "@/styles/variables" as var;
+
+.navigation-header {
+  align-items: center;
+  display: flex;
+  height: 56px;
+  left: 0;
+  padding: 8px;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  &[data-position="sticky"] {
+    position: sticky;
+  }
+
+  &[data-position="fixed"] {
+    position: fixed;
+  }
+
+  .navigation-header-placeholder {
+    display: block;
+    height: 56px;
+    position: relative;
+    width: 100%;
+  }
+}

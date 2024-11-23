@@ -1,0 +1,34 @@
+@use "sass:map";
+
+@use "@/styles/variables" as var;
+
+.toggle-button {
+  background-color: var(--GRAYMAUVE300);
+  border: 1px solid var(--GRAYMAUVE1100);
+  border-radius: map.get(var.$radius, md);
+  overflow: hidden;
+  position: relative;
+  width: fit-content;
+
+  &-item {
+    align-items: center;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    transition: all var.$transition-duration var.$transition-timing-fn;
+    width: 32px;
+    z-index: 10;
+
+    span {
+      transition: all var.$transition-duration var.$transition-timing-fn;
+    }
+  }
+
+  &-indicator {
+    background-color: var(--GRAYMAUVE1100);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+}

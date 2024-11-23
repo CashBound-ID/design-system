@@ -79,7 +79,9 @@ $shadow: (
   md: var(--shadow-md),
   sm: var(--shadow-sm),
   xl: var(--shadow-xl),
-  button: var(--shadow-button)
+  button: var(--shadow-button),
+  button-hover: var(--shadow-button-hover),
+  snackbar: var(--shadow-snackbar)
 );
 
 // Border Radius

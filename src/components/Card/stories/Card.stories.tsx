@@ -3,7 +3,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Card from '@/components/Card';
 import Typography from '@/components/Typography/Typography';
 
-import { GRAYMAUVE300, WHITE } from '@/constant/theme';
+import {
+  GRAYMAUVE300,
+  GRAYMAUVE900,
+  GRAYMAUVE1200,
+  WHITE
+} from '@/constant/theme';
 
 const meta = {
   argTypes: {
@@ -51,10 +56,15 @@ export const Basic: Story = {
   args: {
     children: (
       <>
-        <Typography modifier="heading-md" fontWeight="bold" margin="0 0 10px">
+        <Typography
+          modifier="heading-md"
+          fontWeight="bold"
+          margin="0 0 10px"
+          color={GRAYMAUVE1200}
+        >
           Title
         </Typography>
-        <Typography modifier="body-lg">
+        <Typography modifier="body-lg" color={GRAYMAUVE900}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem
           nesciunt distinctio dignissimos
         </Typography>
@@ -77,10 +87,15 @@ export const CustomStyling: Story = {
     border: `1px solid ${GRAYMAUVE300}`,
     children: (
       <>
-        <Typography modifier="heading-md" fontWeight="bold" margin="0 0 10px">
+        <Typography
+          modifier="heading-md"
+          fontWeight="bold"
+          margin="0 0 10px"
+          color={GRAYMAUVE1200}
+        >
           Title
         </Typography>
-        <Typography modifier="body-lg">
+        <Typography modifier="body-lg" color={GRAYMAUVE900}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem
           nesciunt distinctio dignissimos
         </Typography>

@@ -1,0 +1,19 @@
+@mixin button-ripple {
+  overflow: hidden;
+
+  @keyframes ripple {
+
+    to {
+      opacity: 0;
+      transform: scale(4);
+    }
+  }
+
+  .button-ripple {
+    animation: ripple 600ms linear;
+    background-color: rgb(0 0 0 / 20%);
+    border-radius: 50%;
+    position: absolute;
+    transform: scale(0);
+  }
+}

@@ -441,12 +441,14 @@ export const DEFAULT_COLOR: Color = {
 
 export const DEFAULT_SHADOW: Shadow = {
   button: '0px 1px 2px 0px rgba(0, 0, 0, 0.16)',
+  'button-hover': '0px 4px 6px 0px rgba(0, 0, 0, 0.16)',
   default:
     '0px 0.5px 1.75px 0px rgba(0, 0, 0, 0.04), 0px 1.85px 6.25px 0px rgba(0, 0, 0, 0.19)',
   element: 'rgba(16, 24, 32, 0.04) 0px 1px 2px 1px',
   lg: 'rgba(16, 24, 32, 0.1) 0px 10px 32px 0px, rgba(16, 24, 32, 0.08) 0px 1px 3px 0px',
   md: 'rgba(16, 24, 32, 0.06) 0px 2px 6px 0px',
   sm: 'rgba(16, 24, 32, 0.06) 0px 0px 6px 0px',
+  snackbar: '0px 2px 16px 0px rgba(0, 0, 0, 0.20)',
   xl: 'rgba(16, 24, 32, 0.16) 0px 10px 20px 0px, rgba(16, 24, 32, 0.04) 0px 1px 2px 0px'
 };
 
@@ -490,7 +492,24 @@ export const DEFAULT_CUSTOM_ELEMENT: CustomElementStyle = {};
 
 export const DEFAULT_THEME: Theme = {
   color: DEFAULT_COLOR,
-  elements: {},
+  elements: {
+    /**
+     * Button General Component
+     */
+    'button-general--lg-icon-size': 20,
+    'button-general--lg-text-modifier': 'body-md',
+    'button-general--md-icon-size': 20,
+    'button-general--md-text-modifier': 'body-md',
+    'button-general--sm-icon-size': 16,
+    'button-general--sm-text-modifier': 'body-sm',
+
+    /**
+     * Button Icon Component
+     */
+    'button-icon--lg-icon-size': 24,
+    'button-icon--md-icon-size': 24,
+    'button-icon--sm-icon-size': 20
+  },
   fontFamily: DEFAULT_FONT_FAMILY,
   fontWeight: DEFAULT_FONT_WEIGHT,
   radius: DEFAULT_RADIUS,

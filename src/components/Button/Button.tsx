@@ -3,7 +3,9 @@ import { useMemo } from 'react';
 import { useDesignSystemProvider } from '@/context/DesignSystem';
 
 import Icon from '@/components/Icon';
+import Spinner from '@/components/Spinner';
 import Typography from '@/components/Typography';
+import useButtonRipples from '@/hooks/useButtonRipples';
 
 import { cx } from '@/utils/css';
 import type { TypographyModifier } from '@/types/theme';
@@ -24,6 +26,7 @@ const Button = (props: ButtonProps) => {
     loading = false,
     margin,
     modifier = 'primary',
+    onClick: onClickProps,
     size = 'md',
     variant = 'fill',
     ...res
@@ -31,16 +34,21 @@ const Button = (props: ButtonProps) => {
   const {
     color,
     elements: {
-      'button-lg-icon-size': lgIcon = 20,
-      'button-lg-text-modifier': lgText = 'body-md',
-      'button-md-icon-size': mdIcon = 20,
-      'button-md-text-modifier': mdText = 'body-md',
-      'button-sm-icon-size': smIcon = 16,
-      'button-sm-text-modifier': smText = 'body-sm'
+      'button-general--lg-icon-size': lgIcon = 20,
+      'button-general--lg-text-modifier': lgText = 'body-md',
+      'button-general--md-icon-size': mdIcon = 20,
+      'button-general--md-text-modifier': mdText = 'body-md',
+      'button-general--sm-icon-size': smIcon = 16,
+      'button-general--sm-text-modifier': smText = 'body-sm'
     }
   } = useDesignSystemProvider();
+  const { onClick } = useButtonRipples({
+    enabled: variant === 'fill' || variant === 'outline',
+    onClick: onClickProps,
+    ripplesClassName: styles['button-ripple']
+  });
 
-  const { iconSize, spinnerColor, textModifier } = useMemo(() => {
+  const { iconSize, spinnerColor, spinnerSize, textModifier } = useMemo(() => {
     let spinnerColor: Maybe<string>;
 
     switch (variant) {
@@ -108,7 +116,17 @@ const Button = (props: ButtonProps) => {
       data-size={size}
       data-block={block}
       data-variant={variant}
+      onClick={onClick}
     >
+      {Boolean(loading && disabled !== true) && (
+        <Spinner
+          className={styles['button-spinner']}
+          spinnerColor={spinnerColor}
+          size={spinnerSize}
+          spinnerWidth={2}
+        />
+      )}
+
       <section className={styles['button-container']}>
         {icon && (
           <Icon className={styles['button-icon']} icon={icon} size={iconSize} />

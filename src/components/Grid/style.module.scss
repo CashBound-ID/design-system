@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @use "@/styles/variables" as var;
 
 .grid {
@@ -19,8 +21,8 @@
 
     @each $size in var.$grid-palette {
       &[data-col="#{$size}"] {
-        flex: 0 0 #{100% * ($size / 12)};
-        max-width: #{100% * ($size / 12)};
+        flex: 0 0 #{math.div(100% * $size, 12)};
+        max-width: #{math.div(100% * $size, 12)};
       }
 
       &[data-col="auto"] {
@@ -30,8 +32,8 @@
 
       @media (width <= 576px) {
         &[data-col-xs="#{$size}"] {
-          flex: 0 0 #{100% * ($size / 12)};
-          max-width: #{100% * ($size / 12)};
+          flex: 0 0 #{math.div(100% * $size, 12)};
+          max-width: #{math.div(100% * $size, 12)};
         }
 
         &[data-col-xs="auto"] {
@@ -42,8 +44,8 @@
 
       @media (width >= 576px) {
         &[data-col-sm="#{$size}"] {
-          flex: 0 0 #{100% * ($size / 12)};
-          max-width: #{100% * ($size / 12)};
+          flex: 0 0 #{math.div(100% * $size, 12)};
+          max-width: #{math.div(100% * $size, 12)};
         }
 
         &[data-col-sm="auto"] {
@@ -54,8 +56,8 @@
 
       @media (width >= 768px) {
         &[data-col-md="#{$size}"] {
-          flex: 0 0 #{100% * ($size / 12)};
-          max-width: #{100% * ($size / 12)};
+          flex: 0 0 #{math.div(100% * $size, 12)};
+          max-width: #{math.div(100% * $size, 12)};
         }
 
         &[data-col-md="auto"] {
@@ -66,8 +68,8 @@
 
       @media (width >= 992px) {
         &[data-col-lg="#{$size}"] {
-          flex: 0 0 #{100% * ($size / 12)};
-          max-width: #{100% * ($size / 12)};
+          flex: 0 0 #{math.div(100% * $size, 12)};
+          max-width: #{math.div(100% * $size, 12)};
         }
 
         &[data-col-lg="auto"] {
@@ -78,8 +80,8 @@
 
       @media (width >= 1200px) {
         &[data-col-xl="#{$size}"] {
-          flex: 0 0 #{100% * ($size / 12)};
-          max-width: #{100% * ($size / 12)};
+          flex: 0 0 #{math.div(100% * $size, 12)};
+          max-width: #{math.div(100% * $size, 12)};
         }
 
         &[data-col-xl="auto"] {

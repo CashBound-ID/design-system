@@ -1,3 +1,5 @@
+@use "@/styles/mixin" as mixin;
+
 html,
 body,
 div,
@@ -141,13 +143,6 @@ table {
   box-sizing: border-box;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-}
-
-.app-container {
-  margin: auto;
-  max-width: 500px;
-  position: relative;
-  width: 100%;
 }
 
 .animate {

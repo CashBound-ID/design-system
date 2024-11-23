@@ -18,7 +18,7 @@ const meta = {
     'import-path': '@cashbound-id/design-system/button',
     'source-code': 'src/components/Button'
   },
-  title: 'General/Button'
+  title: 'General/Button/Button Default'
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -101,7 +101,7 @@ const BoilerplateButton = (props: BoilerplateButtonProps) => {
                   <Button
                     key={`${item}-${preset}`}
                     variant={variant}
-                    icon={withIcon ? 'apple' : undefined}
+                    icon={withIcon ? 'shape-category-fill' : undefined}
                     modifier={item}
                     size={preset}
                     loading={mode === 'loading'}

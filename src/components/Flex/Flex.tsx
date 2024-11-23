@@ -1,4 +1,4 @@
-import type { PropsWithChildren, ReactHTML } from 'react';
+import type { PropsWithChildren, ReactHTML, Ref } from 'react';
 import { createElement } from 'react';
 
 import type { Property } from 'csstype';
@@ -16,6 +16,8 @@ interface FlexProps {
     | 'self-end'
     | 'self-start'
     | 'start';
+  className?: string;
+  componentRef?: Ref<HTMLElement>;
   /** Flex CSS shorthand properties */
   flex?: Property.Flex;
   /** Sets the gap between grids */
@@ -42,6 +44,8 @@ interface FlexProps {
 const Flex = (props: PropsWithChildren<FlexProps>) => {
   const {
     align = 'normal',
+    className,
+    componentRef,
     flex,
     gap,
     justify,
@@ -53,6 +57,8 @@ const Flex = (props: PropsWithChildren<FlexProps>) => {
 
   return createElement(tag, {
     ...res,
+    className,
+    ref: componentRef,
     style: {
       alignItems: align,
       display: 'flex',

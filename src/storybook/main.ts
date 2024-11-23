@@ -6,7 +6,8 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
-    '@storybook/addon-themes'
+    '@storybook/addon-themes',
+    '@storybook/addon-viewport'
   ],
   docs: {
     defaultName: 'Documentation'
@@ -40,10 +41,7 @@ const config: StorybookConfig = {
         use: [
           'style-loader',
           {
-            loader: 'css-loader',
-            options: {
-              modules: true
-            }
+            loader: 'css-loader'
           },
           {
             loader: 'sass-loader',

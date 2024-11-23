@@ -1,0 +1,45 @@
+@use "sass:map";
+
+@use "@/styles/variables" as var;
+
+@use "@/styles/mixin" as mixin;
+
+.button-onboarding {
+  align-items: center;
+  background: transparent;
+  background-color: var(--VIOLET300);
+  border: 1px solid transparent;
+  border-radius: 40px;
+  cursor: pointer;
+  display: flex;
+  gap: 16px;
+  height: 40px;
+  justify-content: flex-start;
+  padding: 10px 16px;
+  position: relative;
+  transition: all var.$transition-duration var.$transition-timing-fn;
+  width: 100%;
+
+  @include mixin.button-ripple;
+
+  > span {
+    transition: all var.$transition-duration var.$transition-timing-fn;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+
+    &:hover {
+      background-color: var(--VIOLET400);
+    }
+  }
+
+  &[data-selected="true"],
+  &[data-selected="true"]:hover {
+    background-color: var(--VIOLET900);
+  }
+
+  &[disabled],
+  &[disabled]:hover {
+    background-color: var(--GRAYMAUVE500);
+  }
+}

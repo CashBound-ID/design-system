@@ -1,8 +1,9 @@
 import type { CSSProperties, PropsWithChildren } from 'react';
-import { Children, cloneElement, useMemo } from 'react';
+import { useMemo } from 'react';
+
+import MultiSwitch from '@/components/MultiSwitch';
 
 import { cx } from '@/utils/css';
-import { isCompoundComponentValid } from '@/utils/dom';
 
 import GridItem from './GridItem';
 import * as styles from './style.module.scss';
@@ -46,13 +47,9 @@ const Grid: GridFnType = (props: PropsWithChildren<GridProps>) => {
       {...res}
     >
       <section className={cx(styles['grid-row'], className)} style={style}>
-        {Children.map(children, (child) => {
-          if (isCompoundComponentValid(child, 'grid-item')) {
-            return cloneElement(child, injectedProps);
-          }
-
-          return null;
-        })}
+        <MultiSwitch matchs={'grid-item'} additionalProps={injectedProps}>
+          {children}
+        </MultiSwitch>
       </section>
     </section>
   );
