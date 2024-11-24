@@ -12,6 +12,7 @@
 
   &-item {
     align-items: center;
+    cursor: pointer;
     display: flex;
     height: 32px;
     justify-content: center;
@@ -20,7 +21,7 @@
     z-index: 10;
 
     span {
-      transition: all var.$transition-duration var.$transition-timing-fn;
+      transition: color var.$transition-duration var.$transition-timing-fn;
     }
   }
 

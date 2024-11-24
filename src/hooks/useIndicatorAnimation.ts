@@ -1,4 +1,4 @@
-import type { UIEventHandler } from 'react';
+import type { ReactNode, UIEventHandler } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
 import { DEFAULT_TRANSITION } from '@/constant/theme';
@@ -83,7 +83,7 @@ const _autoScroll = (containerNode: Element, activeIndex: number) => {
 
     containerNode.scrollTo({
       behavior: 'smooth',
-      left: activeTabLeft
+      left: activeTabLeft - 64
     });
   }
 };
@@ -100,7 +100,7 @@ const _autoScroll = (containerNode: Element, activeIndex: number) => {
  * @property {React.RefObject<HTMLElement>} element.container - Ref for the container element.
  * @property {React.RefObject<HTMLElement>} element.indicator - Ref for the indicator element.
  */
-const useIndicatorAnimation = () => {
+const useIndicatorAnimation = (args: ReactNode) => {
   const containerRef = useRef<HTMLElement>(null);
   const indicatorRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState<number>();
@@ -157,7 +157,7 @@ const useIndicatorAnimation = () => {
     }
 
     return () => {};
-  }, [activeIndex]);
+  }, [activeIndex, args]);
 
   return {
     action: {

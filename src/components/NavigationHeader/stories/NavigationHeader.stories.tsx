@@ -28,7 +28,7 @@ const meta = {
     'NavigationHeader.Title': NavigationTitle as ComponentType<unknown>
   },
   tags: ['autodocs'],
-  title: 'Layout/Navigation/Navigation Header'
+  title: 'Navigation/Navigation Header'
 } satisfies Meta<typeof NavigationHeader>;
 
 export default meta;

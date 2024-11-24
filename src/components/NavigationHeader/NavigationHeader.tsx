@@ -16,7 +16,6 @@ const NavigationHeader: NavigationHeaderFnType = (
   props: PropsWithChildren<NavigationHeaderProps>
 ) => {
   const { children, color = 'transparent', position = 'default' } = props;
-  console.log(children);
 
   return (
     <>

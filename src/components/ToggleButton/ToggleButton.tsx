@@ -24,7 +24,7 @@ function ToggleButton<T extends number | string>(
   const {
     action: { onChangeActiveIndex },
     element: { container, indicator }
-  } = useIndicatorAnimation();
+  } = useIndicatorAnimation(children);
   const [tempValue, setValue] = useState<T>(value);
 
   const handleOnChangePositiion = useCallback(

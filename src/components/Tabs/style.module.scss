@@ -1,0 +1,89 @@
+@use "sass:map";
+
+@use "@/styles/variables" as var;
+
+@use "@/styles/mixin" as mixin;
+
+.tab {
+  min-height: 46px;
+  overflow: hidden;
+  width: 100%;
+
+  @include mixin.button-ripple;
+
+  &-container {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0;
+    overflow: auto;
+    position: relative;
+    scrollbar-width: none;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    &[data-with-border="true"] {
+      border-bottom: 1px solid var(--GRAYMAUVE300);
+    }
+
+    &[data-fadestart] {
+      mask-image: linear-gradient(90deg, transparent, black 64px);
+    }
+
+    &[data-fadeend] {
+      mask-image: linear-gradient(-90deg, transparent, black 64px);
+    }
+
+    &[data-fadestart][data-fadeend] {
+      mask-image:
+        linear-gradient(
+          90deg,
+          transparent,
+          black 64px,
+          black calc(100% - 64px),
+          transparent 100%
+        );
+    }
+
+    &[data-variant="center"] {
+
+      &::before,
+      &::after {
+        content: "";
+        margin: auto;
+      }
+    }
+  }
+
+  &-indicator {
+    background-image: linear-gradient(180deg, #7f79ff 0%, #544cf6 100%);
+    border-radius: 2px 2px 0 0;
+    bottom: 0;
+    height: 2px;
+    position: absolute;
+    transition: all var.$transition-duration var.$transition-timing-fn;
+  }
+
+  &-item {
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    min-height: 46px;
+    overflow: hidden;
+    padding: 12px 16px;
+    position: relative;
+
+    &[data-variant="equal"] {
+      flex-basis: 0%;
+      flex-grow: 1;
+    }
+
+    &-text {
+      transition: all var.$transition-duration var.$transition-timing-fn;
+    }
+  }
+}

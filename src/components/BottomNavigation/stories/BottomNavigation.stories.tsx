@@ -21,7 +21,7 @@ const meta = {
     'BottomNavigation.Item': BottomNavigationItem as ComponentType<unknown>
   },
   tags: ['autodocs'],
-  title: 'Layout/Navigation/Bottom Navigation'
+  title: 'Navigation/Bottom Navigation'
 } satisfies Meta<typeof BottomNavigation>;
 
 export default meta;
