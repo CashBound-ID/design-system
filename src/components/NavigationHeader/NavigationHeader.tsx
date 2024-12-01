@@ -1,8 +1,8 @@
 import type { PropsWithChildren } from 'react';
 
 import Flex from '@/components/Flex';
-import MultiSwitch from '@/components/MultiSwitch';
-import SingleSwitch from '@/components/SingleSwitch';
+import MultiSwitch from '@/components/Shared/MultiSwitch';
+import SingleSwitch from '@/components/Shared/SingleSwitch';
 
 import NavigationAction from './NavigationAction';
 import NavigationCTA from './NavigationCTA';

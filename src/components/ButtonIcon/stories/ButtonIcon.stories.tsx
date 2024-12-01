@@ -5,9 +5,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Button from '@/components/Button';
 import ButtonIcon from '@/components/ButtonIcon';
 import type { ButtonIconSizeType } from '@/components/ButtonIcon/types';
+import type { ButtonIconVariantType } from '@/components/ButtonIcon/types';
 import Flex from '@/components/Flex';
-
-import type { ButtonIconVariantType } from '../types';
 
 const meta = {
   component: ButtonIcon,

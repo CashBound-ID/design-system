@@ -1,0 +1,50 @@
+@use "sass:map";
+
+@use "@/styles/animation";
+
+@use "@/styles/variables" as var;
+
+@use "@/styles/mixin" as mixin;
+
+.snackbar {
+  left: 0;
+  position: fixed;
+  top: 20px;
+  width: 100%;
+  z-index: var(--z-index);
+
+  &[data-animate="show"] {
+    animation-duration: 0.2s;
+    animation-name: keyframe-fade-in-up;
+  }
+
+  &[data-animate="hide"] {
+    animation-duration: 0.15s;
+    animation-name: keyframe-fade-out-scale;
+  }
+
+  &-container {
+    background-color: #000;
+    border-radius: map.get(var.$radius, md);
+    box-shadow: map.get(var.$shadow, snackbar);
+    margin: auto;
+    max-width: 500px;
+    min-height: 48px;
+    padding: 8px 12px;
+    width: calc(100% - 40px);
+  }
+
+  &-cta {
+    align-items: center;
+    border-radius: map.get(var.$radius, md);
+    cursor: pointer;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0 4px;
+    position: relative;
+
+    @include mixin.button-ripple;
+  }
+}

@@ -130,6 +130,14 @@ export interface Transition {
 
 export interface CustomElementStyle {
   /**
+   * Bottom Sheet Component
+   */
+  'bottom-sheet-max-height'?: string;
+  'bottom-sheet-overlay-z-index'?: number;
+  'bottom-sheet-title-modifier'?: keyof TypographyModifier;
+  'bottom-sheet-z-index'?: number;
+
+  /**
    * Button Component
    */
   'button-general--lg-icon-size'?: number;
@@ -145,6 +153,13 @@ export interface CustomElementStyle {
   'button-icon--lg-icon-size'?: number;
   'button-icon--md-icon-size'?: number;
   'button-icon--sm-icon-size'?: number;
+
+  /**
+   * Snackbar Component
+   */
+  'snackbar-cta-modifier'?: keyof TypographyModifier;
+  'snackbar-text-modifier'?: keyof TypographyModifier;
+  'snackbar-z-index'?: number;
 }
 
 export interface Theme {

@@ -1,6 +1,5 @@
+import type { PropsWithChildren } from 'react';
 import { Fragment } from 'react';
-
-import type { PropsWithRequiredChildren } from '@/types/react';
 
 interface SectionProps {
   // INFO: this props used for mapping component manually using Children API
@@ -8,7 +7,7 @@ interface SectionProps {
   name: string | number;
 }
 
-const Section = (props: PropsWithRequiredChildren<SectionProps>) => {
+const Section = (props: PropsWithChildren<SectionProps>) => {
   const { children } = props;
 
   return <Fragment>{children}</Fragment>;

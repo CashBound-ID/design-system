@@ -1,7 +1,7 @@
 import type { CSSProperties, PropsWithChildren } from 'react';
 import { useMemo } from 'react';
 
-import MultiSwitch from '@/components/MultiSwitch';
+import MultiSwitch from '@/components/Shared/MultiSwitch';
 
 import { cx } from '@/utils/css';
 

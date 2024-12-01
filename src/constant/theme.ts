@@ -494,6 +494,14 @@ export const DEFAULT_THEME: Theme = {
   color: DEFAULT_COLOR,
   elements: {
     /**
+     * Bottom Sheet Component
+     */
+    'bottom-sheet-max-height': 'calc(100% - 40px)',
+    'bottom-sheet-overlay-z-index': 1000,
+    'bottom-sheet-title-modifier': 'body-md',
+    'bottom-sheet-z-index': 1000,
+
+    /**
      * Button General Component
      */
     'button-general--lg-icon-size': 20,
@@ -508,7 +516,14 @@ export const DEFAULT_THEME: Theme = {
      */
     'button-icon--lg-icon-size': 24,
     'button-icon--md-icon-size': 24,
-    'button-icon--sm-icon-size': 20
+    'button-icon--sm-icon-size': 20,
+
+    /**
+     * Snackbar Component
+     */
+    'snackbar-cta-modifier': 'body-md',
+    'snackbar-text-modifier': 'body-md',
+    'snackbar-z-index': 1000
   },
   fontFamily: DEFAULT_FONT_FAMILY,
   fontWeight: DEFAULT_FONT_WEIGHT,

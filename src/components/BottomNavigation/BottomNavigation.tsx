@@ -1,7 +1,7 @@
 import { type PropsWithChildren, useEffect, useMemo, useState } from 'react';
 
 import Flex from '@/components/Flex';
-import MultiSwitch from '@/components/MultiSwitch';
+import MultiSwitch from '@/components/Shared/MultiSwitch';
 
 import BottomNavigationItem from './BottomNavigationItem';
 import * as styles from './style.module.scss';

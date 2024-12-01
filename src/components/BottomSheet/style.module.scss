@@ -1,0 +1,109 @@
+@use "sass:map";
+
+@use "@/styles/animation";
+
+@use "@/styles/variables" as var;
+
+.bottom-sheet {
+  align-items: flex-end;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: var(--z-index);
+
+  &-container {
+    animation-duration: 0.25s;
+    animation-name: keyframe-slide-bottom;
+    background-color: var(--WHITE);
+    border-radius: map.get(var.$radius, xl) map.get(var.$radius, xl) 0 0;
+    bottom: 0;
+    box-shadow: map.get(var.$shadow, lg);
+    display: flex;
+    flex-direction: column;
+    max-height: var(--max-height);
+    max-width: 600px;
+    overflow: hidden;
+    pointer-events: auto;
+    right: 0;
+    top: 0;
+    translate: 0 100%;
+    width: 100%;
+
+    &[data-show="true"] {
+      animation-duration: 0.25s;
+      animation-name: keyframe-slide-top;
+      translate: 0 0;
+    }
+  }
+
+  &-wrapper {
+    overflow: auto;
+  }
+
+  &-header {
+    flex-shrink: 0;
+    top: 0;
+
+    &[data-touchmove] {
+      cursor: ns-resize;
+    }
+  }
+
+  &-header-content {
+    border-bottom: 1px solid var(--GRAYMAUVE400);
+    min-height: 48px;
+    padding: 4px 12px 4px 16px;
+  }
+
+  &-drag-handle {
+    background-color: var(--WHITE);
+    cursor: ns-resize;
+    height: 18px;
+    position: relative;
+    width: 100%;
+
+    &::before {
+      background-color: var(--GRAYMAUVE500);
+      border-radius: map.get(var.$radius, md);
+      content: "";
+      height: 6px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      translate: -50% -50%;
+      width: 48px;
+    }
+  }
+
+  &-content {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  &-footer {
+    bottom: 0;
+    flex-shrink: 0;
+    padding: 16px;
+  }
+
+  &-header,
+  &-footer {
+    background-color: var(--WHITE);
+    position: sticky;
+    z-index: 100;
+  }
+
+  &-header,
+  &-content,
+  &-footer {
+
+    &:empty {
+      display: none;
+    }
+  }
+}

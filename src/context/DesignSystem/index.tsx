@@ -1,6 +1,8 @@
 import type { PropsWithChildren } from 'react';
 import { createContext, useContext } from 'react';
 
+import Snackbar from '@/components/Snackbar';
+
 import { genCSSVariableStyle } from '@/utils/theme';
 import { DEFAULT_THEME } from '@/constant/theme';
 import type { Theme } from '@/types/theme';
@@ -50,8 +52,7 @@ const DesignSystemProvider = (
           __html: `:root { ${cssVariables} }`
         }}
       />
-
-      {children}
+      <Snackbar.Provider>{children}</Snackbar.Provider>
     </_designSystemContext.Provider>
   );
 };

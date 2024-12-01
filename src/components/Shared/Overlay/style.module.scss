@@ -1,0 +1,22 @@
+@use "@/styles/animation";
+
+@use "@/styles/variables" as var;
+
+.overlay {
+  animation-duration: 0.15s;
+  animation-name: keyframe-fade-out;
+  background-color: rgba(#000, 0.8);
+  inset: 0;
+  position: fixed;
+  z-index: 1000;
+
+  &[data-show="true"] {
+    animation-duration: 0.2s;
+    animation-name: keyframe-fade-in;
+  }
+
+  &[data-transparent="true"] {
+    animation: none;
+    opacity: 0;
+  }
+}
