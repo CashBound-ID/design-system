@@ -128,7 +128,7 @@ export const FilledVariant: Story = {
     }
   },
   render: () => {
-    const theme: ButtonModifierType[] = ['primary'];
+    const theme: ButtonModifierType[] = ['primary', 'error'];
     const size: ButtonSizeType[] = ['lg', 'md', 'sm'];
 
     return <BoilerplateButton size={size} theme={theme} variant="fill" />;
@@ -144,7 +144,7 @@ export const OutlineVariant: Story = {
     }
   },
   render: () => {
-    const theme: ButtonModifierType[] = ['primary'];
+    const theme: ButtonModifierType[] = ['primary', 'error'];
     const size: ButtonSizeType[] = ['lg', 'md', 'sm'];
 
     return <BoilerplateButton size={size} theme={theme} variant="outline" />;
@@ -160,7 +160,7 @@ export const TextVariant: Story = {
     }
   },
   render: () => {
-    const theme: ButtonModifierType[] = ['primary'];
+    const theme: ButtonModifierType[] = ['primary', 'error'];
     const size: ButtonSizeType[] = ['lg', 'md', 'sm'];
 
     return <BoilerplateButton size={size} theme={theme} variant="text" />;

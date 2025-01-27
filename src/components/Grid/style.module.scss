@@ -30,43 +30,19 @@
         max-width: auto;
       }
 
-      @media (width <= 576px) {
-        &[data-col-xs="#{$size}"] {
+      @media (width >= 1200px) {
+        &[data-col-xl="#{$size}"] {
           flex: 0 0 #{math.div(100% * $size, 12)};
           max-width: #{math.div(100% * $size, 12)};
         }
 
-        &[data-col-xs="auto"] {
+        &[data-col-xl="auto"] {
           flex: 0 0 auto;
           max-width: auto;
         }
       }
 
-      @media (width >= 576px) {
-        &[data-col-sm="#{$size}"] {
-          flex: 0 0 #{math.div(100% * $size, 12)};
-          max-width: #{math.div(100% * $size, 12)};
-        }
-
-        &[data-col-sm="auto"] {
-          flex: 0 0 auto;
-          max-width: auto;
-        }
-      }
-
-      @media (width >= 768px) {
-        &[data-col-md="#{$size}"] {
-          flex: 0 0 #{math.div(100% * $size, 12)};
-          max-width: #{math.div(100% * $size, 12)};
-        }
-
-        &[data-col-md="auto"] {
-          flex: 0 0 auto;
-          max-width: auto;
-        }
-      }
-
-      @media (width >= 992px) {
+      @media (width >= 992px) and (width < 1200px) {
         &[data-col-lg="#{$size}"] {
           flex: 0 0 #{math.div(100% * $size, 12)};
           max-width: #{math.div(100% * $size, 12)};
@@ -78,13 +54,37 @@
         }
       }
 
-      @media (width >= 1200px) {
-        &[data-col-xl="#{$size}"] {
+      @media (width >= 768px) and (width < 992px) {
+        &[data-col-md="#{$size}"] {
           flex: 0 0 #{math.div(100% * $size, 12)};
           max-width: #{math.div(100% * $size, 12)};
         }
 
-        &[data-col-xl="auto"] {
+        &[data-col-md="auto"] {
+          flex: 0 0 auto;
+          max-width: auto;
+        }
+      }
+
+      @media (width >= 576px) and (width < 768px) {
+        &[data-col-sm="#{$size}"] {
+          flex: 0 0 #{math.div(100% * $size, 12)};
+          max-width: #{math.div(100% * $size, 12)};
+        }
+
+        &[data-col-sm="auto"] {
+          flex: 0 0 auto;
+          max-width: auto;
+        }
+      }
+
+      @media (width <= 576px) {
+        &[data-col-xs="#{$size}"] {
+          flex: 0 0 #{math.div(100% * $size, 12)};
+          max-width: #{math.div(100% * $size, 12)};
+        }
+
+        &[data-col-xs="auto"] {
           flex: 0 0 auto;
           max-width: auto;
         }

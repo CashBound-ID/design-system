@@ -44,8 +44,7 @@ import ${componentName} from '${importPath}';
             >
               this link
             </a>{' '}
-            to see the
-            {componentName} component's code.
+            to see the <code>{componentName}</code> component's code.
           </>
         )}
       </p>

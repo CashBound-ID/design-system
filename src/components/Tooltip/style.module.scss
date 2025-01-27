@@ -1,0 +1,83 @@
+@use "sass:map";
+
+@use "@/styles/variables" as var;
+
+@use "@/styles/animation";
+
+.tooltip {
+  cursor: pointer;
+  display: block;
+  position: relative;
+
+  &__content {
+    background-color: var(--BLACK);
+    padding: 4px 8px;
+    position: absolute;
+
+    &[data-visible="true"] {
+      animation-duration: 0.2s;
+      animation-name: keyframe-fade-in;
+    }
+
+    &[data-visible="false"] {
+      animation-duration: 0.15s;
+      animation-name: keyframe-fade-out;
+    }
+
+    &[data-position="bottom"] {
+      border-radius: map.get(var.$radius, sm);
+      left: 50%;
+      top: calc(100% + 8px);
+      translate: -50% 0;
+    }
+
+    &[data-position="right bottom"] {
+      border-radius: map.get(var.$radius, sm);
+      left: calc(100% + 8px);
+      top: calc(100% + 8px);
+      translate: 0 0;
+    }
+
+    &[data-position="left bottom"] {
+      border-radius: map.get(var.$radius, sm);
+      left: 0;
+      top: calc(100% + 8px);
+      translate: calc(-100% - 8px) 0;
+    }
+
+    &[data-position="left"] {
+      border-radius: map.get(var.$radius, sm);
+      left: 0;
+      top: 50%;
+      translate: calc(-100% - 8px) -50%;
+    }
+
+    &[data-position="right"] {
+      border-radius: map.get(var.$radius, sm);
+      left: calc(100% + 8px);
+      top: 50%;
+      translate: 0 -50%;
+    }
+
+    &[data-position="top"] {
+      border-radius: map.get(var.$radius, sm);
+      left: 50%;
+      top: 0;
+      translate: -50% calc(-100% - 8px);
+    }
+
+    &[data-position="right top"] {
+      border-radius: map.get(var.$radius, sm);
+      left: calc(100% + 8px);
+      top: 0;
+      translate: 0 calc(-100% - 8px);
+    }
+
+    &[data-position="left top"] {
+      border-radius: map.get(var.$radius, sm);
+      left: 0;
+      top: 0;
+      translate: calc(-100% - 8px) calc(-100% - 8px);
+    }
+  }
+}

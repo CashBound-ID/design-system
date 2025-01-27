@@ -13,7 +13,6 @@ import type { BottomSheetHeaderFnType, BottomSheetHeaderProps } from './types';
 
 interface PrivateBottomSheetHeaderProps extends BottomSheetHeaderProps {
   onClose(): void;
-  showDragHandle: boolean;
 }
 
 const BottomSheetHeader: BottomSheetHeaderFnType = (
@@ -25,15 +24,13 @@ const BottomSheetHeader: BottomSheetHeaderFnType = (
     'data-testid': dataTestId,
     hideCloseButton,
     onClose,
-    showDragHandle,
     title
   } = props as PrivateBottomSheetHeaderProps;
   const { color } = useDesignSystemProvider();
 
   let renderedSection: Maybe<string> = 'close-btn';
   if (cta) renderedSection = 'cta';
-  if ((renderedSection !== 'cta' && hideCloseButton) || showDragHandle === true)
-    renderedSection = undefined;
+  if (renderedSection !== 'cta' && hideCloseButton) renderedSection = undefined;
 
   return (
     <Flex

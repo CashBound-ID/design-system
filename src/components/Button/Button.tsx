@@ -53,15 +53,17 @@ const Button = (props: ButtonProps) => {
 
     switch (variant) {
       case 'fill':
-        spinnerColor = color.WHITE;
+        spinnerColor = modifier === 'primary' ? color.WHITE : color.WHITE;
         break;
 
       case 'outline':
-        spinnerColor = color.VIOLET1200;
+        spinnerColor =
+          modifier === 'primary' ? color.VIOLET1200 : color.REDTOMATO1100;
         break;
 
       case 'text':
-        spinnerColor = color.VIOLET1200;
+        spinnerColor =
+          modifier === 'primary' ? color.VIOLET1200 : color.REDTOMATO1100;
         break;
     }
 
@@ -87,12 +89,14 @@ const Button = (props: ButtonProps) => {
       textModifier: TEXT_MODIFIER_PRESET[size]
     };
   }, [
+    color.REDTOMATO1100,
     color.VIOLET1200,
     color.WHITE,
     lgIcon,
     lgText,
     mdIcon,
     mdText,
+    modifier,
     size,
     smIcon,
     smText,

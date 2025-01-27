@@ -1,10 +1,11 @@
 import type { MouseEventHandler, PropsWithChildren } from 'react';
 
+import { useDesignSystemProvider } from '@/context/DesignSystem';
+
 import Icon from '@/components/Icon';
 import useMount from '@/hooks/useMount';
 
 import { cx } from '@/utils/css';
-import { GRAYMAUVE1100, WHITE } from '@/constant/theme';
 
 import * as styles from './style.module.scss';
 import type { ToggleButtonItemFnType, ToggleButtonItemProps } from './types';
@@ -21,6 +22,7 @@ const ToggleButtonItem: ToggleButtonItemFnType = (
 ) => {
   const { className, icon, onSelectItem, position, selected, value, ...res } =
     props as PrivateToggleButtonItemProps;
+  const { color } = useDesignSystemProvider();
 
   const handleOnClickButton: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
@@ -46,7 +48,7 @@ const ToggleButtonItem: ToggleButtonItemFnType = (
       <Icon
         icon={icon}
         size={20}
-        color={selected === value ? WHITE : GRAYMAUVE1100}
+        color={selected === value ? color.WHITE : color.GRAYMAUVE1100}
       />
     </button>
   );

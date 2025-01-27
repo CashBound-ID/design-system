@@ -51,6 +51,50 @@ $button-theme: (
         shadow: initial,
         text-decoration: initial
       ),
+    ),
+    error: (
+      init: (
+        background-color: var(--REDTOMATO900),
+        text-color: var(--WHITE),
+        border-color: var(--REDTOMATO900),
+        shadow: map.get(var.$shadow, button),
+        text-decoration: initial
+      ),
+      hover: (
+        background-color: var(--REDTOMATO1000),
+        text-color: var(--WHITE),
+        border-color: var(--REDTOMATO1000),
+        shadow: map.get(var.$shadow, button-hover),
+        text-decoration: initial
+      ),
+      focus: (
+        background-color: var(--REDTOMATO900),
+        text-color: var(--WHITE),
+        border-color: var(--REDTOMATO900),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      active: (
+        background-color: var(--REDTOMATO1200),
+        text-color: var(--WHITE),
+        border-color: var(--REDTOMATO1200),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      disabled: (
+        background-color: var(--GRAYMAUVE500),
+        text-color: rgb(0 0 0 / 30%),
+        border-color: var(--GRAYMAUVE700),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      loading: (
+        background-color: var(--REDTOMATO1000),
+        text-color: var(--WHITE),
+        border-color: var(--REDTOMATO1000),
+        shadow: initial,
+        text-decoration: initial
+      ),
     )
   ),
   outline: (
@@ -97,6 +141,50 @@ $button-theme: (
         shadow: initial,
         text-decoration: initial
       ),
+    ),
+    error: (
+      init: (
+        background-color: var(--WHITE),
+        text-color: var(--REDTOMATO1100),
+        border-color: var(--REDTOMATO900),
+        shadow: map.get(var.$shadow, button),
+        text-decoration: initial
+      ),
+      hover: (
+        background-color: var(--REDTOMATO200),
+        text-color: var(--REDTOMATO1100),
+        border-color: var(--REDTOMATO900),
+        shadow: map.get(var.$shadow, button-hover),
+        text-decoration: initial
+      ),
+      focus: (
+        background-color: var(--WHITE),
+        text-color: var(--REDTOMATO1100),
+        border-color: var(--REDTOMATO900),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      active: (
+        background-color: var(--REDTOMATO400),
+        text-color: var(--REDTOMATO1100),
+        border-color: var(--REDTOMATO900),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      disabled: (
+        background-color: var(--GRAYMAUVE500),
+        text-color: var(--GRAYMAUVE900),
+        border-color: var(--GRAYMAUVE700),
+        shadow: initial,
+        text-decoration: initial
+      ),
+      loading: (
+        background-color: var(--WHITE),
+        text-color: var(--REDTOMATO1100),
+        border-color: var(--REDTOMATO900),
+        shadow: initial,
+        text-decoration: initial
+      ),
     )
   ),
   text: (
@@ -139,6 +227,50 @@ $button-theme: (
       loading: (
         background-color: initial,
         text-color: var(--VIOLET1200),
+        border-color: transparent,
+        shadow: initial,
+        text-decoration: initial
+      ),
+    ),
+    error: (
+      init: (
+        background-color: initial,
+        text-color: var(--REDTOMATO1100),
+        border-color: transparent,
+        shadow: initial,
+        text-decoration: initial
+      ),
+      hover: (
+        background-color: initial,
+        text-color: var(--REDTOMATO900),
+        border-color: transparent,
+        shadow: initial,
+        text-decoration: underline
+      ),
+      focus: (
+        background-color: initial,
+        text-color: var(--REDTOMATO1100),
+        border-color: transparent,
+        shadow: initial,
+        text-decoration: initial
+      ),
+      active: (
+        background-color: initial,
+        text-color: var(--REDTOMATO1100),
+        border-color: transparent,
+        shadow: initial,
+        text-decoration: underline
+      ),
+      disabled: (
+        background-color: initial,
+        text-color: var(--GRAYMAUVE900),
+        border-color: transparent,
+        shadow: initial,
+        text-decoration: initial
+      ),
+      loading: (
+        background-color: initial,
+        text-color: var(--REDTOMATO1100),
         border-color: transparent,
         shadow: initial,
         text-decoration: initial

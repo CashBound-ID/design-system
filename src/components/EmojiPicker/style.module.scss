@@ -1,0 +1,32 @@
+@use "sass:map";
+
+@use "@/styles/variables" as var;
+
+.emoji-picker {
+  position: relative;
+
+  > aside {
+    border-color: transparent;
+    border-radius: 0;
+  }
+
+  h2 {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.8px;
+  }
+
+  * {
+    --epr-text-color: #707174 !important;
+    --epr-bg-color: #fff !important;
+    --epr-category-label-bg-color: #fff !important;
+    --epr-hover-bg-color: var(--VIOLET500) !important;
+    --epr-focus-bg-color: var(--VIOLET500) !important;
+    --epr-search-border-color: var(--VIOLET1000) !important;
+    font-family: map.get(var.$font-family, primary) !important;
+  }
+
+  [aria-label="Category navigation"] {
+    display: none;
+  }
+}

@@ -12,7 +12,7 @@ import { GRAYMAUVE1000 } from '@/constant/theme';
 const meta = {
   component: BottomSheet,
   parameters: {
-    'component-name': 'BottomNavigation',
+    'component-name': 'BottomSheet',
     'import-path': '@cashbound-id/design-system/bottom-sheet',
     'source-code': 'src/components/BottomSheet'
   },

@@ -8,7 +8,7 @@ type ButtonHTMLProps = GenericHTMLProps<
 >;
 
 export type ButtonIconPositionType = 'pre' | 'post';
-export type ButtonModifierType = 'primary';
+export type ButtonModifierType = 'primary' | 'error';
 export type ButtonVariantType = 'outline' | 'fill' | 'text';
 export type ButtonSizeType = 'sm' | 'md' | 'lg';
 

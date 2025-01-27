@@ -1,8 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import Grid from '@/components/Grid';
 import Icon from '@/components/Icon';
 
-import { REDTOMATO800 } from '@/constant/theme';
+import { GRAYMAUVE1100, REDTOMATO1100 } from '@/constant/theme';
+
+import { PREVIEW_ICON } from './constant';
+
+import CardShowcaseUI from '@/storybook/components/CardShowcaseUI';
 
 const meta = {
   argTypes: {
@@ -32,7 +37,7 @@ type Story = StoryObj<typeof Icon>;
 
 export const Basic: Story = {
   args: {
-    color: REDTOMATO800,
+    color: REDTOMATO1100,
     icon: 'apple',
     size: 32
   },
@@ -45,4 +50,40 @@ export const Basic: Story = {
     },
     layout: 'centered'
   }
+};
+
+export const Variant: Story = {
+  name: 'Variant Icon',
+  parameters: {
+    docs: {
+      description: {
+        story: 'These are the variants icons that you can used'
+      }
+    }
+  },
+  render: () => (
+    <>
+      <Grid gap={24}>
+        {PREVIEW_ICON.map((item) => (
+          <Grid.Item
+            key={item.icon}
+            col={2}
+            xs={12}
+            sm={6}
+            md={3}
+            lg={2}
+            xl={2}
+          >
+            <CardShowcaseUI
+              label={item.label}
+              sourceCode={`<Icon icon="${item.icon}" color="#D0CDD7" />`}
+            >
+              <Icon icon={item.icon} color={GRAYMAUVE1100} size={24} />
+            </CardShowcaseUI>
+          </Grid.Item>
+        ))}
+      </Grid>
+    </>
+  ),
+  storyName: 'variant'
 };
