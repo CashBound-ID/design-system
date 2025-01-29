@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "dayjs": "^1.11.13",
     "emoji-picker-react": "^4.12.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
@@ -71,6 +72,7 @@
   "private": true,
   "scripts": {
     "build-storybook": "storybook build -c src/storybook",
+    "postbuild-storybook": "cp public/favicon.svg storybook-static/favicon.svg",
     "eslint": "eslint .",
     "lint": "pnpm run eslint && pnpm run stylelint",
     "prepare": "ts-patch install -s",

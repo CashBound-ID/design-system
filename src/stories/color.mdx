@@ -8,7 +8,24 @@ import { DEFAULT_COLOR } from '@/constant/theme';
 
 Our color principles built based on the recognition of cashbound brand colors to create not only consistent and usable.
 
-## Color Palette
+### Retrieving Values
+You can access the radius values using the `useDesignSystemProvider` hook:
+
+```tsx
+import { useDesignSystemProvider } from '@/context/DesignSystem';
+
+const ColorExample = () => {
+  const { color } } = useDesignSystemProvider();
+
+  return (
+    <div style={{ backgroundColor: color.VIOLET1200, padding: 16 }}>
+      This box has a violet color.
+    </div>
+  );
+};
+```
+
+### Color Palette
 Our color palette totals 110 colors, including 9 primary colors and their derivative colors.
 These colors can basically include the need for color in background applications design.
 

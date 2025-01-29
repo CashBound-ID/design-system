@@ -1,0 +1,157 @@
+import { Meta } from '@storybook/blocks';
+
+import DesignSystemProvider from '@/context/DesignSystem';
+
+import Card from '@/components/Card';
+import Grid from '@/components/Grid';
+import Typograpy from '@/components/Typography';
+
+import CardShowcaseUI from '@/storybook/components/CardShowcaseUI';
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+<link href="./assets/fonts/cashbound-icon/style.css" rel="stylesheet" />
+
+<Meta title="Token/Radius" />
+
+# Radius
+
+Radius values define the rounding of corners in our design system. These values help maintain consistency across components, ensuring a unified and polished appearance.
+
+### Retrieving Values
+You can access the radius values using the `useDesignSystemProvider` hook:
+
+```tsx
+import { useDesignSystemProvider } from '@/context/DesignSystem';
+
+const RadiusExample = () => {
+  const { radius: { md } } = useDesignSystemProvider();
+
+  return (
+    <div style={{ borderRadius: md, padding: 16, background: '#eee' }}>
+      This box has a medium border radius.
+    </div>
+  );
+};
+```
+
+### Radius Tokens
+These values are managed within our theme context, ensuring a scalable and consistent design system.
+
+<DesignSystemProvider>
+  <Grid gap={24}>
+    <Grid.Item col={3}>
+      <CardShowcaseUI
+        label="<strong>Square</strong> - (0px)"
+        sourceCode={"const { radius: { square } } = useDesignSystemProvider();"}
+      >
+        <section style={{ width: 100, height: 100 }}>
+          <Card
+            shadow='xl'
+            radius='square'
+            background='#FFF'
+            padding="48px"
+          />
+        </section>
+      </CardShowcaseUI>
+    </Grid.Item>
+
+    <Grid.Item col={3}>
+      <CardShowcaseUI
+        label="<strong>XS</strong> - (2px)"
+        sourceCode={"const { radius: { xs } } = useDesignSystemProvider();"}
+      >
+        <section style={{ width: 100, height: 100 }}>
+          <Card
+            shadow='xl'
+            radius='xs'
+            background='#FFF'
+            padding="48px"
+          />
+        </section>
+      </CardShowcaseUI>
+    </Grid.Item>
+
+    <Grid.Item col={3}>
+      <CardShowcaseUI
+        label="<strong>SM</strong> - (4px)"
+        sourceCode={"const { radius: { sm } } = useDesignSystemProvider();"}
+      >
+        <section style={{ width: 100, height: 100 }}>
+          <Card
+            shadow='xl'
+            radius='sm'
+            background='#FFF'
+            padding="48px"
+          />
+        </section>
+      </CardShowcaseUI>
+    </Grid.Item>
+
+    <Grid.Item col={3}>
+      <CardShowcaseUI
+        label="<strong>MD</strong> - (8px)"
+        sourceCode={"const { radius: { md } } = useDesignSystemProvider();"}
+      >
+        <section style={{ width: 100, height: 100 }}>
+          <Card
+            shadow='xl'
+            radius='md'
+            background='#FFF'
+            padding="48px"
+          />
+        </section>
+      </CardShowcaseUI>
+    </Grid.Item>
+
+    <Grid.Item col={3}>
+      <CardShowcaseUI
+        label="<strong>LG</strong> - (12px)"
+        sourceCode={"const { radius: { lg } } = useDesignSystemProvider();"}
+      >
+        <section style={{ width: 100, height: 100 }}>
+          <Card
+            shadow='xl'
+            radius='lg'
+            background='#FFF'
+            padding="48px"
+          />
+        </section>
+      </CardShowcaseUI>
+    </Grid.Item>
+
+    <Grid.Item col={3}>
+      <CardShowcaseUI
+        label="<strong>XL</strong> - (16px)"
+        sourceCode={"const { radius: { xl } } = useDesignSystemProvider();"}
+      >
+        <section style={{ width: 100, height: 100 }}>
+          <Card
+            shadow='xl'
+            radius='xl'
+            background='#FFF'
+            padding="48px"
+          />
+        </section>
+      </CardShowcaseUI>
+    </Grid.Item>
+
+    <Grid.Item col={3}>
+      <CardShowcaseUI
+        label="<strong>Circle</strong> - (50%)"
+        sourceCode={"const { radius: { circle } } = useDesignSystemProvider();"}
+      >
+        <section style={{ width: 100, height: 100 }}>
+          <Card
+            shadow='xl'
+            radius='circle'
+            background='#FFF'
+            padding="48px"
+          />
+        </section>
+      </CardShowcaseUI>
+    </Grid.Item>
+  </Grid>
+</DesignSystemProvider>

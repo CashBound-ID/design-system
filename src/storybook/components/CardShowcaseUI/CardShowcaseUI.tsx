@@ -52,9 +52,13 @@ const CardShowcaseUI = (props: PropsWithChildren<CardShowcaseUIProps>) => {
           </section>
         </section>
         <section className={styles['card-showcase-ui__description']}>
-          <Typography ellipsis color={GRAYMAUVE1000} modifier="body-md">
-            {label}
-          </Typography>
+          <Typography
+            ellipsis
+            color={GRAYMAUVE1000}
+            modifier="body-md"
+            margin="0"
+            dangerouslySetInnerHTML={{ __html: label }}
+          />
         </section>
       </Flex>
     </Card>

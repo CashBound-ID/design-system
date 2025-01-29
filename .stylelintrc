@@ -21,6 +21,7 @@
     "declaration-empty-line-before": "never",
     "no-duplicate-selectors": true,
     "no-empty-source": true,
+    "no-descending-specificity": null,
     "order/order": [
       [
         "custom-properties",

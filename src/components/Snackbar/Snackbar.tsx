@@ -106,7 +106,12 @@ const Snackbar = forwardRef<SnackbarRefType, SnackbarProps>(
         className={cx(styles['snackbar'], 'animate')}
         onAnimationEnd={handleOnAnimationEnd}
       >
-        <Flex className={styles['snackbar-container']} gap={8} align="center">
+        <Flex
+          className={styles['snackbar-container']}
+          gap={8}
+          align="center"
+          tag="section"
+        >
           {icon && <Icon icon={icon} color={iconColor} size={20} />}
 
           <Typography
@@ -114,6 +119,7 @@ const Snackbar = forwardRef<SnackbarRefType, SnackbarProps>(
             modifier={textModifier}
             className="snackbar__text"
             color={color.WHITE}
+            margin="0"
           >
             {message}
           </Typography>

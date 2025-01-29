@@ -4,7 +4,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import Button from '@/components/Button';
 import EmojiPicker from '@/components/EmojiPicker';
-import EmojiPickerBottomSheet from '@/components/EmojiPicker/EmojiPickerBottomSheet';
 import Flex from '@/components/Flex';
 import Typography from '@/components/Typography';
 
@@ -19,7 +18,7 @@ const meta = {
     'source-code': 'src/components/EmojiPicker'
   },
   subcomponents: {
-    'EmojiPicker.BottomSheet': EmojiPickerBottomSheet as ComponentType<unknown>
+    'EmojiPicker.BottomSheet': EmojiPicker.BottomSheet as ComponentType<unknown>
   },
   tags: ['autodocs'],
   title: 'Form/Emoji Picker'
@@ -69,7 +68,7 @@ export const BottomSheet: Story = {
           </Flex>
 
           {show && (
-            <EmojiPickerBottomSheet
+            <EmojiPicker.BottomSheet
               label="Icon Picker"
               onChooseEmoji={setEmoji}
               onClose={toggleShow}
