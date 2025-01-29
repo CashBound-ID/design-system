@@ -1,6 +1,19 @@
-import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+import { Meta } from '@storybook/blocks';
+
+import DesignSystemProvider from '@/context/DesignSystem';
+
+import Card from '@/components/Card';
+import Grid from '@/components/Grid';
+import Typograpy from '@/components/Typography';
 
 import { DEFAULT_COLOR } from '@/constant/theme';
+
+import CardShowcaseUI from '@/storybook/components/CardShowcaseUI';
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+<link href="./assets/fonts/cashbound-icon/style.css" rel="stylesheet" />
  
 <Meta title="Token/Colors" />
 
@@ -29,100 +42,299 @@ const ColorExample = () => {
 Our color palette totals 110 colors, including 9 primary colors and their derivative colors.
 These colors can basically include the need for color in background applications design.
 
-<ColorPalette>
-  <ColorItem
-    title="Common Colors"
-    colors={{ WHITE: '#FFFFFF', BLACK: '#000' }}
-  />
+<DesignSystemProvider>
+  #### **Common Color**
+  <br />
 
+   <Grid gap={24}>
+    {['WHITE', 'BLACK'].map((item) => {
+      return (
+        <Grid.Item col={2} key={item}>
+          <CardShowcaseUI
+            label={`<strong>${item}</strong>`}
+            sourceCode={`const { color: { ${item} } } = useDesignSystemProvider();`}
+          >
+            <section style={{ width: 100, height: 100 }}>
+              <Card
+                shadow='xl'
+                radius='md'
+                background={`${item}`}
+                padding="48px"
+              />
+            </section>
+          </CardShowcaseUI>
+        </Grid.Item>
+      )
+    })}
+  </Grid>
 
-  <ColorItem
-    title="Violet Colors"
-    colors={new Array(12).fill(null).map((_, index) => {
+  #### **Violet Color**
+  <br />
+
+   <Grid gap={24}>
+    {new Array(12).fill(null).map((_, index) => {
       return (index + 1) * 100
     }).reduce((result, item) => {
-      result[item] = DEFAULT_COLOR[`VIOLET${item}`]
+      result.push(`VIOLET${item}`);
       return result
-    }, {})}
-  />
+    }, []).map((item) => {
+      return (
+        <Grid.Item col={2} key={item}>
+          <CardShowcaseUI
+            label={`<strong>${item}</strong>`}
+            sourceCode={`const { color: { ${item} } } = useDesignSystemProvider();`}
+          >
+            <section style={{ width: 100, height: 100 }}>
+              <Card
+                shadow='xl'
+                radius='md'
+                background={`${DEFAULT_COLOR[item]}`}
+                padding="48px"
+              />
+            </section>
+          </CardShowcaseUI>
+        </Grid.Item>
+      )
+    })}
+  </Grid>
 
-  <ColorItem
-    title="Green Cash Colors"
-    colors={new Array(12).fill(null).map((_, index) => {
+  #### **Green Cash Color**
+  <br />
+
+   <Grid gap={24}>
+    {new Array(12).fill(null).map((_, index) => {
       return (index + 1) * 100
     }).reduce((result, item) => {
-      result[item] = DEFAULT_COLOR[`GREENCASH${item}`]
+      result.push(`GREENCASH${item}`);
       return result
-    }, {})}
-  />
+    }, []).map((item) => {
+      return (
+        <Grid.Item col={2} key={item}>
+          <CardShowcaseUI
+            label={`<strong>${item}</strong>`}
+            sourceCode={`const { color: { ${item} } } = useDesignSystemProvider();`}
+          >
+            <section style={{ width: 100, height: 100 }}>
+              <Card
+                shadow='xl'
+                radius='md'
+                background={`${DEFAULT_COLOR[item]}`}
+                padding="48px"
+              />
+            </section>
+          </CardShowcaseUI>
+        </Grid.Item>
+      )
+    })}
+  </Grid>
 
-  <ColorItem
-    title="Gray Mauve Colors"
-    colors={new Array(12).fill(null).map((_, index) => {
+  #### **Gray Mauve Color**
+  <br />
+
+   <Grid gap={24}>
+    {new Array(12).fill(null).map((_, index) => {
       return (index + 1) * 100
     }).reduce((result, item) => {
-      result[item] = DEFAULT_COLOR[`GRAYMAUVE${item}`]
+      result.push(`GRAYMAUVE${item}`);
       return result
-    }, {})}
-  />
+    }, []).map((item) => {
+      return (
+        <Grid.Item col={2} key={item}>
+          <CardShowcaseUI
+            label={`<strong>${item}</strong>`}
+            sourceCode={`const { color: { ${item} } } = useDesignSystemProvider();`}
+          >
+            <section style={{ width: 100, height: 100 }}>
+              <Card
+                shadow='xl'
+                radius='md'
+                background={`${DEFAULT_COLOR[item]}`}
+                padding="48px"
+              />
+            </section>
+          </CardShowcaseUI>
+        </Grid.Item>
+      )
+    })}
+  </Grid>
 
-  <ColorItem
-    title="Red Tomato Colors"
-    colors={new Array(12).fill(null).map((_, index) => {
+  #### **Red Tomato Color**
+  <br />
+
+   <Grid gap={24}>
+    {new Array(12).fill(null).map((_, index) => {
       return (index + 1) * 100
     }).reduce((result, item) => {
-      result[item] = DEFAULT_COLOR[`REDTOMATO${item}`]
+      result.push(`REDTOMATO${item}`);
       return result
-    }, {})}
-  />
+    }, []).map((item) => {
+      return (
+        <Grid.Item col={2} key={item}>
+          <CardShowcaseUI
+            label={`<strong>${item}</strong>`}
+            sourceCode={`const { color: { ${item} } } = useDesignSystemProvider();`}
+          >
+            <section style={{ width: 100, height: 100 }}>
+              <Card
+                shadow='xl'
+                radius='md'
+                background={`${DEFAULT_COLOR[item]}`}
+                padding="48px"
+              />
+            </section>
+          </CardShowcaseUI>
+        </Grid.Item>
+      )
+    })}
+  </Grid>
 
-  <ColorItem
-    title="Purple Colors"
-    colors={new Array(12).fill(null).map((_, index) => {
+  #### **Purple Color**
+  <br />
+
+   <Grid gap={24}>
+    {new Array(12).fill(null).map((_, index) => {
       return (index + 1) * 100
     }).reduce((result, item) => {
-      result[item] = DEFAULT_COLOR[`PURPLE${item}`]
+      result.push(`PURPLE${item}`);
       return result
-    }, {})}
-  />
+    }, []).map((item) => {
+      return (
+        <Grid.Item col={2} key={item}>
+          <CardShowcaseUI
+            label={`<strong>${item}</strong>`}
+            sourceCode={`const { color: { ${item} } } = useDesignSystemProvider();`}
+          >
+            <section style={{ width: 100, height: 100 }}>
+              <Card
+                shadow='xl'
+                radius='md'
+                background={`${DEFAULT_COLOR[item]}`}
+                padding="48px"
+              />
+            </section>
+          </CardShowcaseUI>
+        </Grid.Item>
+      )
+    })}
+  </Grid>
 
-  <ColorItem
-    title="Blue Colors"
-    colors={new Array(12).fill(null).map((_, index) => {
+  #### **Blue Color**
+  <br />
+
+   <Grid gap={24}>
+    {new Array(12).fill(null).map((_, index) => {
       return (index + 1) * 100
     }).reduce((result, item) => {
-      result[item] = DEFAULT_COLOR[`BLUE${item}`]
+      result.push(`BLUE${item}`);
       return result
-    }, {})}
-  />
+    }, []).map((item) => {
+      return (
+        <Grid.Item col={2} key={item}>
+          <CardShowcaseUI
+            label={`<strong>${item}</strong>`}
+            sourceCode={`const { color: { ${item} } } = useDesignSystemProvider();`}
+          >
+            <section style={{ width: 100, height: 100 }}>
+              <Card
+                shadow='xl'
+                radius='md'
+                background={`${DEFAULT_COLOR[item]}`}
+                padding="48px"
+              />
+            </section>
+          </CardShowcaseUI>
+        </Grid.Item>
+      )
+    })}
+  </Grid>
 
-  <ColorItem
-    title="Green Grass Colors"
-    colors={new Array(12).fill(null).map((_, index) => {
+  #### **Green Grass Color**
+  <br />
+
+   <Grid gap={24}>
+    {new Array(12).fill(null).map((_, index) => {
       return (index + 1) * 100
     }).reduce((result, item) => {
-      result[item] = DEFAULT_COLOR[`GREENGRASS${item}`]
+      result.push(`GREENGRASS${item}`);
       return result
-    }, {})}
-  />
+    }, []).map((item) => {
+      return (
+        <Grid.Item col={2} key={item}>
+          <CardShowcaseUI
+            label={`<strong>${item}</strong>`}
+            sourceCode={`const { color: { ${item} } } = useDesignSystemProvider();`}
+          >
+            <section style={{ width: 100, height: 100 }}>
+              <Card
+                shadow='xl'
+                radius='md'
+                background={`${DEFAULT_COLOR[item]}`}
+                padding="48px"
+              />
+            </section>
+          </CardShowcaseUI>
+        </Grid.Item>
+      )
+    })}
+  </Grid>
 
-  <ColorItem
-    title="Yellow Amber Colors"
-    colors={new Array(12).fill(null).map((_, index) => {
+  #### **Yellow Amber Color**
+  <br />
+
+   <Grid gap={24}>
+    {new Array(12).fill(null).map((_, index) => {
       return (index + 1) * 100
     }).reduce((result, item) => {
-      result[item] = DEFAULT_COLOR[`YELLOWAMBER${item}`]
+      result.push(`YELLOWAMBER${item}`);
       return result
-    }, {})}
-  />
+    }, []).map((item) => {
+      return (
+        <Grid.Item col={2} key={item}>
+          <CardShowcaseUI
+            label={`<strong>${item}</strong>`}
+            sourceCode={`const { color: { ${item} } } = useDesignSystemProvider();`}
+          >
+            <section style={{ width: 100, height: 100 }}>
+              <Card
+                shadow='xl'
+                radius='md'
+                background={`${DEFAULT_COLOR[item]}`}
+                padding="48px"
+              />
+            </section>
+          </CardShowcaseUI>
+        </Grid.Item>
+      )
+    })}
+  </Grid>
 
-  <ColorItem
-    title="Orange Colors"
-    colors={new Array(12).fill(null).map((_, index) => {
+  #### **Orange Color**
+  <br />
+
+   <Grid gap={24}>
+    {new Array(12).fill(null).map((_, index) => {
       return (index + 1) * 100
     }).reduce((result, item) => {
-      result[item] = DEFAULT_COLOR[`ORANGE${item}`]
+      result.push(`ORANGE${item}`);
       return result
-    }, {})}
-  />
-</ColorPalette>
+    }, []).map((item) => {
+      return (
+        <Grid.Item col={2} key={item}>
+          <CardShowcaseUI
+            label={`<strong>${item}</strong>`}
+            sourceCode={`const { color: { ${item} } } = useDesignSystemProvider();`}
+          >
+            <section style={{ width: 100, height: 100 }}>
+              <Card
+                shadow='xl'
+                radius='md'
+                background={`${DEFAULT_COLOR[item]}`}
+                padding="48px"
+              />
+            </section>
+          </CardShowcaseUI>
+        </Grid.Item>
+      )
+    })}
+  </Grid>
+</DesignSystemProvider>
