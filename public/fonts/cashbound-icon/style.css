@@ -14,483 +14,432 @@
 .cashbound-icon[data-icon="shape-category-fill"]::before {
   content: "\ea01";
 }
-
 .cashbound-icon[data-icon="shape-category-line"]::before {
   content: "\ea02";
 }
-
 .cashbound-icon[data-icon="arrow-right-up"]::before {
   content: "\ea03";
 }
-
 .cashbound-icon[data-icon="arrow-right-down"]::before {
   content: "\ea04";
 }
-
 .cashbound-icon[data-icon="arrow-right"]::before {
   content: "\ea05";
 }
-
 .cashbound-icon[data-icon="arrow-left-down"]::before {
   content: "\ea06";
 }
-
 .cashbound-icon[data-icon="arrow-down"]::before {
   content: "\ea07";
 }
-
 .cashbound-icon[data-icon="arrow-up"]::before {
   content: "\ea08";
 }
-
 .cashbound-icon[data-icon="arrow-left-up"]::before {
   content: "\ea09";
 }
-
 .cashbound-icon[data-icon="arrow-left"]::before {
   content: "\ea0a";
 }
-
 .cashbound-icon[data-icon="mail-fill"]::before {
   content: "\ea0b";
 }
-
 .cashbound-icon[data-icon="mail-error-line"]::before {
   content: "\ea0c";
 }
-
 .cashbound-icon[data-icon="mail-line"]::before {
   content: "\ea0d";
 }
-
 .cashbound-icon[data-icon="mail-error-fill"]::before {
   content: "\ea0e";
 }
-
 .cashbound-icon[data-icon="send-line"]::before {
   content: "\ea0f";
 }
-
 .cashbound-icon[data-icon="send-fill"]::before {
   content: "\ea10";
 }
-
 .cashbound-icon[data-icon="chevron-down"]::before {
   content: "\ea11";
 }
-
 .cashbound-icon[data-icon="chevron-up"]::before {
   content: "\ea12";
 }
-
 .cashbound-icon[data-icon="chevron-right"]::before {
   content: "\ea13";
 }
-
 .cashbound-icon[data-icon="chevron-left"]::before {
   content: "\ea14";
 }
-
 .cashbound-icon[data-icon="loading"]::before {
   content: "\ea15";
 }
-
 .cashbound-icon[data-icon="help-line"]::before {
   content: "\ea16";
 }
-
 .cashbound-icon[data-icon="help-fill"]::before {
   content: "\ea17";
 }
-
 .cashbound-icon[data-icon="error-line"]::before {
   content: "\ea18";
 }
-
 .cashbound-icon[data-icon="info-fill"]::before {
   content: "\ea19";
 }
-
 .cashbound-icon[data-icon="info-line"]::before {
   content: "\ea1a";
 }
-
 .cashbound-icon[data-icon="error-fill"]::before {
   content: "\ea1b";
 }
-
 .cashbound-icon[data-icon="lock-fill"]::before {
   content: "\ea1c";
 }
-
 .cashbound-icon[data-icon="lock-line"]::before {
   content: "\ea1d";
 }
-
 .cashbound-icon[data-icon="food"]::before {
   content: "\ea1e";
 }
-
 .cashbound-icon[data-icon="transport-fill"]::before {
   content: "\ea1f";
 }
-
 .cashbound-icon[data-icon="transport-line"]::before {
   content: "\ea20";
 }
-
 .cashbound-icon[data-icon="home-line"]::before {
   content: "\ea21";
 }
-
 .cashbound-icon[data-icon="home-fill"]::before {
   content: "\ea22";
 }
-
 .cashbound-icon[data-icon="check-box-line"]::before {
   content: "\ea23";
 }
-
 .cashbound-icon[data-icon="check-box-fill"]::before {
   content: "\ea24";
 }
-
 .cashbound-icon[data-icon="box"]::before {
   content: "\ea25";
 }
-
 .cashbound-icon[data-icon="wifi-off"]::before {
   content: "\ea26";
 }
-
 .cashbound-icon[data-icon="wifi-on"]::before {
   content: "\ea27";
 }
-
 .cashbound-icon[data-icon="data-analyst"]::before {
   content: "\ea28";
 }
-
 .cashbound-icon[data-icon="pig-saving-fill"]::before {
   content: "\ea29";
 }
-
 .cashbound-icon[data-icon="pig-saving-line"]::before {
   content: "\ea2a";
 }
-
 .cashbound-icon[data-icon="money-fill"]::before {
   content: "\ea2b";
 }
-
 .cashbound-icon[data-icon="money-line"]::before {
   content: "\ea2c";
 }
-
 .cashbound-icon[data-icon="gadgets-line"]::before {
   content: "\ea2d";
 }
-
 .cashbound-icon[data-icon="world"]::before {
   content: "\ea2e";
 }
-
 .cashbound-icon[data-icon="gadgets-fill"]::before {
   content: "\ea2f";
 }
-
 .cashbound-icon[data-icon="new"]::before {
   content: "\ea30";
 }
-
 .cashbound-icon[data-icon="hamburger"]::before {
   content: "\ea31";
 }
-
 .cashbound-icon[data-icon="baby-fill"]::before {
   content: "\ea32";
 }
-
 .cashbound-icon[data-icon="baby-line"]::before {
   content: "\ea33";
 }
-
 .cashbound-icon[data-icon="write-note"]::before {
   content: "\ea34";
 }
-
 .cashbound-icon[data-icon="discord"]::before {
   content: "\ea35";
 }
-
 .cashbound-icon[data-icon="instagram"]::before {
   content: "\ea36";
 }
-
 .cashbound-icon[data-icon="facebook"]::before {
   content: "\ea37";
 }
-
 .cashbound-icon[data-icon="x-twitter"]::before {
   content: "\ea38";
 }
-
 .cashbound-icon[data-icon="product-hunt"]::before {
   content: "\ea39";
 }
-
 .cashbound-icon[data-icon="check"]::before {
   content: "\ea3a";
 }
-
 .cashbound-icon[data-icon="close"]::before {
   content: "\ea3b";
 }
-
-.cashbound-icon[data-icon="apple"]::before {
+.cashbound-icon[data-icon="google"]::before {
   content: "\ea3c";
 }
-
-.cashbound-icon[data-icon="sparkle"]::before {
+.cashbound-icon[data-icon="apple"]::before {
   content: "\ea3d";
 }
-
-.cashbound-icon[data-icon="refresh"]::before {
+.cashbound-icon[data-icon="sparkle"]::before {
   content: "\ea3e";
 }
-
-.cashbound-icon[data-icon="cancel-fill"]::before {
+.cashbound-icon[data-icon="refresh"]::before {
   content: "\ea3f";
 }
-
-.cashbound-icon[data-icon="cancel-line"]::before {
+.cashbound-icon[data-icon="cancel-fill"]::before {
   content: "\ea40";
 }
-
-.cashbound-icon[data-icon="attachment"]::before {
+.cashbound-icon[data-icon="cancel-line"]::before {
   content: "\ea41";
 }
-
-.cashbound-icon[data-icon="more"]::before {
+.cashbound-icon[data-icon="attachment"]::before {
   content: "\ea42";
 }
-
-.cashbound-icon[data-icon="calendar-today-fill"]::before {
+.cashbound-icon[data-icon="more"]::before {
   content: "\ea43";
 }
-
-.cashbound-icon[data-icon="calendar-today-line"]::before {
+.cashbound-icon[data-icon="calendar-today-fill"]::before {
   content: "\ea44";
 }
-
-.cashbound-icon[data-icon="calendar-upcoming-line"]::before {
+.cashbound-icon[data-icon="calendar-today-line"]::before {
   content: "\ea45";
 }
-
-.cashbound-icon[data-icon="calendar-upcoming-fill"]::before {
+.cashbound-icon[data-icon="calendar-upcoming-line"]::before {
   content: "\ea46";
 }
-
-.cashbound-icon[data-icon="calendar-month-fill"]::before {
+.cashbound-icon[data-icon="calendar-upcoming-fill"]::before {
   content: "\ea47";
 }
-
-.cashbound-icon[data-icon="calendar-forward-fill"]::before {
+.cashbound-icon[data-icon="calendar-month-fill"]::before {
   content: "\ea48";
 }
-
-.cashbound-icon[data-icon="calendar-week-fill"]::before {
+.cashbound-icon[data-icon="calendar-forward-fill"]::before {
   content: "\ea49";
 }
-
-.cashbound-icon[data-icon="calendar-forward-line"]::before {
+.cashbound-icon[data-icon="calendar-week-fill"]::before {
   content: "\ea4a";
 }
-
-.cashbound-icon[data-icon="calendar-month-line"]::before {
+.cashbound-icon[data-icon="calendar-forward-line"]::before {
   content: "\ea4b";
 }
-
-.cashbound-icon[data-icon="calendar-line"]::before {
+.cashbound-icon[data-icon="calendar-month-line"]::before {
   content: "\ea4c";
 }
-
-.cashbound-icon[data-icon="calendar-fill"]::before {
+.cashbound-icon[data-icon="calendar-line"]::before {
   content: "\ea4d";
 }
-
-.cashbound-icon[data-icon="calendar-week-line"]::before {
+.cashbound-icon[data-icon="calendar-fill"]::before {
   content: "\ea4e";
 }
-
-.cashbound-icon[data-icon="wallet-fill"]::before {
+.cashbound-icon[data-icon="calendar-week-line"]::before {
   content: "\ea4f";
 }
-
-.cashbound-icon[data-icon="wallet-line"]::before {
+.cashbound-icon[data-icon="wallet-fill"]::before {
   content: "\ea50";
 }
-
-.cashbound-icon[data-icon="bank"]::before {
+.cashbound-icon[data-icon="wallet-line"]::before {
   content: "\ea51";
 }
-
-.cashbound-icon[data-icon="search"]::before {
+.cashbound-icon[data-icon="bank"]::before {
   content: "\ea52";
 }
-
-.cashbound-icon[data-icon="radio-button-selected"]::before {
+.cashbound-icon[data-icon="search"]::before {
   content: "\ea53";
 }
-
-.cashbound-icon[data-icon="radio-button-disable"]::before {
+.cashbound-icon[data-icon="radio-button-selected"]::before {
   content: "\ea54";
 }
-
-.cashbound-icon[data-icon="radio-button-unselect"]::before {
+.cashbound-icon[data-icon="radio-button-disable"]::before {
   content: "\ea55";
 }
-
-.cashbound-icon[data-icon="transaction-log-fill"]::before {
+.cashbound-icon[data-icon="radio-button-unselect"]::before {
   content: "\ea56";
 }
-
-.cashbound-icon[data-icon="transaction-log-line"]::before {
+.cashbound-icon[data-icon="transaction-log-fill"]::before {
   content: "\ea57";
 }
-
-.cashbound-icon[data-icon="chart-box-fill"]::before {
+.cashbound-icon[data-icon="transaction-log-line"]::before {
   content: "\ea58";
 }
-
-.cashbound-icon[data-icon="chart-box-line"]::before {
+.cashbound-icon[data-icon="chart-box-fill"]::before {
   content: "\ea59";
 }
-
-.cashbound-icon[data-icon="profile-fill"]::before {
+.cashbound-icon[data-icon="chart-box-line"]::before {
   content: "\ea5a";
 }
-
-.cashbound-icon[data-icon="profile-line"]::before {
+.cashbound-icon[data-icon="profile-fill"]::before {
   content: "\ea5b";
 }
-
-.cashbound-icon[data-icon="unview-fill"]::before {
+.cashbound-icon[data-icon="profile-line"]::before {
   content: "\ea5c";
 }
-
-.cashbound-icon[data-icon="unview-line"]::before {
+.cashbound-icon[data-icon="unview-fill"]::before {
   content: "\ea5d";
 }
-
-.cashbound-icon[data-icon="view-fill"]::before {
+.cashbound-icon[data-icon="unview-line"]::before {
   content: "\ea5e";
 }
-
-.cashbound-icon[data-icon="view-line"]::before {
+.cashbound-icon[data-icon="view-fill"]::before {
   content: "\ea5f";
 }
-
-.cashbound-icon[data-icon="notification-fill"]::before {
+.cashbound-icon[data-icon="view-line"]::before {
   content: "\ea60";
 }
-
-.cashbound-icon[data-icon="notification-line"]::before {
+.cashbound-icon[data-icon="notification-fill"]::before {
   content: "\ea61";
 }
-
-.cashbound-icon[data-icon="add"]::before {
+.cashbound-icon[data-icon="notification-line"]::before {
   content: "\ea62";
 }
-
-.cashbound-icon[data-icon="label-category-fill"]::before {
+.cashbound-icon[data-icon="add"]::before {
   content: "\ea63";
 }
-
-.cashbound-icon[data-icon="label-category-line"]::before {
+.cashbound-icon[data-icon="label-category-fill"]::before {
   content: "\ea64";
 }
-
-.cashbound-icon[data-icon="image-fill"]::before {
+.cashbound-icon[data-icon="label-category-line"]::before {
   content: "\ea65";
 }
-
-.cashbound-icon[data-icon="image-line"]::before {
+.cashbound-icon[data-icon="image-fill"]::before {
   content: "\ea66";
 }
-
-.cashbound-icon[data-icon="add-image-fill"]::before {
+.cashbound-icon[data-icon="image-line"]::before {
   content: "\ea67";
 }
-
-.cashbound-icon[data-icon="add-image-line"]::before {
+.cashbound-icon[data-icon="add-image-fill"]::before {
   content: "\ea68";
 }
-
-.cashbound-icon[data-icon="check-circle-fill"]::before {
+.cashbound-icon[data-icon="add-image-line"]::before {
   content: "\ea69";
 }
-
-.cashbound-icon[data-icon="check-circle-line"]::before {
+.cashbound-icon[data-icon="check-circle-fill"]::before {
   content: "\ea6a";
 }
-
-.cashbound-icon[data-icon="remove"]::before {
+.cashbound-icon[data-icon="check-circle-line"]::before {
   content: "\ea6b";
 }
-
-.cashbound-icon[data-icon="delete-line"]::before {
+.cashbound-icon[data-icon="remove"]::before {
   content: "\ea6c";
 }
-
-.cashbound-icon[data-icon="delete-fill"]::before {
+.cashbound-icon[data-icon="delete-line"]::before {
   content: "\ea6d";
 }
-
-.cashbound-icon[data-icon="edit-fill"]::before {
+.cashbound-icon[data-icon="delete-fill"]::before {
   content: "\ea6e";
 }
-
-.cashbound-icon[data-icon="edit-line"]::before {
+.cashbound-icon[data-icon="edit-fill"]::before {
   content: "\ea6f";
 }
-
-.cashbound-icon[data-icon="view-list-line"]::before {
+.cashbound-icon[data-icon="edit-line"]::before {
   content: "\ea70";
 }
-
-.cashbound-icon[data-icon="view-list-fill"]::before {
+.cashbound-icon[data-icon="view-list-line"]::before {
   content: "\ea71";
 }
-
-.cashbound-icon[data-icon="scan-document-fill"]::before {
+.cashbound-icon[data-icon="view-list-fill"]::before {
   content: "\ea72";
 }
-
-.cashbound-icon[data-icon="scan-document-line"]::before {
+.cashbound-icon[data-icon="scan-document-fill"]::before {
   content: "\ea73";
 }
-
-.cashbound-icon[data-icon="location-fill"]::before {
+.cashbound-icon[data-icon="scan-document-line"]::before {
   content: "\ea74";
 }
-
-.cashbound-icon[data-icon="location-line"]::before {
+.cashbound-icon[data-icon="location-fill"]::before {
   content: "\ea75";
 }
-
-.cashbound-icon[data-icon="smartphone-line"]::before {
+.cashbound-icon[data-icon="location-line"]::before {
   content: "\ea76";
 }
-
-.cashbound-icon[data-icon="smartphone-fill"]::before {
+.cashbound-icon[data-icon="smartphone-line"]::before {
   content: "\ea77";
 }
-
-.cashbound-icon[data-icon="secure-fill"]::before {
+.cashbound-icon[data-icon="smartphone-fill"]::before {
   content: "\ea78";
 }
-
-.cashbound-icon[data-icon="secure-line"]::before {
+.cashbound-icon[data-icon="secure-fill"]::before {
   content: "\ea79";
+}
+.cashbound-icon[data-icon="secure-line"]::before {
+  content: "\ea7a";
+}
+.cashbound-icon[data-icon="file-save-fill"]::before {
+  content: "\ea7b";
+}
+.cashbound-icon[data-icon="file-save-line"]::before {
+  content: "\ea7c";
+}
+.cashbound-icon[data-icon="bar-chart"]::before {
+  content: "\ea7d";
+}
+.cashbound-icon[data-icon="share"]::before {
+  content: "\ea7e";
+}
+.cashbound-icon[data-icon="trophy-line"]::before {
+  content: "\ea7f";
+}
+.cashbound-icon[data-icon="trophy-fill"]::before {
+  content: "\ea80";
+}
+.cashbound-icon[data-icon="light-bulb-line"]::before {
+  content: "\ea81";
+}
+.cashbound-icon[data-icon="light-bulb-fill"]::before {
+  content: "\ea82";
+}
+.cashbound-icon[data-icon="log-out"]::before {
+  content: "\ea83";
+}
+.cashbound-icon[data-icon="group-line"]::before {
+  content: "\ea84";
+}
+.cashbound-icon[data-icon="group-fill"]::before {
+  content: "\ea85";
+}
+.cashbound-icon[data-icon="warning-fill"]::before {
+  content: "\ea86";
+}
+.cashbound-icon[data-icon="warning-line"]::before {
+  content: "\ea87";
+}
+.cashbound-icon[data-icon="circle-swap-vertical-line"]::before {
+  content: "\ea88";
+}
+.cashbound-icon[data-icon="circle-swap-vertical-fill"]::before {
+  content: "\ea89";
+}
+.cashbound-icon[data-icon="swap"]::before {
+  content: "\ea8a";
+}
+.cashbound-icon[data-icon="coffee-line"]::before {
+  content: "\ea8b";
+}
+.cashbound-icon[data-icon="coffee-fill"]::before {
+  content: "\ea8c";
+}
+.cashbound-icon[data-icon="double-arrow-left"]::before {
+  content: "\ea8d";
+}
+.cashbound-icon[data-icon="double-arrow-right"]::before {
+  content: "\ea8e";
+}
+.cashbound-icon[data-icon="copy-fill"]::before {
+  content: "\ea8f";
+}
+.cashbound-icon[data-icon="copy-line"]::before {
+  content: "\ea90";
 }
