@@ -1,0 +1,53 @@
+@use "sass:map";
+
+@use "@/styles/variables" as var;
+
+@use "@/styles/function" as func;
+
+@use "@/styles/mixin" as mixin;
+
+.checkbox {
+  position: relative;
+  width: fit-content;
+
+  .checkbox-wrapper {
+    [data-enable-label="true"] {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .checkmark {
+      display: contents;
+
+      [data-check="false"] {
+        display: inline-block;
+      }
+
+      [data-check="true"] {
+        display: none !important;
+      }
+    }
+
+    input {
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      opacity: 0;
+      height: 100%;
+
+      &:checked {
+        + .checkmark {
+          [data-check="false"] {
+            display: none !important;
+          }
+
+          [data-check="true"] {
+            display: inline-block !important;
+          }
+        }
+      }
+    }
+  }
+}
