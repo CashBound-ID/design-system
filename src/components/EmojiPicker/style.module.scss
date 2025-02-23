@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@use "@/styles/variables" as var;
+@use "../../styles/variables" as var;
 
 .emoji-picker {
   position: relative;

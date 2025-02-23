@@ -1,6 +1,19 @@
 import eslintConfig from '@fit-hub-indonesia/eslint/react.js';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 
+import FILE_LIST from "./etc/shells/entrypoint-file.cjs";
+
+const ignoredGeneratedFile = FILE_LIST.reduce(
+  (result, item) => {
+    const { name } = item;
+
+    result.push(
+      ...[`${name}.js`, `${name}.d.ts`, `${name}.esm.js`, `${name}.esm.d.ts`],
+    );
+    return result;
+  },
+  ["index.js", "index.d.ts", "index.esm.js", "index.esm.d.ts"],
+);
 
 export default eslintConfig([
   {
@@ -13,7 +26,8 @@ export default eslintConfig([
       'coverage/*',
       'dist',
       'rollup.config.mjs',
-      "package.json"
+      "package.json",
+      ...ignoredGeneratedFile,
     ]
   },
   {

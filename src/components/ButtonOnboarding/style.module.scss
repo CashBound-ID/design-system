@@ -1,8 +1,8 @@
 @use "sass:map";
 
-@use "@/styles/variables" as var;
+@use "../../styles/variables" as var;
 
-@use "@/styles/mixin" as mixin;
+@use "../../styles/mixin" as mixin;
 
 .button-onboarding {
   align-items: center;

@@ -37,11 +37,34 @@ const config: StorybookConfig = {
       });
 
       config.module.rules.push({
+        exclude: /\.module.s[ac]ss$/,
         test: /\.s[ac]ss$/,
         use: [
           'style-loader',
+          { loader: 'css-loader' },
           {
-            loader: 'css-loader'
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                outputStyle: 'compressed'
+              }
+            }
+          }
+        ]
+      });
+
+      config.module.rules.push({
+        test: /\.module.s[ac]ss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: {
+                localIdentName: '[path][name]__[local]--[hash:base64:5]'
+              }
+            }
           },
           {
             loader: 'sass-loader',

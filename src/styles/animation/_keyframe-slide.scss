@@ -1,0 +1,21 @@
+@keyframes keyframe-slide-top {
+
+  0% {
+    translate: 0 100%;
+  }
+
+  100% {
+    translate: 0 0;
+  }
+}
+
+@keyframes keyframe-slide-bottom {
+
+  0% {
+    translate: 0 0;
+  }
+
+  100% {
+    translate: 0 100%;
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "checkJs": false,
+    "declaration": true,
+    "disableSizeLimit": false,
+    "importHelpers": false,
+    "downlevelIteration": true,
+    "emitDeclarationOnly": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "es5",
+      "es2015",
+      "es2016",
+      "es2017",
+      "es2018",
+      "es2019",
+      "es2020",
+      "dom"
+    ],
+    "maxNodeModuleJsDepth": 0,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmitHelpers": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": false,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./dist",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "plugins": [
+      {
+        "afterDeclarations": true,
+        "exclude": [
+          "**/node_modules/**"
+        ],
+        "transform": "typescript-transform-paths"
+      }
+    ],
+    "pretty": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "target": "es5"
+  },
+  "exclude": [
+    "src/components/**/stories/*",
+    "src/**/__tests__/*.test.*",
+    "src/setup-test.*",
+    "src/storybook/*",
+    "dist",
+    "node_modules"
+  ],
+  "include": ["./src"]
+}

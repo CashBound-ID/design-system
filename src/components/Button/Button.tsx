@@ -45,7 +45,8 @@ const Button = (props: ButtonProps) => {
   const { onClick } = useButtonRipples({
     enabled: variant === 'fill' || variant === 'outline',
     onClick: onClickProps,
-    ripplesClassName: styles['button-ripple']
+    // ripplesClassName: styles['button-ripple']
+    ripplesClassName: ''
   });
 
   const { iconSize, spinnerColor, spinnerSize, textModifier } = useMemo(() => {

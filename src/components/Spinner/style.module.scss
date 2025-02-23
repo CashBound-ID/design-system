@@ -1,8 +1,8 @@
 @use "sass:map";
 
-@use "@/styles/variables" as var;
+@use "../../styles/variables" as var;
 
-@use "@/styles/animation";
+@use "../../styles/animation/keyframe-rotation";
 
 .spinner {
   align-items: center;

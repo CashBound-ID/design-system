@@ -56,7 +56,7 @@ const Typography = <T extends Element>(
   if (res.dangerouslySetInnerHTML) {
     return createElement(tag, {
       ...res,
-      className: styles['typography'],
+      className: cx(styles['typography'], className),
       'data-font-family': fontFamily,
       'data-font-weight': fontWeight,
       'data-italic': Boolean(italic),

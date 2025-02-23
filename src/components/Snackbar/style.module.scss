@@ -1,10 +1,12 @@
 @use "sass:map";
 
-@use "@/styles/animation";
+@use "../../styles/variables" as var;
 
-@use "@/styles/variables" as var;
+@use "../../styles/mixin" as mixin;
 
-@use "@/styles/mixin" as mixin;
+@use "../../styles/animation/keyframe-fade-up";
+
+@use "../../styles/animation/keyframe-fade-scale";
 
 .snackbar {
   left: 0;
