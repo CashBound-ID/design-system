@@ -2,13 +2,13 @@ import type { MouseEventHandler, ReactNode } from 'react';
 import { type HTMLAttributes, useCallback, useRef } from 'react';
 
 import Flex from '@/components/Flex';
+import Icon from '@/components/Icon';
 import Typography from '@/components/Typography';
 
 import { cx } from '@/utils/css';
 import { GRAYMAUVE900, GRAYMAUVE1200, VIOLET900 } from '@/constant/theme';
 import type { GenericHTMLProps } from '@/types/react';
 
-import Icon from '../Icon';
 import * as styles from './style.module.scss';
 
 type CheckboxHTMLProps = GenericHTMLProps<HTMLAttributes<HTMLElement>>;
