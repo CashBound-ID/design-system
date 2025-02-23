@@ -4,7 +4,7 @@
       "allowSyntheticDefaultImports": true,
       "allowUnreachableCode": false,
       "checkJs": false,
-      "declaration": false,
+      "declaration": true,
       "disableSizeLimit": false,
       "importHelpers": false,
       "downlevelIteration": true,

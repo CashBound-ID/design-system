@@ -21,8 +21,8 @@ const FILE_LIST = require('../config/entrypoint-file.json');
  * @param {Array<{ name: string, file: string }>} FILE_LIST - Array of file objects containing the `name` and `file` paths.
  */
 FILE_LIST.forEach((item) => {
-  const modernJSContent = `export { default } from '${item.file}/index.esm';\n`;
-  const oldJSContent = `module.exports = require('${item.file}');\n`;
+  const modernJSContent = `'use client';\nexport { default } from '${item.file}/index.esm';\n`;
+  const oldJSContent = `'use client';\nmodule.exports = require('${item.file}');\n`;
   const modernDTSContent = `export { default } from '${item.file}/index.esm';\n`;
   const dtsContent = `export { default } from '${item.file}';\n`;
 

@@ -1,3 +1,4 @@
+'use client';
 import modules from './dist/context/DesignSystem/index.esm';
 
 export { modules as default };

@@ -145,7 +145,7 @@ table {
   -webkit-font-smoothing: antialiased;
 }
 
-.animate {
+:global(.animate) {
   animation-delay: 0s;
   animation-direction: normal;
   animation-duration: 250ms;

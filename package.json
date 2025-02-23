@@ -1,9 +1,9 @@
 {
-  "dependencies": {
+  "peerDependencies": {
     "dayjs": "^1.11.13",
     "emoji-picker-react": "^4.12.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
@@ -95,7 +95,7 @@
     "type-check": "tsc --noEmit"
   },
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.2-beta-test.7",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
