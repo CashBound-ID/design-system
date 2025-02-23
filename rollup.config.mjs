@@ -5,7 +5,6 @@ import fs from 'fs';
 import path from 'path';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import replace from '@rollup/plugin-replace';
-import { purgeCSSPlugin } from '@fullhuman/postcss-purgecss';
 
 import postcss from 'rollup-plugin-postcss';
 import { swc } from 'rollup-plugin-swc3';

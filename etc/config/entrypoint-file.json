@@ -1,5 +1,9 @@
 [
   {
+    "file":"./dist/components/Banner",
+    "name":"banner"
+  },
+  {
     "file":"./dist/components/BottomNavigation",
     "name":"bottom-navigation"
   },
@@ -60,10 +64,6 @@
     "name":"images"
   },
   {
-    "file":"./dist/components/MonthPicker",
-    "name":"month-picker"
-  },
-  {
     "file":"./dist/components/NavigationHeader",
     "name":"navigation-header"
   },
@@ -82,6 +82,10 @@
   {
     "file":"./dist/components/Shared/Portal",
     "name":"portal"
+  },
+  {
+    "file":"./dist/components/Shared/Section",
+    "name":"section"
   },
   {
     "file":"./dist/components/Shared/SingleSwitch",
@@ -106,5 +110,9 @@
   {
     "file":"./dist/components/Tooltip",
     "name":"tooltip"
+  },
+  {
+    "file":"./dist/components/Typography",
+    "name":"typography"
   }
 ]

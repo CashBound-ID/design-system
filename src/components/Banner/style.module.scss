@@ -1,8 +1,8 @@
 @use "sass:map";
 
-@use "@/styles/variables" as var;
+@use "../../styles/variables" as var;
 
-@use "@/styles/function" as func;
+@use "../../styles/function" as func;
 
 $banner-theme: (
   neutral: (
@@ -24,47 +24,51 @@ $banner-theme: (
 );
 
 .banner {
+  border: 1px solid;
+  border-radius: 8px;
   display: flex;
   gap: 8px;
-  width: 328px;
   padding: 12px;
-  border-radius: 8px;
-  border: 1px solid;
+  width: 328px;
   width: var(--width);
 
   &[data-type="neutral"] {
-    background-color: func.get-attribute(
-      $banner-theme,
-      neutral,
-      background-color
-    );
+    background-color:
+      func.get-attribute(
+        $banner-theme,
+        neutral,
+        background-color
+      );
     border-color: func.get-attribute($banner-theme, neutral, border-color);
   }
 
   &[data-type="success"] {
-    background-color: func.get-attribute(
-      $banner-theme,
-      success,
-      background-color
-    );
+    background-color:
+      func.get-attribute(
+        $banner-theme,
+        success,
+        background-color
+      );
     border-color: func.get-attribute($banner-theme, success, border-color);
   }
 
   &[data-type="error"] {
-    background-color: func.get-attribute(
-      $banner-theme,
-      error,
-      background-color
-    );
+    background-color:
+      func.get-attribute(
+        $banner-theme,
+        error,
+        background-color
+      );
     border-color: func.get-attribute($banner-theme, error, border-color);
   }
 
   &[data-type="warning"] {
-    background-color: func.get-attribute(
-      $banner-theme,
-      warning,
-      background-color
-    );
+    background-color:
+      func.get-attribute(
+        $banner-theme,
+        warning,
+        background-color
+      );
     border-color: func.get-attribute($banner-theme, warning, border-color);
   }
 

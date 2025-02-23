@@ -6,11 +6,16 @@ const FILE_LIST = require('../config/entrypoint-file.json');
 // Generated Git Ignore File
 /////////////////////////////////////////////////////////////////////////////
 
+/**
+ * Removes the generated section in the `.gitignore` file and updates it
+ * with the list of files from `FILE_LIST`.
+ */
 const removeGeneratedSectionGitIgnore = () => {
-  const GIT_IGNORE_START_LINE = '### Start Generated Section'
-  const GIT_IGNORE_END_LINE = '### End Generated Section'
+  const GIT_IGNORE_START_LINE = '### Start Generated Section';
+  const GIT_IGNORE_END_LINE = '### End Generated Section';
   const GIT_IGNORE_FILE_PATH = path.join(__dirname, '../../.gitignore');
 
+  // Read the content of .gitignore
   const content = fs.readFileSync(GIT_IGNORE_FILE_PATH, 'utf8');
   const lines = content.split('\n');
 
@@ -26,54 +31,66 @@ const removeGeneratedSectionGitIgnore = () => {
     }
     return !inGeneratedSection;
   });
-  
-  filteredLines.push(GIT_IGNORE_START_LINE)
+
+  // Append the new generated section
+  filteredLines.push(GIT_IGNORE_START_LINE);
   FILE_LIST.forEach((item) => {
-    filteredLines.push(...[
-      `${item.name}.js`,
-      `${item.name}.d.ts`,
-      `${item.name}.esm.js`,
-      `${item.name}.esm.d.ts`,
-    ])
-  })
-  filteredLines.push(GIT_IGNORE_END_LINE)
+    filteredLines.push(
+      ...[
+        `${item.name}.js`,
+        `${item.name}.d.ts`,
+        `${item.name}.esm.js`,
+        `${item.name}.esm.d.ts`
+      ]
+    );
+  });
+  filteredLines.push(GIT_IGNORE_END_LINE);
 
-  fs.writeFileSync(GIT_IGNORE_FILE_PATH, filteredLines.join("\n"), "utf8");
+  // Write the updated content back to .gitignore
+  fs.writeFileSync(GIT_IGNORE_FILE_PATH, filteredLines.join('\n'), 'utf8');
 };
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 // Generate Exposed File Package JSON
 /////////////////////////////////////////////////////////////////////////////
 
+/**
+ * Updates `package.json` by adding an array of files that should be included
+ * in the published package.
+ */
 const registerExposedFiles = () => {
   const PACKAGE_JSON_FILE_PATH = path.join(__dirname, '../../package.json');
-  const PACKAGE_JSON_CONTENT = require(PACKAGE_JSON_FILE_PATH)
-  
+  const PACKAGE_JSON_CONTENT = require(PACKAGE_JSON_FILE_PATH);
+
+  // Clone package.json content
   const content = { ...PACKAGE_JSON_CONTENT };
   content.files = [];
 
-  content.files.push(...[
-    "dist",
-    "index.js",
-    "index.d.ts",
-    "index.esm.js",
-    "index.esm.d.ts"
-  ])
+  // Add default files
+  content.files.push(
+    ...['dist', 'index.js', 'index.d.ts', 'index.esm.js', 'index.esm.d.ts']
+  );
 
+  // Add files from FILE_LIST
   FILE_LIST.forEach((item) => {
-    content.files.push(...[
-      `${item.name}.js`,
-      `${item.name}.d.ts`,
-      `${item.name}.esm.js`,
-      `${item.name}.esm.d.ts`,
-    ])
-  })
+    content.files.push(
+      ...[
+        `${item.name}.js`,
+        `${item.name}.d.ts`,
+        `${item.name}.esm.js`,
+        `${item.name}.esm.d.ts`
+      ]
+    );
+  });
 
-  fs.writeFileSync(PACKAGE_JSON_FILE_PATH, JSON.stringify(content, null, 2), "utf8");
+  // Write the updated package.json file
+  fs.writeFileSync(
+    PACKAGE_JSON_FILE_PATH,
+    JSON.stringify(content, null, 2),
+    'utf8'
+  );
 };
 
-
+// Execute the functions
 removeGeneratedSectionGitIgnore();
 registerExposedFiles();

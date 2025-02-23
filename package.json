@@ -75,8 +75,7 @@
       "plugin:storybook/recommended"
     ]
   },
-  "name": "design-system",
-  "private": true,
+  "name": "@cashbound-id/design-system",
   "scripts": {
     "build": "pnpm run build:dec && pnpm run build:ts",
     "build:dec": "tsc -p tsconfig.build.json --emitDeclarationOnly",
@@ -96,13 +95,23 @@
     "type-check": "tsc --noEmit"
   },
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.2",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "url": "git@github.com:CashBound-ID/design-system.git"
+  },
   "files": [
     "dist",
     "index.js",
     "index.d.ts",
     "index.esm.js",
     "index.esm.d.ts",
+    "banner.js",
+    "banner.d.ts",
+    "banner.esm.js",
+    "banner.esm.d.ts",
     "bottom-navigation.js",
     "bottom-navigation.d.ts",
     "bottom-navigation.esm.js",
@@ -163,10 +172,6 @@
     "images.d.ts",
     "images.esm.js",
     "images.esm.d.ts",
-    "month-picker.js",
-    "month-picker.d.ts",
-    "month-picker.esm.js",
-    "month-picker.esm.d.ts",
     "navigation-header.js",
     "navigation-header.d.ts",
     "navigation-header.esm.js",
@@ -187,6 +192,10 @@
     "portal.d.ts",
     "portal.esm.js",
     "portal.esm.d.ts",
+    "section.js",
+    "section.d.ts",
+    "section.esm.js",
+    "section.esm.d.ts",
     "single-switch.js",
     "single-switch.d.ts",
     "single-switch.esm.js",
@@ -210,6 +219,10 @@
     "tooltip.js",
     "tooltip.d.ts",
     "tooltip.esm.js",
-    "tooltip.esm.d.ts"
+    "tooltip.esm.d.ts",
+    "typography.js",
+    "typography.d.ts",
+    "typography.esm.js",
+    "typography.esm.d.ts"
   ]
 }

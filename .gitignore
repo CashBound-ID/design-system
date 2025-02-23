@@ -29,6 +29,10 @@ dist-ssr
 storybook-static
 
 ### Start Generated Section
+banner.js
+banner.d.ts
+banner.esm.js
+banner.esm.d.ts
 bottom-navigation.js
 bottom-navigation.d.ts
 bottom-navigation.esm.js
@@ -89,10 +93,6 @@ images.js
 images.d.ts
 images.esm.js
 images.esm.d.ts
-month-picker.js
-month-picker.d.ts
-month-picker.esm.js
-month-picker.esm.d.ts
 navigation-header.js
 navigation-header.d.ts
 navigation-header.esm.js
@@ -113,6 +113,10 @@ portal.js
 portal.d.ts
 portal.esm.js
 portal.esm.d.ts
+section.js
+section.d.ts
+section.esm.js
+section.esm.d.ts
 single-switch.js
 single-switch.d.ts
 single-switch.esm.js
@@ -137,4 +141,8 @@ tooltip.js
 tooltip.d.ts
 tooltip.esm.js
 tooltip.esm.d.ts
+typography.js
+typography.d.ts
+typography.esm.js
+typography.esm.d.ts
 ### End Generated Section
