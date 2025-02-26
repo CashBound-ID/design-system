@@ -95,7 +95,7 @@
     "type-check": "tsc --noEmit"
   },
   "type": "module",
-  "version": "0.0.2-beta-test.7",
+  "version": "0.0.2-beta-test.8",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
