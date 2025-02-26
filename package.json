@@ -95,7 +95,7 @@
     "type-check": "tsc --noEmit"
   },
   "type": "module",
-  "version": "0.0.2-beta-test.8",
+  "version": "0.0.2-beta-test.9",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
@@ -228,5 +228,163 @@
     "typography.d.ts",
     "typography.esm.js",
     "typography.esm.d.ts"
-  ]
+  ],
+  "exports": {
+    ".": {
+      "import": "./index.esm.js",
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./banner": {
+      "import": "./banner.esm.js",
+      "require": "./banner.js",
+      "types": "./banner.d.ts"
+    },
+    "./bottom-navigation": {
+      "import": "./bottom-navigation.esm.js",
+      "require": "./bottom-navigation.js",
+      "types": "./bottom-navigation.d.ts"
+    },
+    "./bottom-sheet": {
+      "import": "./bottom-sheet.esm.js",
+      "require": "./bottom-sheet.js",
+      "types": "./bottom-sheet.d.ts"
+    },
+    "./button": {
+      "import": "./button.esm.js",
+      "require": "./button.js",
+      "types": "./button.d.ts"
+    },
+    "./button-icon": {
+      "import": "./button-icon.esm.js",
+      "require": "./button-icon.js",
+      "types": "./button-icon.d.ts"
+    },
+    "./button-onboarding": {
+      "import": "./button-onboarding.esm.js",
+      "require": "./button-onboarding.js",
+      "types": "./button-onboarding.d.ts"
+    },
+    "./calendar": {
+      "import": "./calendar.esm.js",
+      "require": "./calendar.js",
+      "types": "./calendar.d.ts"
+    },
+    "./card": {
+      "import": "./card.esm.js",
+      "require": "./card.js",
+      "types": "./card.d.ts"
+    },
+    "./checkbox": {
+      "import": "./checkbox.esm.js",
+      "require": "./checkbox.js",
+      "types": "./checkbox.d.ts"
+    },
+    "./chip": {
+      "import": "./chip.esm.js",
+      "require": "./chip.js",
+      "types": "./chip.d.ts"
+    },
+    "./container": {
+      "import": "./container.esm.js",
+      "require": "./container.js",
+      "types": "./container.d.ts"
+    },
+    "./datepicker": {
+      "import": "./datepicker.esm.js",
+      "require": "./datepicker.js",
+      "types": "./datepicker.d.ts"
+    },
+    "./emoji-picker": {
+      "import": "./emoji-picker.esm.js",
+      "require": "./emoji-picker.js",
+      "types": "./emoji-picker.d.ts"
+    },
+    "./flex": {
+      "import": "./flex.esm.js",
+      "require": "./flex.js",
+      "types": "./flex.d.ts"
+    },
+    "./grid": {
+      "import": "./grid.esm.js",
+      "require": "./grid.js",
+      "types": "./grid.d.ts"
+    },
+    "./icon": {
+      "import": "./icon.esm.js",
+      "require": "./icon.js",
+      "types": "./icon.d.ts"
+    },
+    "./images": {
+      "import": "./images.esm.js",
+      "require": "./images.js",
+      "types": "./images.d.ts"
+    },
+    "./navigation-header": {
+      "import": "./navigation-header.esm.js",
+      "require": "./navigation-header.js",
+      "types": "./navigation-header.d.ts"
+    },
+    "./form-item": {
+      "import": "./form-item.esm.js",
+      "require": "./form-item.js",
+      "types": "./form-item.d.ts"
+    },
+    "./multi-switch": {
+      "import": "./multi-switch.esm.js",
+      "require": "./multi-switch.js",
+      "types": "./multi-switch.d.ts"
+    },
+    "./overlay": {
+      "import": "./overlay.esm.js",
+      "require": "./overlay.js",
+      "types": "./overlay.d.ts"
+    },
+    "./portal": {
+      "import": "./portal.esm.js",
+      "require": "./portal.js",
+      "types": "./portal.d.ts"
+    },
+    "./section": {
+      "import": "./section.esm.js",
+      "require": "./section.js",
+      "types": "./section.d.ts"
+    },
+    "./single-switch": {
+      "import": "./single-switch.esm.js",
+      "require": "./single-switch.js",
+      "types": "./single-switch.d.ts"
+    },
+    "./snackbar": {
+      "import": "./snackbar.esm.js",
+      "require": "./snackbar.js",
+      "types": "./snackbar.d.ts"
+    },
+    "./spinner": {
+      "import": "./spinner.esm.js",
+      "require": "./spinner.js",
+      "types": "./spinner.d.ts"
+    },
+    "./tabs": {
+      "import": "./tabs.esm.js",
+      "require": "./tabs.js",
+      "types": "./tabs.d.ts"
+    },
+    "./toggle-button": {
+      "import": "./toggle-button.esm.js",
+      "require": "./toggle-button.js",
+      "types": "./toggle-button.d.ts"
+    },
+    "./tooltip": {
+      "import": "./tooltip.esm.js",
+      "require": "./tooltip.js",
+      "types": "./tooltip.d.ts"
+    },
+    "./typography": {
+      "import": "./typography.esm.js",
+      "require": "./typography.js",
+      "types": "./typography.d.ts"
+    }
+  }
 }

@@ -65,13 +65,20 @@ const registerExposedFiles = () => {
   // Clone package.json content
   const content = { ...PACKAGE_JSON_CONTENT };
   content.files = [];
+  content.exports = {};
 
-  // Add default files
+  // Add default files & exports
   content.files.push(
     ...['dist', 'index.js', 'index.d.ts', 'index.esm.js', 'index.esm.d.ts']
   );
+  content.exports['.'] = {
+    import: './index.esm.js',
+    require: './index.js',
+    types: './index.d.ts'
+  }
+  content.exports['./styles.css'] = './dist/styles.css'
 
-  // Add files from FILE_LIST
+  // Add files & exports from FILE_LIST
   FILE_LIST.forEach((item) => {
     content.files.push(
       ...[
@@ -81,6 +88,12 @@ const registerExposedFiles = () => {
         `${item.name}.esm.d.ts`
       ]
     );
+
+    content.exports[`./${item.name}`] = {
+      import: `./${item.name}.esm.js`,
+      require: `./${item.name}.js`,
+      types: `./${item.name}.d.ts`
+    }
   });
 
   // Write the updated package.json file
