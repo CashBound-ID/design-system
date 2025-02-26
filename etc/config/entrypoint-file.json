@@ -32,6 +32,10 @@
     "name":"card"
   },
   {
+    "file":"./dist/components/Checkbox",
+    "name":"checkbox"
+  },
+  {
     "file":"./dist/components/Chip",
     "name":"chip"
   },
