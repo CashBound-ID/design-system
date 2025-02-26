@@ -32,7 +32,8 @@ type Story = StoryObj<typeof Checkbox>;
 
 export const Basic: Story = {
   args: {
-    label: 'Lorem Ipsum'
+    label: 'Lorem Ipsum',
+    theme: 'default'
   },
   parameters: {
     docs: {

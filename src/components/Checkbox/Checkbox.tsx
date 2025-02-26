@@ -1,12 +1,13 @@
 import type { MouseEventHandler, ReactNode } from 'react';
-import { type HTMLAttributes, useCallback, useRef } from 'react';
+import { type HTMLAttributes, useCallback, useMemo, useRef } from 'react';
+
+import { useDesignSystemProvider } from '@/context/DesignSystem';
 
 import Flex from '@/components/Flex';
 import Icon from '@/components/Icon';
 import Typography from '@/components/Typography';
 
 import { cx } from '@/utils/css';
-import { GRAYMAUVE900, GRAYMAUVE1200, VIOLET900 } from '@/constant/theme';
 import type { GenericHTMLProps } from '@/types/react';
 
 import * as styles from './style.module.scss';
@@ -35,6 +36,10 @@ interface CheckboxProps extends CheckboxHTMLProps {
    */
   id?: string;
   /**
+   * Showing indeterminate state (use with checked prop).
+   */
+  indeterminate?: boolean;
+  /**
    * Text label displayed next to the checkbox
    */
   label?: ReactNode;
@@ -42,6 +47,10 @@ interface CheckboxProps extends CheckboxHTMLProps {
    * Name attribute for the checkbox input
    */
   name?: string;
+  /**
+   * Whether the checkbox should indicate an error, success or default UI.
+   */
+  theme?: 'default' | 'error' | 'success';
 }
 
 const Checkbox = (props: CheckboxProps) => {
@@ -52,10 +61,13 @@ const Checkbox = (props: CheckboxProps) => {
     disabled,
     enableClickLabel = false,
     id,
+    indeterminate = false,
     label,
     onChange,
+    theme = 'default',
     ...res
   } = props;
+  const { color: colorTheme } = useDesignSystemProvider();
   const checkboxRef = useRef<HTMLInputElement>(null);
 
   const handleOnClickLabel: MouseEventHandler<HTMLInputElement> = useCallback(
@@ -65,6 +77,22 @@ const Checkbox = (props: CheckboxProps) => {
     },
     [enableClickLabel]
   );
+
+  const { color } = useMemo(() => {
+    let color = colorTheme.VIOLET900;
+    if (theme === 'error') color = colorTheme.REDTOMATO900;
+    if (theme === 'success') color = colorTheme.GREENGRASS900;
+    if (disabled) color = colorTheme.GRAYMAUVE900;
+
+    return { color };
+  }, [
+    colorTheme.GRAYMAUVE900,
+    colorTheme.GREENGRASS900,
+    colorTheme.REDTOMATO900,
+    colorTheme.VIOLET900,
+    disabled,
+    theme
+  ]);
 
   return (
     <Flex gap={8} className={cx(styles['checkbox'], className)}>
@@ -84,19 +112,20 @@ const Checkbox = (props: CheckboxProps) => {
           onChange={onChange}
           ref={checkboxRef}
         />
-        <span className={styles['checkmark']} data-checkbox>
-          <Icon
-            data-check={false}
-            icon="box"
-            size={18}
-            color={disabled ? GRAYMAUVE900 : VIOLET900}
-          />
-          <Icon
-            data-check={true}
-            icon="check-box-fill"
-            size={18}
-            color={disabled ? GRAYMAUVE900 : VIOLET900}
-          />
+        <span className={styles['checkmark']}>
+          <Icon data-check={false} icon="box" size={18} color={color} />
+          {indeterminate ? (
+            <Icon data-check={true} icon="box" size={18} color={color}>
+              <span data-indeterminate style={{ backgroundColor: color }} />
+            </Icon>
+          ) : (
+            <Icon
+              data-check={true}
+              icon="check-box-fill"
+              size={18}
+              color={color}
+            />
+          )}
         </span>
 
         {label && (
@@ -104,7 +133,9 @@ const Checkbox = (props: CheckboxProps) => {
             tag="p"
             onClick={handleOnClickLabel}
             data-enable-label={enableClickLabel}
-            color={disabled ? GRAYMAUVE900 : GRAYMAUVE1200}
+            color={
+              disabled ? colorTheme.GRAYMAUVE900 : colorTheme.GRAYMAUVE1200
+            }
           >
             {label}
           </Typography>
