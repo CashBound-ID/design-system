@@ -59,6 +59,8 @@ export type FormItemContentFnType = GenericCompoundComponentType<
 // Helper Section
 /////////////////////////////////////////////////////////////////////////////
 
+export type ThemeType = 'initial' | 'disabled' | 'error' | 'success';
+
 export interface FormItemHelperProps {
   /**
    * The helper text content.
@@ -68,7 +70,7 @@ export interface FormItemHelperProps {
   /**
    * Whether the helper text should indicate an error, success, disabled or initial UI.
    */
-  theme?: 'initial' | 'disabled' | 'error' | 'success';
+  theme?: ThemeType;
 }
 
 export type FormItemHelperFnType = GenericCompoundComponentType<
@@ -98,6 +100,11 @@ export type FormItemFnType = ((
   Content: FormItemContentFnType;
 
   /**
+   * The counter section of the form item.
+   */
+  Counter: FormItemCounterFnType;
+
+  /**
    * The helper section of the form item.
    */
   Helper: FormItemHelperFnType;
@@ -107,3 +114,33 @@ export type FormItemFnType = ((
    */
   Label: FormItemLabelFnType;
 };
+
+/////////////////////////////////////////////////////////////////////////////
+// Counter Section
+/////////////////////////////////////////////////////////////////////////////
+
+export interface FormItemCounterProps {
+  /**
+   * Optional CSS class name for styling the counter
+   */
+  className?: string;
+
+  /**
+   * The current count value to display
+   */
+  currentCounter: number;
+
+  /**
+   * Optional maximum length/limit for the counter
+   */
+  maxLength?: number;
+}
+
+// export type FormItemCounterFnType = (
+//   props: FormItemCounterProps
+// ) => JSX.Element, 'form-item-helper';
+
+export type FormItemCounterFnType = GenericCompoundComponentType<
+  (props: FormItemCounterProps) => JSX.Element,
+  'form-item-counter'
+>;
