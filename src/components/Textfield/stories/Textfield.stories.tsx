@@ -89,3 +89,28 @@ export const TextfieldWithSuffixIcon: Story = {
     width: '500px'
   }
 };
+
+export const TextfieldError: Story = {
+  args: {
+    error: true,
+    label: 'Label',
+    width: '500px'
+  }
+};
+
+export const TextfieldErrorWithHelper: Story = {
+  args: {
+    error: true,
+    helper: 'Error message',
+    label: 'Label',
+    width: '500px'
+  }
+};
+
+export const TextfieldESuccess: Story = {
+  args: {
+    label: 'Label',
+    success: true,
+    width: '500px'
+  }
+};
