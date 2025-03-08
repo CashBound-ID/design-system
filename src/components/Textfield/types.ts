@@ -1,6 +1,5 @@
-import type { InputHTMLAttributes } from 'react';
+import type { InputHTMLAttributes, ReactNode } from 'react';
 
-import type { CashboundIconType } from '@/types/icon';
 import type { BaseInputProps } from '@/types/input';
 import type { GenericHTMLProps } from '@/types/react';
 
@@ -8,21 +7,6 @@ type TextfieldHTMLProps = Omit<
   GenericHTMLProps<InputHTMLAttributes<HTMLInputElement>>,
   'onChange' | 'value' | 'disabled' | 'prefix' | 'suffix'
 >;
-
-interface BaseAdornmentType {
-  color?: string;
-  variant: 'icon' | 'text';
-}
-
-interface IconAdornmentType extends BaseAdornmentType {
-  content: CashboundIconType;
-}
-
-interface TextAdornmentType extends BaseAdornmentType {
-  content: string;
-}
-
-export type AdornmentType = IconAdornmentType | TextAdornmentType;
 
 export type TextfieldProps = TextfieldHTMLProps &
   BaseInputProps & {
@@ -55,7 +39,7 @@ export type TextfieldProps = TextfieldHTMLProps &
      * Element to be displayed at the beginning of the input field.
      * Can be either an icon or text.
      */
-    prefix?: AdornmentType;
+    prefix?: ReactNode;
 
     /**
      * A regular expression to validate the input value.
@@ -72,7 +56,7 @@ export type TextfieldProps = TextfieldHTMLProps &
      * Element to be displayed at the end of the input field.
      * Can be either an icon or text.
      */
-    suffix?: AdornmentType;
+    suffix?: ReactNode;
     /**
      * The current value of the textarea.
      */

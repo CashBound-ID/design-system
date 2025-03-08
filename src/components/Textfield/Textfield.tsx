@@ -19,7 +19,6 @@ import { noop } from '@/utils/misc';
 import { DEFAULT_DEBOUNCE_DELAY } from '@/constant/input';
 import { GRAYMAUVE1000, VIOLET900 } from '@/constant/theme';
 
-import Adornment from './Adornment';
 import * as styles from './style.module.scss';
 import type { TextfieldProps } from './types';
 
@@ -194,13 +193,7 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             data-success={success && !disabled}
             data-disabled={disabled}
           >
-            {prefix && prefix.variant && prefix.content && (
-              <Adornment
-                variant={prefix.variant === 'icon' ? 'text' : prefix.variant}
-                content={prefix.content}
-                color={prefix.color}
-              />
-            )}
+            {prefix && <span>{prefix}</span>}
 
             <input
               {...res}
@@ -232,13 +225,7 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
               />
             )}
 
-            {suffix && suffix.variant && suffix.content && (
-              <Adornment
-                variant={suffix.variant}
-                content={suffix.content}
-                color={suffix.color}
-              />
-            )}
+            {suffix && <span>{suffix}</span>}
 
             {/* INFO: Icon to clear the value */}
             {enableClear && !loading && Boolean(value) && (
