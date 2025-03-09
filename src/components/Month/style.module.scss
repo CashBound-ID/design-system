@@ -1,0 +1,146 @@
+@use "../../styles/variables" as var;
+
+@use "../../styles/mixin" as mixin;
+
+.month {
+  max-width: 360px;
+  position: relative;
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    padding: 8px 16px 16px;
+
+    > section {
+      flex: 0 0 calc(100% / 3);
+      width: calc(100% / 3);
+    }
+
+    button {
+      align-items: center;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      height: 48px;
+      justify-content: center;
+      max-height: 48px;
+      position: relative;
+      transition: all var.$transition-duration var.$transition-timing-fn;
+      width: calc(100% / 3);
+
+      @include mixin.button-ripple;
+
+      p {
+        color: var(--GRAYMAUVE1200);
+        transition: all var.$transition-duration var.$transition-timing-fn;
+      }
+
+      &:hover {
+        background: var(--GRAYMAUVE300);
+      }
+
+      &:active {
+        background: var(--GRAYMAUVE400);
+      }
+
+      &:focus {
+        background: var(--WHITE);
+        border-color: var(--BLUE900);
+      }
+
+      &[data-today="true"] {
+        background-color: var(--WHITE);
+        border-color: var(--VIOLET900);
+
+        &:hover {
+          background-color: var(--VIOLET200);
+        }
+
+        &:active {
+          background-color: var(--VIOLET400);
+        }
+
+        &[disabled] {
+          border-color: var(--GRAYMAUVE700);
+        }
+      }
+
+      &[data-selected="true"] {
+        background: var(--VIOLET900);
+        border-color: var(--VIOLET900);
+
+        &:hover {
+          background: var(--VIOLET1000);
+          border-color: var(--VIOLET1000);
+        }
+
+        &:active {
+          background: var(--VIOLET1200);
+          border-color: var(--VIOLET1200);
+        }
+
+        p {
+          color: var(--WHITE);
+        }
+
+        &[disabled] {
+          background: var(--GRAYMAUVE500);
+          border-color: var(--GRAYMAUVE700);
+          cursor: initial;
+
+          p {
+            color: var(--GRAYMAUVE900);
+          }
+        }
+      }
+
+      &[disabled],
+      &[disabled]:hover {
+        background: transparent;
+        cursor: initial;
+
+        p {
+          color: var(--GRAYMAUVE900);
+        }
+      }
+    }
+  }
+}
+
+.month-action-bar {
+  background-color: var(--WHITE);
+  border-bottom: 1px solid var(--GRAYMAUVE100);
+  padding: 16px 16px 0;
+
+  &__button {
+    flex: 0 0 44px;
+    height: 44px;
+    width: 44px;
+
+    > button {
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      height: 44px;
+      width: 44px;
+    }
+  }
+
+  &__month-indicator {
+    flex: 1;
+  }
+
+  &__days {
+    height: 48px;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+
+    > section {
+      flex: 0 0 calc(100% / 7);
+      width: calc(100% / 7);
+    }
+  }
+}
