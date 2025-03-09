@@ -19,6 +19,14 @@ export type MonthProps = {
   selectedDate?: number;
 };
 
+export type MonthRefType = {
+  /**
+   * Sets the current month in the month.
+   * @param {number} args - The month to set (0-11, where 0 = January and 11 = December).
+   */
+  setCurrentYear: (args: number) => void;
+};
+
 export interface MonthActionBarProps {
   /**
    * The current year displayed in the action bar.

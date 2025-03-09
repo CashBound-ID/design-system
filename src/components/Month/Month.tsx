@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { forwardRef, useCallback, useImperativeHandle, useState } from 'react';
 
 import Flex from '@/components/Flex';
 import useMount from '@/hooks/useMount';
@@ -8,13 +8,17 @@ import { setToFirstDayOfMonth } from '@/utils/date';
 import MonthActionBar from './MonthActionBar';
 import Monthitem from './Monthitem';
 import * as styles from './style.module.scss';
-import type { MonthProps, MonthsType } from './types';
+import type { MonthProps, MonthRefType, MonthsType } from './types';
 
-const Month = (props: MonthProps) => {
+const Month = forwardRef<MonthRefType, MonthProps>((props, ref) => {
   const { onChooseMonth, selectedDate = 0 } = props;
 
   const [months, setMonths] = useState<MonthsType[]>();
   const [currentYear, setCurrentYear] = useState<number>(() => 0);
+
+  useImperativeHandle(ref, () => {
+    return { setCurrentYear };
+  });
 
   const getMonthList = () => {
     const monthList = [];
@@ -85,6 +89,6 @@ const Month = (props: MonthProps) => {
       </Flex>
     </section>
   );
-};
+});
 
 export default Month;
