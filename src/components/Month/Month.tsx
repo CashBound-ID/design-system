@@ -5,12 +5,12 @@ import useMount from '@/hooks/useMount';
 
 import { setToFirstDayOfMonth } from '@/utils/date';
 
-import MonthPickerActionBar from './MonthActionBar';
-import MonthPickeritem from './Monthitem';
+import MonthActionBar from './MonthActionBar';
+import Monthitem from './Monthitem';
 import * as styles from './style.module.scss';
 import type { MonthProps, MonthsType } from './types';
 
-const MonthPicker = (props: MonthProps) => {
+const Month = (props: MonthProps) => {
   const { onChooseMonth, selectedDate = 0 } = props;
 
   const [months, setMonths] = useState<MonthsType[]>();
@@ -65,7 +65,7 @@ const MonthPicker = (props: MonthProps) => {
 
   return (
     <section className={styles['month']} aria-label="month">
-      <MonthPickerActionBar
+      <MonthActionBar
         currentYear={currentYear}
         onChange={handleOnChangeActionBar}
       />
@@ -73,7 +73,7 @@ const MonthPicker = (props: MonthProps) => {
         {months &&
           months.map((item) => {
             return (
-              <MonthPickeritem
+              <Monthitem
                 key={item.value}
                 selectedYear={currentYear}
                 months={item}
@@ -87,4 +87,4 @@ const MonthPicker = (props: MonthProps) => {
   );
 };
 
-export default MonthPicker;
+export default Month;
