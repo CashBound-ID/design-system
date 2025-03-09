@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react/*';
 
-import { noop } from '@/utils/misc';
+import Month from '@/components/Month';
 
-import Month from '../Month';
+import { noop } from '@/utils/misc';
 
 const meta = {
   component: Month,
