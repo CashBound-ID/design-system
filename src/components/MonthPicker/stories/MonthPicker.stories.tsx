@@ -5,12 +5,11 @@ import dayjs from 'dayjs';
 
 import Button from '@/components/Button';
 import Flex from '@/components/Flex';
+import MonthPicker from '@/components/MonthPicker';
 import Typography from '@/components/Typography';
 
 import { GRAYMAUVE1100 } from '@/constant/theme';
 import type { Maybe } from '@/types/utils';
-
-import MonthPicker from '../MonthPicker';
 
 const meta = {
   component: MonthPicker,
