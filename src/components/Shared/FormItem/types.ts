@@ -59,7 +59,7 @@ export type FormItemContentFnType = GenericCompoundComponentType<
 // Helper Section
 /////////////////////////////////////////////////////////////////////////////
 
-export type ThemeType = 'initial' | 'disabled' | 'error' | 'success';
+export type FormItemThemeType = 'initial' | 'disabled' | 'error' | 'success';
 
 export interface FormItemHelperProps {
   /**
@@ -70,7 +70,7 @@ export interface FormItemHelperProps {
   /**
    * Whether the helper text should indicate an error, success, disabled or initial UI.
    */
-  theme?: ThemeType;
+  theme?: FormItemThemeType;
 }
 
 export type FormItemHelperFnType = GenericCompoundComponentType<
@@ -135,10 +135,6 @@ export interface FormItemCounterProps {
    */
   maxLength?: number;
 }
-
-// export type FormItemCounterFnType = (
-//   props: FormItemCounterProps
-// ) => JSX.Element, 'form-item-helper';
 
 export type FormItemCounterFnType = GenericCompoundComponentType<
   (props: FormItemCounterProps) => JSX.Element,

@@ -10,7 +10,7 @@ import {
 
 import Icon from '@/components/Icon';
 import FormItem from '@/components/Shared/FormItem';
-import type { ThemeType } from '@/components/Shared/FormItem/types';
+import type { FormItemThemeType } from '@/components/Shared/FormItem/types';
 import Spinner from '@/components/Spinner';
 import useDebounce from '@/hooks/useDebounce';
 
@@ -93,11 +93,11 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       );
 
     const helperTheme = useMemo(() => {
-      let theme: ThemeType = 'initial';
+      let theme: FormItemThemeType = 'initial';
 
       if (error) theme = 'error';
-      if (success) theme = 'success';
-      if (disabled) theme = 'disabled';
+      else if (success) theme = 'success';
+      else if (disabled) theme = 'disabled';
 
       return theme;
     }, [disabled, error, success]);
