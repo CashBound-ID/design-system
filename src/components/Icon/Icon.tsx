@@ -4,6 +4,8 @@ import { cx } from '@/utils/css';
 import type { CashboundIconType } from '@/types/icon';
 import type { GenericHTMLProps } from '@/types/react';
 
+import * as styles from './style.module.scss';
+
 type SpanHTMLProps = GenericHTMLProps<HTMLAttributes<HTMLSpanElement>>;
 
 interface IconProps extends SpanHTMLProps {
@@ -32,20 +34,17 @@ const Icon = (props: IconProps) => {
   return (
     <span
       {...res}
+      className={cx('cashbound-icon', styles['icon'], className)}
       style={{
         color,
-        display: 'inline-block',
         fontSize: size,
         height: size,
         margin,
-        position: 'relative',
-        textAlign: 'center',
         width: size
       }}
       role={role}
       aria-label={ariaLabel}
       data-icon={icon}
-      className={cx('cashbound-icon', className)}
     />
   );
 };
