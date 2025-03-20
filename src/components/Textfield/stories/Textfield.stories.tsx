@@ -61,7 +61,7 @@ export const TextfieldRequired: Story = {
 export const TextfieldWithPrefixText: Story = {
   args: {
     label: 'Label',
-    prefix: 'Rp.',
+    prefixText: 'Rp.',
     width: '500px'
   }
 };
@@ -69,7 +69,16 @@ export const TextfieldWithPrefixText: Story = {
 export const TextfieldWithPrefixIcon: Story = {
   args: {
     label: 'Label',
-    prefix: <Icon icon="attachment" />,
+    prefixIcon: 'attachment',
+    width: '500px'
+  }
+};
+
+export const TextfieldWithPrefixIconAndText: Story = {
+  args: {
+    label: 'Label',
+    prefixIcon: 'bank',
+    prefixText: 'IDR',
     width: '500px'
   }
 };

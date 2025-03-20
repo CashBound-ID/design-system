@@ -1,5 +1,6 @@
 import type { InputHTMLAttributes, ReactNode } from 'react';
 
+import type { CashboundIconType } from '@/types/icon';
 import type { BaseInputProps } from '@/types/input';
 import type { GenericHTMLProps } from '@/types/react';
 
@@ -36,10 +37,14 @@ export type TextfieldProps = TextfieldHTMLProps &
     onChange?: (text: string, element?: HTMLElement) => void;
 
     /**
-     * Element to be displayed at the beginning of the input field.
-     * Can be either an icon or text.
+     * Element to be displayed the icon at the beginning of the input field.
      */
-    prefix?: ReactNode;
+    prefixIcon?: CashboundIconType;
+
+    /**
+     * Element to be displayed the text at the beginning of the input field.
+     */
+    prefixText?: string;
 
     /**
      * A regular expression to validate the input value.

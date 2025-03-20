@@ -8,6 +8,8 @@ import {
   useRef
 } from 'react';
 
+import { useDesignSystemProvider } from '@/context/DesignSystem';
+
 import Icon from '@/components/Icon';
 import FormItem from '@/components/Shared/FormItem';
 import type { FormItemThemeType } from '@/components/Shared/FormItem/types';
@@ -19,6 +21,7 @@ import { noop } from '@/utils/misc';
 import { DEFAULT_DEBOUNCE_DELAY } from '@/constant/input';
 import { GRAYMAUVE1000, VIOLET900 } from '@/constant/theme';
 
+import Typography from '../Typography';
 import * as styles from './style.module.scss';
 import type { TextfieldProps } from './types';
 
@@ -38,7 +41,8 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       onChange = noop,
       optional,
       placeholder = 'Value input',
-      prefix,
+      prefixIcon,
+      prefixText,
       required,
       rules,
       showCounter,
@@ -50,6 +54,9 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
     } = props;
     const containerRef = useRef<HTMLElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
+    const {
+      color: { GRAYMAUVE1100 }
+    } = useDesignSystemProvider();
 
     const handleOnChangeDebounceValue = useCallback(
       (val: string) => {
@@ -179,6 +186,8 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       }
     }, [disabled]);
 
+    const isPrefixAvailable = Boolean(prefixText || prefixIcon);
+
     return (
       <FormItem className={cx(styles['textfield'], className)}>
         {Boolean(label) && (
@@ -193,7 +202,22 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             data-success={success && !disabled}
             data-disabled={disabled}
           >
-            {prefix && <span>{prefix}</span>}
+            {isPrefixAvailable && (
+              <div className={styles['prefix']}>
+                {prefixIcon && (
+                  <Icon icon={prefixIcon} color={GRAYMAUVE1000} size={20} />
+                )}
+                {prefixText && (
+                  <Typography
+                    modifier="body-md"
+                    fontWeight="bold"
+                    color={GRAYMAUVE1100}
+                  >
+                    {prefixText}
+                  </Typography>
+                )}
+              </div>
+            )}
 
             <input
               {...res}
