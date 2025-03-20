@@ -1,0 +1,89 @@
+@use "../../../styles/variables" as var;
+
+@use "../../../styles/mixin" as mixin;
+
+.button-calendar {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  max-height: 48px;
+  position: relative;
+  transition: all var.$transition-duration var.$transition-timing-fn;
+  width: calc(100% / 7);
+
+  @include mixin.button-ripple;
+
+  p {
+    color: var(--GRAYMAUVE1200);
+    transition: all var.$transition-duration var.$transition-timing-fn;
+  }
+
+  &:hover {
+    background: var(--GRAYMAUVE300);
+  }
+
+  &:active {
+    background: var(--GRAYMAUVE400);
+  }
+
+  &[data-today="true"] {
+    background-color: var(--WHITE);
+    border-color: var(--VIOLET900);
+
+    &:hover {
+      background-color: var(--VIOLET200);
+    }
+
+    &:active {
+      background-color: var(--VIOLET400);
+    }
+
+    &[disabled] {
+      border-color: var(--GRAYMAUVE700);
+    }
+  }
+
+  &[data-selected="true"] {
+    background: var(--VIOLET900);
+    border-color: var(--VIOLET900);
+
+    &:hover {
+      background: var(--VIOLET1000);
+      border-color: var(--VIOLET1000);
+    }
+
+    &:active {
+      background: var(--VIOLET1200);
+      border-color: var(--VIOLET1200);
+    }
+
+    p {
+      color: var(--WHITE);
+    }
+
+    &[disabled] {
+      background: var(--GRAYMAUVE500);
+      border-color: var(--GRAYMAUVE700);
+      cursor: initial;
+
+      p {
+        color: var(--GRAYMAUVE900);
+      }
+    }
+  }
+
+  &[disabled],
+  &[disabled]:hover {
+    background: transparent;
+    cursor: initial;
+
+    p {
+      color: var(--GRAYMAUVE900);
+    }
+  }
+}

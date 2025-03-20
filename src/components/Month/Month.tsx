@@ -1,36 +1,30 @@
-import { forwardRef, useCallback, useImperativeHandle, useState } from 'react';
+import {
+  forwardRef,
+  useCallback,
+  useImperativeHandle,
+  useMemo,
+  useState
+} from 'react';
 
 import Flex from '@/components/Flex';
+import CalendarItem from '@/components/Shared/CalendarItem';
 import useMount from '@/hooks/useMount';
 
 import { setToFirstDayOfMonth } from '@/utils/date';
 
+import { MONTH_LIST } from './constant';
 import MonthActionBar from './MonthActionBar';
-import Monthitem from './Monthitem';
 import * as styles from './style.module.scss';
-import type { MonthProps, MonthRefType, MonthsType } from './types';
+import type { MonthProps, MonthRefType } from './types';
 
 const Month = forwardRef<MonthRefType, MonthProps>((props, ref) => {
   const { onChooseMonth, selectedDate = 0 } = props;
 
-  const [months, setMonths] = useState<MonthsType[]>();
   const [currentYear, setCurrentYear] = useState<number>(() => 0);
 
   useImperativeHandle(ref, () => {
     return { setCurrentYear };
   });
-
-  const getMonthList = () => {
-    const monthList = [];
-    for (let i = 0; i < 12; i++) {
-      const date = new Date(0, i);
-      const monthName = date.toLocaleString('default', { month: 'short' });
-      monthList.push({ name: monthName.toUpperCase(), value: i + 1 });
-    }
-
-    setMonths(monthList);
-    return monthList;
-  };
 
   const handleOnChangeActionBar = useCallback(
     (arg: number) => {
@@ -42,7 +36,7 @@ const Month = forwardRef<MonthRefType, MonthProps>((props, ref) => {
   const handleOnClickMonthItem = useCallback(
     (month: number) => {
       const formattedChoosenDate = setToFirstDayOfMonth(
-        new Date(currentYear, month - 1)
+        new Date(currentYear, month)
       ).getTime();
       const currentDate = setToFirstDayOfMonth(
         new Date(selectedDate)
@@ -63,9 +57,38 @@ const Month = forwardRef<MonthRefType, MonthProps>((props, ref) => {
     if (selectedDate) currentDate = new Date(selectedDate);
 
     setCurrentYear(currentDate.getFullYear());
-
-    getMonthList();
   });
+
+  const formattedItems = useMemo(() => {
+    return MONTH_LIST.map((item) => {
+      //INFO: method to set selected month
+      const combinedDate = new Date(
+        new Date(currentYear, item.value)
+      ).getTime();
+      let isSelected = false;
+
+      if (selectedDate) {
+        const formattedSelectedDate = setToFirstDayOfMonth(
+          new Date(selectedDate)
+        ).getTime();
+        isSelected = Boolean(combinedDate === formattedSelectedDate);
+      }
+
+      //INFO: method to set this month
+      let isToday = false;
+      const today = setToFirstDayOfMonth(new Date()).getTime();
+
+      if (today === combinedDate) {
+        isToday = true;
+      }
+
+      return {
+        ...item,
+        isSelected,
+        isToday
+      };
+    });
+  }, [selectedDate, currentYear]);
 
   return (
     <section className={styles['month']} aria-label="month">
@@ -74,18 +97,17 @@ const Month = forwardRef<MonthRefType, MonthProps>((props, ref) => {
         onChange={handleOnChangeActionBar}
       />
       <Flex className={styles['month__content']} wrap="wrap">
-        {months &&
-          months.map((item) => {
-            return (
-              <Monthitem
-                key={item.value}
-                selectedYear={currentYear}
-                months={item}
-                onClickMonthItem={handleOnClickMonthItem}
-                selectedDate={selectedDate}
-              />
-            );
-          })}
+        {formattedItems.map((item) => {
+          return (
+            <CalendarItem
+              onClickCalendarItem={handleOnClickMonthItem}
+              key={item.value}
+              label={item.name}
+              isSelected={item.isSelected}
+              isToday={item.isToday}
+            />
+          );
+        })}
       </Flex>
     </section>
   );

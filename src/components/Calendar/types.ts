@@ -1,5 +1,3 @@
-import type { NullAble } from '@/types/utils';
-
 export type CalendarProps = {
   /**
    * Callback function triggered when a date is selected.
@@ -50,28 +48,3 @@ export interface CalendarActionBarProps {
    */
   onClickPagination: (args: OnClickPaginationArgs) => void;
 }
-
-export type CalendarItemProps = {
-  /**
-   * The date object representing the calendar item.
-   */
-  date: Date;
-
-  /**
-   * Whether the calendar item is disabled.
-   * Optional.
-   */
-  disabled?: boolean;
-
-  /**
-   * Callback function triggered when a calendar item is clicked.
-   * @param {number} date - The selected date as a timestamp (in milliseconds).
-   */
-  onClickCalendarItem: (date: number) => void;
-
-  /**
-   * The currently selected date as a timestamp (in milliseconds), or null.
-   * Optional.
-   */
-  selectedDate?: NullAble<number>;
-};

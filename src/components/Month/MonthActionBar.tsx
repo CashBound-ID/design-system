@@ -47,8 +47,9 @@ const MonthPickerActionBar = (props: MonthActionBarProps) => {
           textAlign="left"
           modifier="body-lg"
           color={color.GRAYMAUVE1200}
+          fontWeight="bold"
         >
-          <strong>{currentYear}</strong>
+          {currentYear}
         </Typography>
       </section>
 
