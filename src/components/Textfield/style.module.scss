@@ -1,48 +1,49 @@
 @use "../../styles/variables" as var;
 
 .textfield {
+
   &__container {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 4px;
     border: 1px solid;
     border-color: var(--GRAYMAUVE600);
     border-radius: 8px;
-    width: var(--width);
+    display: flex;
+    gap: 4px;
+    justify-content: space-between;
     overflow: hidden;
+    position: relative;
     transition: all var.$transition-duration var.$transition-timing-fn;
+    width: var(--width);
 
     .prefix {
-      display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border-right: 1px solid;
       border-color: var(--GRAYMAUVE600);
+      border-right: 1px solid;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
       padding: 12px;
       transition: all var.$transition-duration var.$transition-timing-fn;
     }
 
     input {
-      padding: 0 12px;
-      font-size: 14px;
-      height: 36px;
-      width: 100%;
-      flex-shrink: 1;
-      flex-grow: 1;
       background: transparent;
-      outline: 0;
       border: 0;
       color: var(--GRAYMAUVE1200);
+      flex-grow: 1;
+      flex-shrink: 1;
+      font-size: 14px;
+      height: 36px;
+      outline: 0;
+      padding: 0 12px;
+      width: 100%;
     }
 
     .close-btn,
     .loading-spinner,
     .counter {
-      width: fit-content;
       flex-shrink: 0;
+      width: fit-content;
     }
 
     .clear-btn {
