@@ -1,0 +1,114 @@
+@use "../../styles/variables" as var;
+
+.textfield {
+
+  &__container {
+    align-items: center;
+    border: 1px solid;
+    border-color: var(--GRAYMAUVE600);
+    border-radius: 8px;
+    display: flex;
+    gap: 4px;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    transition: all var.$transition-duration var.$transition-timing-fn;
+    width: var(--width);
+
+    .prefix {
+      align-items: center;
+      border-color: var(--GRAYMAUVE600);
+      border-right: 1px solid;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      padding: 12px;
+      transition: all var.$transition-duration var.$transition-timing-fn;
+    }
+
+    input {
+      background: transparent;
+      border: 0;
+      color: var(--GRAYMAUVE1200);
+      flex-grow: 1;
+      flex-shrink: 1;
+      font-size: 14px;
+      height: 36px;
+      outline: 0;
+      padding: 0 12px;
+      width: 100%;
+    }
+
+    .close-btn,
+    .loading-spinner,
+    .counter {
+      flex-shrink: 0;
+      width: fit-content;
+    }
+
+    .clear-btn {
+      cursor: pointer;
+      transition: all var.$transition-duration var.$transition-timing-fn;
+    }
+
+    &[data-disabled="true"] {
+      background-color: var(--GRAYMAUVE300);
+      border-color: var(--GRAYMAUVE600);
+
+      .prefix {
+        border-color: var(--GRAYMAUVE600);
+      }
+    }
+
+    &[data-hover="true"] {
+      border-color: var(--VIOLET900);
+
+      .prefix {
+        border-color: var(--VIOLET900);
+      }
+    }
+
+    &[data-focus="true"],
+    &[data-focus="true"][data-hover="true"] {
+      border-color: var(--VIOLET900);
+
+      .prefix {
+        border-color: var(--VIOLET900);
+      }
+    }
+
+    &[data-error="true"] {
+      border-color: var(--REDTOMATO1100);
+
+      .prefix {
+        border-color: var(--REDTOMATO1100);
+      }
+
+      &[data-focus="true"],
+      &[data-focus="true"][data-hover="true"] {
+        border-color: var(--REDTOMATO1100);
+
+        .prefix {
+          border-color: var(--REDTOMATO1100);
+        }
+      }
+    }
+
+    &[data-success="true"] {
+      border-color: var(--GREENGRASS1100);
+
+      .prefix {
+        border-color: var(--GREENGRASS1100);
+      }
+
+      &[data-focus="true"],
+      &[data-focus="true"][data-hover="true"] {
+        border-color: var(--GREENGRASS1100);
+
+        .prefix {
+          border-color: var(--GREENGRASS1100);
+        }
+      }
+    }
+  }
+}
