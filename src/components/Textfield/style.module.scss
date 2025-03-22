@@ -1,6 +1,20 @@
 @use "../../styles/variables" as var;
 
+@use "../../styles/function" as func;
+
+$textfield-theme: (
+  error: (
+    base: var(--REDTOMATO800),
+    hover: var(--REDTOMATO1000)
+  ),
+  success: (
+    base: var(--GREENGRASS800),
+    hover: var(--GREENGRASS1000)
+  )
+);
+
 .textfield {
+  $current: &;
 
   &__container {
     align-items: center;
@@ -8,23 +22,11 @@
     border-color: var(--GRAYMAUVE600);
     border-radius: 8px;
     display: flex;
-    gap: 4px;
     justify-content: space-between;
     overflow: hidden;
     position: relative;
     transition: all var.$transition-duration var.$transition-timing-fn;
     width: var(--width);
-
-    .prefix {
-      align-items: center;
-      border-color: var(--GRAYMAUVE600);
-      border-right: 1px solid;
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-      padding: 12px;
-      transition: all var.$transition-duration var.$transition-timing-fn;
-    }
 
     input {
       background: transparent;
@@ -39,32 +41,18 @@
       width: 100%;
     }
 
-    .close-btn,
-    .loading-spinner,
-    .counter {
-      flex-shrink: 0;
-      width: fit-content;
-    }
-
-    .clear-btn {
-      cursor: pointer;
-      transition: all var.$transition-duration var.$transition-timing-fn;
-    }
-
-    &[data-disabled="true"] {
-      background-color: var(--GRAYMAUVE300);
-      border-color: var(--GRAYMAUVE600);
-
-      .prefix {
-        border-color: var(--GRAYMAUVE600);
-      }
-    }
-
     &[data-hover="true"] {
       border-color: var(--VIOLET900);
 
-      .prefix {
-        border-color: var(--VIOLET900);
+      #{$current}__additional-element {
+
+        &[data-kind="prefix"] {
+          border-right-color: var(--VIOLET900);
+        }
+
+        &[data-kind="suffix"] {
+          border-left-color: var(--VIOLET900);
+        }
       }
     }
 
@@ -72,43 +60,106 @@
     &[data-focus="true"][data-hover="true"] {
       border-color: var(--VIOLET900);
 
-      .prefix {
-        border-color: var(--VIOLET900);
-      }
-    }
+      #{$current}__additional-element {
 
-    &[data-error="true"] {
-      border-color: var(--REDTOMATO1100);
+        &[data-kind="prefix"] {
+          border-right-color: var(--VIOLET900);
+        }
 
-      .prefix {
-        border-color: var(--REDTOMATO1100);
-      }
-
-      &[data-focus="true"],
-      &[data-focus="true"][data-hover="true"] {
-        border-color: var(--REDTOMATO1100);
-
-        .prefix {
-          border-color: var(--REDTOMATO1100);
+        &[data-kind="suffix"] {
+          border-left-color: var(--VIOLET900);
         }
       }
     }
 
-    &[data-success="true"] {
-      border-color: var(--GREENGRASS1100);
+    @each $variant-name, $variant in $textfield-theme {
+      &[data-#{$variant-name}="true"] {
+        border-color: func.get-attribute($variant, base);
 
-      .prefix {
-        border-color: var(--GREENGRASS1100);
-      }
+        #{$current}__additional-element {
 
-      &[data-focus="true"],
-      &[data-focus="true"][data-hover="true"] {
-        border-color: var(--GREENGRASS1100);
+          &[data-kind="prefix"] {
+            border-right-color: func.get-attribute($variant, base);
+          }
 
-        .prefix {
-          border-color: var(--GREENGRASS1100);
+          &[data-kind="suffix"] {
+            border-left-color: func.get-attribute($variant, base);
+          }
+        }
+
+        &[data-focus="true"],
+        &[data-focus="true"][data-hover="true"] {
+          border-color: func.get-attribute($variant, hover);
+
+          #{$current}__additional-element {
+
+            &[data-kind="prefix"] {
+              border-right-color: func.get-attribute($variant, hover);
+            }
+
+            &[data-kind="suffix"] {
+              border-left-color: func.get-attribute($variant, hover);
+            }
+          }
         }
       }
     }
+
+    &[data-disabled="true"] {
+      background-color: var(--GRAYMAUVE300);
+      border-color: var(--GRAYMAUVE600);
+
+      #{$current}__additional-element {
+
+        &[data-kind="prefix"] {
+          border-right-color: var(--GRAYMAUVE600);
+        }
+
+        &[data-kind="suffix"] {
+          border-left-color: var(--GRAYMAUVE600);
+        }
+      }
+    }
+  }
+
+  &__additional-element {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    height: 36px;
+    justify-content: center;
+    min-width: 36px;
+    transition: all var.$transition-duration var.$transition-timing-fn;
+
+    &[data-with-text="true"] {
+      padding: 0 12px;
+    }
+
+    &[data-kind="prefix"] {
+      border-right: 1px solid;
+      border-right-color: var(--GRAYMAUVE600);
+    }
+
+    &[data-kind="suffix"] {
+      border-left: 1px solid;
+      border-left-color: var(--GRAYMAUVE600);
+    }
+  }
+
+  &__clear-btn,
+  &__loading-spinner,
+  &__counter {
+    flex-shrink: 0;
+    min-width: 36px;
+    width: fit-content;
+  }
+
+  &__counter {
+    padding: 0 12px;
+  }
+
+  &__clear-btn {
+    cursor: pointer;
+    transition: all var.$transition-duration var.$transition-timing-fn;
   }
 }

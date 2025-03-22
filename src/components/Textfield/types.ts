@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, ReactNode } from 'react';
+import type { InputHTMLAttributes } from 'react';
 
 import type { CashboundIconType } from '@/types/icon';
 import type { BaseInputProps } from '@/types/input';
@@ -8,6 +8,12 @@ type TextfieldHTMLProps = Omit<
   GenericHTMLProps<InputHTMLAttributes<HTMLInputElement>>,
   'onChange' | 'value' | 'disabled' | 'prefix' | 'suffix'
 >;
+
+export interface TextfieldAdditionalProps {
+  icon?: CashboundIconType;
+  kind: 'prefix' | 'suffix';
+  text?: string;
+}
 
 export type TextfieldProps = TextfieldHTMLProps &
   BaseInputProps & {
@@ -58,10 +64,15 @@ export type TextfieldProps = TextfieldHTMLProps &
     showCounter?: boolean;
 
     /**
-     * Element to be displayed at the end of the input field.
-     * Can be either an icon or text.
+     * Element to be displayed the icon at the end of the input field.
      */
-    suffix?: ReactNode;
+    suffixIcon?: CashboundIconType;
+
+    /**
+     * Element to be displayed the text at the end of the input field.
+     */
+    suffixText?: string;
+
     /**
      * The current value of the textarea.
      */

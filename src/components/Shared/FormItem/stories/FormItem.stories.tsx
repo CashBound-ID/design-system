@@ -3,12 +3,11 @@ import { type ComponentType } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FormItem from '@/components/Shared/FormItem';
+import FormItemContent from '@/components/Shared/FormItem/FormItemContent';
+import FormItemHelper from '@/components/Shared/FormItem/FormItemHelper';
+import FormItemLabel from '@/components/Shared/FormItem/FormItemLabel';
 
 import { GRAYMAUVE300 } from '@/constant/theme';
-
-import FormItemContent from '../FormItemContent';
-import FormItemHelper from '../FormItemHelper';
-import FormItemLabel from '../FormItemLabel';
 
 const meta = {
   component: FormItem,

@@ -37,6 +37,7 @@ const Card = (props: CardProps) => {
     role = 'presentation',
     shadow,
     shadowOnInteract,
+    style,
     ...res
   } = props;
 
@@ -48,7 +49,7 @@ const Card = (props: CardProps) => {
       data-shadow={shadow}
       data-radius={radius}
       data-shadow-on-interact={shadowOnInteract}
-      style={{ background, border, margin, padding }}
+      style={{ ...style, background, border, margin, padding }}
       {...res}
     />
   );

@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: 20
+
+jobs:
+  linting:
+    name: Linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Code Checkout
+        uses: actions/checkout@v2
+
+      - name: Create .npmrc
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" > ~/.npmrc
+          echo "@fit-hub-indonesia:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "@cashbound-id:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "link-workspace-packages=false" >> ~/.npmrc
+
+      - name: Read .npmrc
+        run: cat ~/.npmrc
+
+      - name: Install PNPM
+        run: npm install -g pnpm@^9.12.0
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Code Linting
+        run: pnpm run lint
+
+      - name: Type Check
+        run: pnpm run type:check
+
+  test:
+    name: Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup UTC
+        uses: szenius/set-timezone@v1.2
+        with:
+          timezoneLinux: "Asia/Jakarta"
+          timezoneMacos: "Asia/Jakarta"
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Code Checkout
+        uses: actions/checkout@v2
+
+      - name: Create .npmrc
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" > ~/.npmrc
+          echo "@fit-hub-indonesia:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "@cashbound-id:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "link-workspace-packages=false" >> ~/.npmrc
+
+      - name: Read .npmrc
+        run: cat ~/.npmrc
+
+      # - name: Install PNPM
+      #   run: npm install -g pnpm@^9.12.0
+
+      # - name: Install Dependencies
+      #   run: pnpm install
+
+      - name: Unit Test
+        run: echo "test coming soon"

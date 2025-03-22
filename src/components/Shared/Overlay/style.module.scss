@@ -7,12 +7,15 @@
   animation-name: keyframe-fade-out;
   background-color: rgba(#000, 0.8);
   inset: 0;
+  opacity: 0;
   position: fixed;
+  transition: all var.$transition-duration var.$transition-timing-fn;
   z-index: 1000;
 
   &[data-show="true"] {
     animation-duration: 0.2s;
     animation-name: keyframe-fade-in;
+    opacity: 1;
   }
 
   &[data-transparent="true"] {

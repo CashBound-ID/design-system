@@ -1,0 +1,8 @@
+.horizontal-slider {
+  overflow: auto;
+  scrollbar-width: none;
+
+  > section {
+    flex-shrink: 0;
+  }
+}

@@ -1,4 +1,4 @@
-import type { PropsWithChildren, ReactHTML, Ref } from 'react';
+import type { CSSProperties, PropsWithChildren, ReactHTML, Ref } from 'react';
 import { createElement } from 'react';
 
 import type { Property } from 'csstype';
@@ -16,7 +16,10 @@ interface FlexProps {
     | 'self-end'
     | 'self-start'
     | 'start';
+
+  /** Custom classname */
   className?: string;
+  /** Forward ref object */
   componentRef?: Ref<HTMLElement>;
   /** Flex CSS shorthand properties */
   flex?: Property.Flex;
@@ -33,6 +36,8 @@ interface FlexProps {
     | 'flex-end'
     | 'flex-start'
     | 'start';
+  /** Custom styling */
+  style?: CSSProperties;
   /** Custom element type */
   tag?: keyof ReactHTML;
   /** Is direction of the flex vertical */
@@ -49,6 +54,8 @@ const Flex = (props: PropsWithChildren<FlexProps>) => {
     flex,
     gap,
     justify,
+    style,
+
     tag = 'div',
     vertical = false,
     wrap = false,
@@ -60,6 +67,7 @@ const Flex = (props: PropsWithChildren<FlexProps>) => {
     className,
     ref: componentRef,
     style: {
+      ...style,
       alignItems: align,
       display: 'flex',
       flex,

@@ -32,6 +32,10 @@
     "name":"card"
   },
   {
+    "file":"./dist/components/Carousel",
+    "name":"carousel"
+  },
+  {
     "file":"./dist/components/Checkbox",
     "name":"checkbox"
   },
@@ -58,6 +62,10 @@
   {
     "file":"./dist/components/Grid",
     "name":"grid"
+  },
+  {
+    "file":"./dist/components/HorizontalSlider",
+    "name":"horizontal-slider"
   },
   {
     "file":"./dist/components/Icon",

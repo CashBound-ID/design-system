@@ -21,6 +21,7 @@ const FormItemCounter: FormItemCounterFnType = (
 
   return (
     <Typography
+      tag="section"
       data-testid="input-counter"
       className={className}
       modifier="body-md"
