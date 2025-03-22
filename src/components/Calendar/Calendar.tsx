@@ -8,7 +8,7 @@ import {
 
 import dayjs from 'dayjs';
 
-import Flex from '@/components/Flex';
+import CalendarItem from '@/components/Shared/CalendarItem';
 import useMount from '@/hooks/useMount';
 
 import {
@@ -18,7 +18,6 @@ import {
 } from '@/utils/date';
 import type { DateCalendarType } from '@/types/date';
 
-import CalendarItem from '../Shared/CalendarItem/CalendarItem';
 import CalendarActionBar from './CalendarActionBar';
 import * as styles from './style.module.scss';
 import type {
@@ -120,7 +119,7 @@ const Calendar = forwardRef<CalendarRefType, CalendarProps>((props, ref) => {
         onClickPagination={handleOnClickPaginationBtn}
       />
 
-      <Flex className={styles['calendar__content']} wrap="wrap">
+      <section className={styles['calendar__content']}>
         {formattedItems.map((item) => {
           return (
             <CalendarItem
@@ -134,7 +133,7 @@ const Calendar = forwardRef<CalendarRefType, CalendarProps>((props, ref) => {
             />
           );
         })}
-      </Flex>
+      </section>
     </section>
   );
 });

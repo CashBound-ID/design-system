@@ -6,7 +6,7 @@ import {
   useState
 } from 'react';
 
-import Flex from '@/components/Flex';
+import Grid from '@/components/Grid';
 import CalendarItem from '@/components/Shared/CalendarItem';
 import useMount from '@/hooks/useMount';
 
@@ -19,7 +19,6 @@ import type { MonthProps, MonthRefType } from './types';
 
 const Month = forwardRef<MonthRefType, MonthProps>((props, ref) => {
   const { onChooseMonth, selectedDate = 0 } = props;
-
   const [currentYear, setCurrentYear] = useState<number>(() => 0);
 
   useImperativeHandle(ref, () => {
@@ -34,9 +33,9 @@ const Month = forwardRef<MonthRefType, MonthProps>((props, ref) => {
   );
 
   const handleOnClickMonthItem = useCallback(
-    (month: number) => {
+    (timestamp: number) => {
       const formattedChoosenDate = setToFirstDayOfMonth(
-        new Date(currentYear, month)
+        new Date(timestamp)
       ).getTime();
       const currentDate = setToFirstDayOfMonth(
         new Date(selectedDate)
@@ -46,9 +45,10 @@ const Month = forwardRef<MonthRefType, MonthProps>((props, ref) => {
         onChooseMonth(undefined);
         return;
       }
+
       onChooseMonth(formattedChoosenDate);
     },
-    [currentYear, onChooseMonth, selectedDate]
+    [onChooseMonth, selectedDate]
   );
 
   useMount(() => {
@@ -62,28 +62,31 @@ const Month = forwardRef<MonthRefType, MonthProps>((props, ref) => {
   const formattedItems = useMemo(() => {
     return MONTH_LIST.map((item) => {
       //INFO: method to set selected month
-      const combinedDate = new Date(
-        new Date(currentYear, item.value)
-      ).getTime();
+      const currentMonthDate = setToFirstDayOfMonth(
+        new Date(new Date(currentYear, item.value))
+      );
       let isSelected = false;
 
       if (selectedDate) {
         const formattedSelectedDate = setToFirstDayOfMonth(
           new Date(selectedDate)
-        ).getTime();
-        isSelected = Boolean(combinedDate === formattedSelectedDate);
+        );
+        isSelected = Boolean(
+          currentMonthDate.getTime() === formattedSelectedDate.getTime()
+        );
       }
 
       //INFO: method to set this month
       let isToday = false;
-      const today = setToFirstDayOfMonth(new Date()).getTime();
+      const today = setToFirstDayOfMonth(new Date());
 
-      if (today === combinedDate) {
+      if (today.getTime() === currentMonthDate.getTime()) {
         isToday = true;
       }
 
       return {
         ...item,
+        date: currentMonthDate,
         isSelected,
         isToday
       };
@@ -96,19 +99,21 @@ const Month = forwardRef<MonthRefType, MonthProps>((props, ref) => {
         currentYear={currentYear}
         onChange={handleOnChangeActionBar}
       />
-      <Flex className={styles['month__content']} wrap="wrap">
+      <Grid className={styles['month__content']} gap={8}>
         {formattedItems.map((item) => {
           return (
-            <CalendarItem
-              onClickCalendarItem={handleOnClickMonthItem}
-              key={item.value}
-              label={item.name}
-              isSelected={item.isSelected}
-              isToday={item.isToday}
-            />
+            <Grid.Item key={item.value} col={4}>
+              <CalendarItem
+                date={item.date}
+                label={item.name}
+                isSelected={item.isSelected}
+                isToday={item.isToday}
+                onClickCalendarItem={handleOnClickMonthItem}
+              />
+            </Grid.Item>
           );
         })}
-      </Flex>
+      </Grid>
     </section>
   );
 });

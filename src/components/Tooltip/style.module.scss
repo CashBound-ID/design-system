@@ -13,15 +13,18 @@
     background-color: var(--BLACK);
     padding: 4px 8px;
     position: absolute;
+    transition: all var.$transition-duration var.$transition-timing-fn;
 
     &[data-visible="true"] {
       animation-duration: 0.2s;
       animation-name: keyframe-fade-in;
+      opacity: 1;
     }
 
     &[data-visible="false"] {
       animation-duration: 0.15s;
       animation-name: keyframe-fade-out;
+      opacity: 0;
     }
 
     &[data-position="bottom"] {

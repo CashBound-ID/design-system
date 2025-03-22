@@ -10,8 +10,15 @@ import * as styles from './style.module.scss';
 import type { CalendarItemProps } from './types';
 
 const CalendarItem = (props: CalendarItemProps) => {
-  const { date, disabled, isSelected, isToday, label, onClickCalendarItem } =
-    props;
+  const {
+    date,
+    disabled = false,
+    isSelected,
+    isToday,
+    label,
+    onClickCalendarItem
+  } = props;
+
   const handleOnClickDateItem: MouseEventHandler<HTMLElement> = useCallback(
     (e) => {
       e.preventDefault();
