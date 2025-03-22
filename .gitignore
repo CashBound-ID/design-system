@@ -61,6 +61,10 @@ card.js
 card.d.ts
 card.esm.js
 card.esm.d.ts
+carousel.js
+carousel.d.ts
+carousel.esm.js
+carousel.esm.d.ts
 checkbox.js
 checkbox.d.ts
 checkbox.esm.js
@@ -89,6 +93,10 @@ grid.js
 grid.d.ts
 grid.esm.js
 grid.esm.d.ts
+horizontal-slider.js
+horizontal-slider.d.ts
+horizontal-slider.esm.js
+horizontal-slider.esm.d.ts
 icon.js
 icon.d.ts
 icon.esm.js

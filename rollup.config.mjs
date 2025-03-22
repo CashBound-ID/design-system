@@ -154,7 +154,10 @@ export default [
     ],
     plugins: [
       peerDepsExternal({ includeDependencies: true }),
-      replace({ 'import * as styles from': 'import styles from' }),
+      replace({
+        'import * as styles from': 'import styles from',
+        'import * as style from': 'import style from'
+      }),
       postcss({
         autoModules: false,
         extract: 'styles.css',

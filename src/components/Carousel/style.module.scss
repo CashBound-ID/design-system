@@ -1,0 +1,33 @@
+.carousel {
+  margin-left: var(--carousel-outer-gutter);
+  margin-right: var(--carousel-outer-gutter);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: pan-y;
+  user-select: none;
+
+  &__slider {
+    margin: 0 calc(var(--carousel-gutter) / -2);
+  }
+
+  &__slide-group {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: calc((var(--carousel-visible-cells) - 1) / var(--carousel-visible-cells) * 100%);
+    transition: transform 0.2s ease-out;
+
+    &[data-touchmove] {
+      transition: none;
+
+      * {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__slide-item {
+    flex-shrink: 0;
+    padding-left: calc(var(--carousel-gutter) / 2);
+    padding-right: calc(var(--carousel-gutter) / 2);
+    width: 100%;
+  }
+}

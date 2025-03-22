@@ -40,6 +40,10 @@ const Icon = (props: IconProps) => {
         fontSize: size,
         height: size,
         margin,
+        minHeight: size,
+        minWidth: size,
+        position: 'relative',
+        textAlign: 'center',
         width: size
       }}
       role={role}

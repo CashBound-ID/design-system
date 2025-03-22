@@ -75,8 +75,9 @@ const registerExposedFiles = () => {
     import: './index.esm.js',
     require: './index.js',
     types: './index.d.ts'
-  }
-  content.exports['./styles.css'] = './dist/styles.css'
+  };
+  content.exports['./dist/*'] = './dist/*';
+  content.exports['./styles.css'] = './dist/styles.css';
 
   // Add files & exports from FILE_LIST
   FILE_LIST.forEach((item) => {
@@ -93,7 +94,7 @@ const registerExposedFiles = () => {
       import: `./${item.name}.esm.js`,
       require: `./${item.name}.js`,
       types: `./${item.name}.d.ts`
-    }
+    };
   });
 
   // Write the updated package.json file

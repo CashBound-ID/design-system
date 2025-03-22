@@ -1,7 +1,10 @@
+import { createRequire } from 'node:module';
+
 import eslintConfig from '@fit-hub-indonesia/eslint/react.js';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 
-import FILE_LIST from "./etc/config/entrypoint-file.json" assert { type: "json" };
+const require = createRequire(import.meta.url);
+const FILE_LIST = require("./etc/config/entrypoint-file.json"); 
 
 const ignoredGeneratedFile = FILE_LIST.reduce(
   (result, item) => {
