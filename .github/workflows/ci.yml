@@ -26,7 +26,7 @@ jobs:
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" > ~/.npmrc
           echo "@fit-hub-indonesia:registry=https://npm.pkg.github.com" > ~/.npmrc
           echo "@cashbound-id:registry=https://npm.pkg.github.com" > ~/.npmrc
-          echo "link-workspace-packages=false" > ~/.npmrc
+          echo "link-workspace-packages=false" >> ~/.npmrc
 
       - name: Read .npmrc
         run: cat ~/.npmrc
@@ -66,7 +66,7 @@ jobs:
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" > ~/.npmrc
           echo "@fit-hub-indonesia:registry=https://npm.pkg.github.com" > ~/.npmrc
           echo "@cashbound-id:registry=https://npm.pkg.github.com" > ~/.npmrc
-          echo "link-workspace-packages=false" > ~/.npmrc
+          echo "link-workspace-packages=false" >> ~/.npmrc
 
       - name: Read .npmrc
         run: cat ~/.npmrc
