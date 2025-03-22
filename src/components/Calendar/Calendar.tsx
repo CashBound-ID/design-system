@@ -8,14 +8,17 @@ import {
 
 import dayjs from 'dayjs';
 
-import Flex from '@/components/Flex';
+import CalendarItem from '@/components/Shared/CalendarItem';
 import useMount from '@/hooks/useMount';
 
-import { genCalendarItem, setToFirstDayOfMonth } from '@/utils/date';
+import {
+  genCalendarItem,
+  setToFirstDayOfMonth,
+  setToMidnight
+} from '@/utils/date';
 import type { DateCalendarType } from '@/types/date';
 
 import CalendarActionBar from './CalendarActionBar';
-import CalendarItem from './CalendarItem';
 import * as styles from './style.module.scss';
 import type {
   CalendarProps,
@@ -83,6 +86,29 @@ const Calendar = forwardRef<CalendarRefType, CalendarProps>((props, ref) => {
     return genCalendarItem(currentMonth);
   }, [currentMonth]);
 
+  const formattedItems = useMemo(() => {
+    if (Array.isArray(calendarItems)) {
+      return calendarItems.map((item) => {
+        const isSelected = Boolean(
+          selectedDate && item.date.getTime() === selectedDate
+        );
+
+        const today = setToMidnight(new Date());
+        const isToday =
+          !item.disabled && today.getTime() === item.date.getTime();
+
+        return {
+          ...item,
+          isSelected,
+          isToday,
+          label: dayjs(item.date).format('D')
+        };
+      });
+    }
+
+    return []; // Return an empty array if calendarItems is not an array
+  }, [calendarItems, selectedDate]);
+
   return (
     <section
       className={styles['calendar']}
@@ -94,19 +120,21 @@ const Calendar = forwardRef<CalendarRefType, CalendarProps>((props, ref) => {
         onClickPagination={handleOnClickPaginationBtn}
       />
 
-      <Flex className={styles['calendar__content']} wrap="wrap">
-        {calendarItems.map((item) => {
+      <section className={styles['calendar__content']}>
+        {formattedItems.map((item) => {
           return (
             <CalendarItem
-              key={item.key}
+              key={item.date.toISOString()}
+              label={item.label}
               date={item.date}
+              isSelected={item.isSelected}
+              isToday={item.isToday}
               disabled={item.disabled}
-              selectedDate={selectedDate}
               onClickCalendarItem={handleOnClickCalendarItem}
             />
           );
         })}
-      </Flex>
+      </section>
     </section>
   );
 });

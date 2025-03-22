@@ -1,48 +1,23 @@
 import type { MouseEventHandler } from 'react';
-import { memo, useCallback, useMemo } from 'react';
-
-import dayjs from 'dayjs';
-
-import { useDesignSystemProvider } from '@/context/DesignSystem';
+import { memo, useCallback } from 'react';
 
 import Typography from '@/components/Typography';
 import useButtonRipples from '@/hooks/useButtonRipples';
 
-import { setToMidnight } from '@/utils/date';
 import { noop } from '@/utils/misc';
 
 import * as styles from './style.module.scss';
 import type { CalendarItemProps } from './types';
 
 const CalendarItem = (props: CalendarItemProps) => {
-  const { date, disabled, onClickCalendarItem, selectedDate } = props;
-  const { color: colorTheme } = useDesignSystemProvider();
-
-  const { currentDate, isSelected, isToday } = useMemo(() => {
-    const isSelected = Boolean(selectedDate && date.getTime() === selectedDate);
-    let isToday = false;
-
-    const today = setToMidnight(new Date());
-
-    if (!disabled) {
-      if (today.getTime() === date.getTime()) {
-        isToday = true;
-      }
-
-      return {
-        currentDate: dayjs(date),
-        isSelected,
-        isToday
-      };
-    }
-
-    return {
-      color: colorTheme.GRAYMAUVE900,
-      currentDate: dayjs(date),
-      isSelected,
-      isToday
-    };
-  }, [colorTheme.GRAYMAUVE900, date, disabled, selectedDate]);
+  const {
+    date,
+    disabled = false,
+    isSelected,
+    isToday,
+    label,
+    onClickCalendarItem
+  } = props;
 
   const handleOnClickDateItem: MouseEventHandler<HTMLElement> = useCallback(
     (e) => {
@@ -69,6 +44,7 @@ const CalendarItem = (props: CalendarItemProps) => {
       disabled={disabled}
       onKeyDown={noop}
       onClick={onClick}
+      className={styles['button-calendar']}
     >
       <Typography
         modifier="body-lg"
@@ -77,7 +53,7 @@ const CalendarItem = (props: CalendarItemProps) => {
         textAlign="center"
         aria-label="calendar text"
       >
-        {currentDate.format('D')}
+        {label}
       </Typography>
     </button>
   );

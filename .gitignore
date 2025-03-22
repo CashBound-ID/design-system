@@ -105,6 +105,14 @@ images.js
 images.d.ts
 images.esm.js
 images.esm.d.ts
+month.js
+month.d.ts
+month.esm.js
+month.esm.d.ts
+month-picker.js
+month-picker.d.ts
+month-picker.esm.js
+month-picker.esm.d.ts
 navigation-header.js
 navigation-header.d.ts
 navigation-header.esm.js
@@ -145,6 +153,10 @@ tabs.js
 tabs.d.ts
 tabs.esm.js
 tabs.esm.d.ts
+textfield.js
+textfield.d.ts
+textfield.esm.js
+textfield.esm.d.ts
 toggle-button.js
 toggle-button.d.ts
 toggle-button.esm.js
