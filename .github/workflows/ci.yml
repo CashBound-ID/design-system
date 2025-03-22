@@ -28,6 +28,9 @@ jobs:
           echo "@cashbound-id:registry=https://npm.pkg.github.com" > ~/.npmrc
           echo "link-workspace-packages=false" > ~/.npmrc
 
+      - name: Read .npmrc
+        run: cat ~/.npmrc
+
       - name: Install PNPM
         run: npm install -g pnpm@^9.12.0
 
@@ -64,6 +67,9 @@ jobs:
           echo "@fit-hub-indonesia:registry=https://npm.pkg.github.com" > ~/.npmrc
           echo "@cashbound-id:registry=https://npm.pkg.github.com" > ~/.npmrc
           echo "link-workspace-packages=false" > ~/.npmrc
+
+      - name: Read .npmrc
+        run: cat ~/.npmrc
 
       # - name: Install PNPM
       #   run: npm install -g pnpm@^9.12.0
