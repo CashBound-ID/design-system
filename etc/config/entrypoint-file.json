@@ -76,6 +76,14 @@
     "name":"images"
   },
   {
+    "file":"./dist/components/Month",
+    "name":"month"
+  },
+  {
+    "file":"./dist/components/MonthPicker",
+    "name":"month-picker"
+  },
+  {
     "file":"./dist/components/NavigationHeader",
     "name":"navigation-header"
   },
@@ -114,6 +122,10 @@
   {
     "file":"./dist/components/Tabs",
     "name":"tabs"
+  },
+  {
+    "file":"./dist/components/Textfield",
+    "name":"textfield"
   },
   {
     "file":"./dist/components/ToggleButton",

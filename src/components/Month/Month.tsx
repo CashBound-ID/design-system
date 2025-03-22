@@ -99,6 +99,7 @@ const Month = forwardRef<MonthRefType, MonthProps>((props, ref) => {
         currentYear={currentYear}
         onChange={handleOnChangeActionBar}
       />
+
       <Grid className={styles['month__content']} gap={8}>
         {formattedItems.map((item) => {
           return (

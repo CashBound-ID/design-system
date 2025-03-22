@@ -105,6 +105,7 @@ const Calendar = forwardRef<CalendarRefType, CalendarProps>((props, ref) => {
         };
       });
     }
+
     return []; // Return an empty array if calendarItems is not an array
   }, [calendarItems, selectedDate]);
 
