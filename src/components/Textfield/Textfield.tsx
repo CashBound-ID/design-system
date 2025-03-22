@@ -110,6 +110,8 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
     }, [disabled, error, success]);
 
     useEffect(() => {
+      const abortController = new AbortController();
+      
       const handleOnFocus = () => {
         if (containerRef.current) {
           containerRef.current.setAttribute('data-focus', 'true');
@@ -137,53 +139,53 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       if (!disabled) {
         if (inputRef.current) {
           // INFO: Handle Focus State
-          inputRef.current.addEventListener('focus', handleOnFocus);
-          inputRef.current.addEventListener('blur', handleOnBlur);
+          inputRef.current.addEventListener(
+            'focus',
+            handleOnFocus,
+            abortController
+          );
+          inputRef.current.addEventListener(
+            'blur',
+            handleOnBlur,
+            abortController
+          );
 
           // INFO: Handle Hover State
-          inputRef.current.addEventListener('mouseover', handleOnMouseOver);
-          inputRef.current.addEventListener('mouseout', handleOnMouseOut);
+          inputRef.current.addEventListener(
+            'mouseover',
+            handleOnMouseOver,
+            abortController
+          );
+          inputRef.current.addEventListener(
+            'mouseout',
+            handleOnMouseOut,
+            abortController
+          );
         }
 
         if (containerRef.current) {
           // INFO: Handle Hover State
-          containerRef.current.addEventListener('mouseover', handleOnMouseOver);
-          containerRef.current.addEventListener('mouseout', handleOnMouseOut);
+          containerRef.current.addEventListener(
+            'mouseover',
+            handleOnMouseOver,
+            abortController
+          );
+          containerRef.current.addEventListener(
+            'mouseout',
+            handleOnMouseOut,
+            abortController
+          );
         }
-
-        return () => {
-          if (inputRef.current) {
-            // INFO: Handle Focus State
-            inputRef.current.removeEventListener('focus', handleOnFocus);
-            inputRef.current.removeEventListener('blur', handleOnBlur);
-
-            // INFO: Handle Hover State
-            inputRef.current.removeEventListener(
-              'mouseover',
-              handleOnMouseOver
-            );
-            // INFO: disable eslint since inputRef is not mutating
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            inputRef.current.removeEventListener('mouseout', handleOnMouseOut);
-          }
-
-          if (containerRef.current) {
-            // INFO: Handle Hover State
-            containerRef.current.addEventListener(
-              'mouseover',
-              handleOnMouseOver
-            );
-            // INFO: disable eslint since containerRef is not mutating
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            containerRef.current.addEventListener('mouseout', handleOnMouseOut);
-          }
-        };
       }
 
       if (containerRef.current && disabled) {
         containerRef.current.removeAttribute('data-hover');
         containerRef.current.removeAttribute('data-focus');
       }
+
+      return () => {
+        abortController.abort();
+      };
     }, [disabled]);
 
     const isPrefixAvailable = Boolean(prefixText || prefixIcon);
