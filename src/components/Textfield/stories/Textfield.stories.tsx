@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react/*';
 
-import Icon from '@/components/Icon';
 import Textfield from '@/components/Textfield';
 
 const meta = {
@@ -33,7 +32,7 @@ export const Basic: Story = {
   }
 };
 
-export const TextfieldWithClearButton: Story = {
+export const WithClearButton: Story = {
   args: {
     enableClear: true,
     label: 'Label',
@@ -42,7 +41,7 @@ export const TextfieldWithClearButton: Story = {
   }
 };
 
-export const TextfieldWithLoading: Story = {
+export const WithLoading: Story = {
   args: {
     label: 'Label',
     loading: true,
@@ -50,7 +49,7 @@ export const TextfieldWithLoading: Story = {
   }
 };
 
-export const TextfieldRequired: Story = {
+export const UsingRequiredMode: Story = {
   args: {
     label: 'Label',
     required: true,
@@ -58,7 +57,15 @@ export const TextfieldRequired: Story = {
   }
 };
 
-export const TextfieldWithPrefixText: Story = {
+export const UsingOptionalMode: Story = {
+  args: {
+    label: 'Label',
+    optional: true,
+    width: '500px'
+  }
+};
+
+export const WithPrefixText: Story = {
   args: {
     label: 'Label',
     prefixText: 'Rp.',
@@ -66,7 +73,7 @@ export const TextfieldWithPrefixText: Story = {
   }
 };
 
-export const TextfieldWithPrefixIcon: Story = {
+export const WithPrefixIcon: Story = {
   args: {
     label: 'Label',
     prefixIcon: 'attachment',
@@ -74,7 +81,7 @@ export const TextfieldWithPrefixIcon: Story = {
   }
 };
 
-export const TextfieldWithPrefixIconAndText: Story = {
+export const WithPrefixIconAndText: Story = {
   args: {
     label: 'Label',
     prefixIcon: 'bank',
@@ -83,23 +90,34 @@ export const TextfieldWithPrefixIconAndText: Story = {
   }
 };
 
-export const TextfieldWithSuffixText: Story = {
+export const WithSuffixText: Story = {
   args: {
     label: 'Label',
-    suffix: 'Year',
+    suffixText: 'Year',
     width: '500px'
   }
 };
 
-export const TextfieldWithSuffixIcon: Story = {
+export const WithSuffixIcon: Story = {
   args: {
+    enableClear: true,
     label: 'Label',
-    suffix: <Icon icon="edit-fill" />,
+    maxLength: 100,
+    suffixIcon: 'edit-fill',
     width: '500px'
   }
 };
 
-export const TextfieldError: Story = {
+export const WithSuffixIconAndText: Story = {
+  args: {
+    label: 'Label',
+    suffixIcon: 'bank',
+    suffixText: 'IDR',
+    width: '500px'
+  }
+};
+
+export const ErrorState: Story = {
   args: {
     error: true,
     label: 'Label',
@@ -107,7 +125,7 @@ export const TextfieldError: Story = {
   }
 };
 
-export const TextfieldErrorWithHelper: Story = {
+export const ErrorStateWithHelper: Story = {
   args: {
     error: true,
     helper: 'Error message',
@@ -116,10 +134,28 @@ export const TextfieldErrorWithHelper: Story = {
   }
 };
 
-export const TextfieldESuccess: Story = {
+export const SuccessState: Story = {
   args: {
     label: 'Label',
     success: true,
+    width: '500px'
+  }
+};
+
+export const SuccessStateWithHelper: Story = {
+  args: {
+    helper: 'Correct',
+    label: 'Label',
+    success: true,
+    width: '500px'
+  }
+};
+
+export const DisabledState: Story = {
+  args: {
+    disabled: true,
+    helper: 'Please fill the name',
+    label: 'Label',
     width: '500px'
   }
 };

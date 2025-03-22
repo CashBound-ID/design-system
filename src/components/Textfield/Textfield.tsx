@@ -8,8 +8,7 @@ import {
   useRef
 } from 'react';
 
-import { useDesignSystemProvider } from '@/context/DesignSystem';
-
+import Flex from '@/components/Flex';
 import Icon from '@/components/Icon';
 import FormItem from '@/components/Shared/FormItem';
 import type { FormItemThemeType } from '@/components/Shared/FormItem/types';
@@ -21,8 +20,8 @@ import { noop } from '@/utils/misc';
 import { DEFAULT_DEBOUNCE_DELAY } from '@/constant/input';
 import { GRAYMAUVE1000, VIOLET900 } from '@/constant/theme';
 
-import Typography from '../Typography';
 import * as styles from './style.module.scss';
+import TextfieldAdditionalElement from './TextfieldAdditionalElement';
 import type { TextfieldProps } from './types';
 
 const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
@@ -47,16 +46,14 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       rules,
       showCounter,
       success,
-      suffix,
+      suffixIcon,
+      suffixText,
       value: propsValue = '',
       width = '300px',
       ...res
     } = props;
     const containerRef = useRef<HTMLElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
-    const {
-      color: { GRAYMAUVE1100 }
-    } = useDesignSystemProvider();
 
     const handleOnChangeDebounceValue = useCallback(
       (val: string) => {
@@ -99,6 +96,10 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
         [setValue]
       );
 
+    const handleOnClickLabel = () => {
+      if (inputRef.current) inputRef.current.focus();
+    };
+
     const helperTheme = useMemo(() => {
       let theme: FormItemThemeType = 'initial';
 
@@ -111,7 +112,7 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
 
     useEffect(() => {
       const abortController = new AbortController();
-      
+
       const handleOnFocus = () => {
         if (containerRef.current) {
           containerRef.current.setAttribute('data-focus', 'true');
@@ -188,12 +189,15 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       };
     }, [disabled]);
 
-    const isPrefixAvailable = Boolean(prefixText || prefixIcon);
-
     return (
       <FormItem className={cx(styles['textfield'], className)}>
         {Boolean(label) && (
-          <FormItem.Label label={label} optional={optional} required />
+          <FormItem.Label
+            label={label}
+            optional={optional}
+            required={required}
+            onClick={handleOnClickLabel}
+          />
         )}
         <FormItem.Content>
           <section
@@ -204,22 +208,11 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             data-success={success && !disabled}
             data-disabled={disabled}
           >
-            {isPrefixAvailable && (
-              <div className={styles['prefix']}>
-                {prefixIcon && (
-                  <Icon icon={prefixIcon} color={GRAYMAUVE1000} size={20} />
-                )}
-                {prefixText && (
-                  <Typography
-                    modifier="body-md"
-                    fontWeight="bold"
-                    color={GRAYMAUVE1100}
-                  >
-                    {prefixText}
-                  </Typography>
-                )}
-              </div>
-            )}
+            <TextfieldAdditionalElement
+              kind="prefix"
+              text={prefixText}
+              icon={prefixIcon}
+            />
 
             <input
               {...res}
@@ -235,7 +228,7 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
 
             {showCounter && (
               <FormItem.Counter
-                className={styles['counter']}
+                className={styles['textfield__counter']}
                 currentCounter={value.length}
                 maxLength={maxLength}
               />
@@ -244,25 +237,34 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             {loading && (
               <Spinner
                 data-testid="textfield-loading"
-                className={styles['loading-spinner']}
+                className={styles['textfield__loading-spinner']}
                 size={20}
                 spinnerWidth={2}
                 spinnerColor={VIOLET900}
               />
             )}
 
-            {suffix && <span>{suffix}</span>}
-
             {/* INFO: Icon to clear the value */}
             {enableClear && !loading && Boolean(value) && (
-              <Icon
-                icon="cancel-fill"
-                color={GRAYMAUVE1000}
-                className={styles['clear-btn']}
-                onClick={handleOnClickClearBtn}
-                size={20}
-              />
+              <Flex
+                className={styles['textfield__clear-btn']}
+                align="center"
+                justify="center"
+              >
+                <Icon
+                  icon="cancel-fill"
+                  color={GRAYMAUVE1000}
+                  onClick={handleOnClickClearBtn}
+                  size={20}
+                />
+              </Flex>
             )}
+
+            <TextfieldAdditionalElement
+              kind="suffix"
+              text={suffixText}
+              icon={suffixIcon}
+            />
           </section>
         </FormItem.Content>
 

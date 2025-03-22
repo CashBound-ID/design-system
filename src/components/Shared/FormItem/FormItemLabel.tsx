@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react';
+import type { MouseEventHandler, PropsWithChildren } from 'react';
 
 import { useDesignSystemProvider } from '@/context/DesignSystem';
 
@@ -9,8 +9,13 @@ import type { FormItemLabelFnType, FormItemLabelProps } from './types';
 const FormItemLabel: FormItemLabelFnType = (
   props: PropsWithChildren<FormItemLabelProps>
 ) => {
-  const { label, optional, required } = props;
+  const { label, onClick, optional, required } = props;
   const { color } = useDesignSystemProvider();
+
+  const handleOnClickContainer: MouseEventHandler<HTMLElement> = (e) => {
+    e.preventDefault();
+    if (onClick) onClick();
+  };
 
   return (
     <Typography
@@ -19,6 +24,7 @@ const FormItemLabel: FormItemLabelFnType = (
       fontWeight="medium"
       tag="p"
       color={color.GRAYMAUVE1200}
+      onClick={handleOnClickContainer}
     >
       {required && (
         <>

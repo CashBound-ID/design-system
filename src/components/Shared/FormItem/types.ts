@@ -19,6 +19,11 @@ export interface FormItemLabelProps {
   label?: string;
 
   /**
+   * Event handler invoked when user click label section
+   */
+  onClick?: () => void;
+
+  /**
    * Whether the form item is optional.
    * Defaults to `false`.
    * Optional.
