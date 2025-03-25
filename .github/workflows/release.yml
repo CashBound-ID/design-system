@@ -1,4 +1,4 @@
-name: Release Private Package
+name: Release Design System
 
 on:
   workflow_dispatch:
