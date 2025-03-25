@@ -7,7 +7,7 @@ import Flex from '@/components/Flex';
 import Overlay from '@/components/Shared/Overlay';
 import Portal from '@/components/Shared/Portal';
 import SingleSwitch from '@/components/Shared/SingleSwitch';
-import { useModal } from '@/hooks/useModal';
+import useModal from '@/hooks/useModal';
 
 import BottomSheetContent from './BottomSheetContent';
 import BottomSheetFooter from './BottomSheetFooter';

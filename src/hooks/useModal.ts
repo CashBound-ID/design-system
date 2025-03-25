@@ -7,7 +7,7 @@ interface UseModalArgs {
   onOverlayClick?: MouseEventHandler<HTMLElement>;
 }
 
-export const useModal = (args: UseModalArgs) => {
+const useModal = (args: UseModalArgs) => {
   const { onAnimationEnd, onClose, onOverlayClick } = args;
   const [isVisible, setIsVisible] = useState(true);
 
@@ -43,3 +43,5 @@ export const useModal = (args: UseModalArgs) => {
     [handleAnimationEnd, handleClose, handleOverlayClick, isVisible]
   );
 };
+
+export default useModal;
