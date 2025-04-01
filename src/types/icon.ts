@@ -142,4 +142,8 @@ export type CashboundIconType =
   | 'double-arrow-left'
   | 'double-arrow-right'
   | 'copy-fill'
+  | 'frame'
+  | 'download'
+  | 'app-installline'
+  | 'app-installfill'
   | 'copy-line';
