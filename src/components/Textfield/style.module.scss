@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @use "../../styles/variables" as var;
 
 @use "../../styles/function" as func;
@@ -5,12 +7,29 @@
 $textfield-theme: (
   error: (
     base: var(--REDTOMATO800),
-    hover: var(--REDTOMATO1000)
+    hover: var(--REDTOMATO1000),
   ),
   success: (
     base: var(--GREENGRASS800),
-    hover: var(--GREENGRASS1000)
-  )
+    hover: var(--GREENGRASS1000),
+  ),
+);
+
+$textfield-size: (
+  md: (
+    padding: 12px 0px,
+    padding-with-pre-icon: 12px 16px 12px 12px,
+    padding-with-post-icon: 12px 12px 12px 16px,
+    height: 44px,
+    border-radius: map.get(var.$radius, md),
+  ),
+  sm: (
+    padding: 8px 0px,
+    padding-with-pre-icon: 8px 16px 8px 12px,
+    padding-with-post-icon: 8px 12px 8px 16px,
+    height: 36px,
+    border-radius: map.get(var.$radius, md),
+  ),
 );
 
 .textfield {
@@ -35,7 +54,6 @@ $textfield-theme: (
       flex-grow: 1;
       flex-shrink: 1;
       font-size: 14px;
-      height: 36px;
       outline: 0;
       padding: 0 12px;
       width: 100%;
@@ -45,7 +63,6 @@ $textfield-theme: (
       border-color: var(--VIOLET900);
 
       #{$current}__additional-element {
-
         &[data-kind="prefix"] {
           border-right-color: var(--VIOLET900);
         }
@@ -61,7 +78,6 @@ $textfield-theme: (
       border-color: var(--VIOLET900);
 
       #{$current}__additional-element {
-
         &[data-kind="prefix"] {
           border-right-color: var(--VIOLET900);
         }
@@ -77,7 +93,6 @@ $textfield-theme: (
         border-color: func.get-attribute($variant, base);
 
         #{$current}__additional-element {
-
           &[data-kind="prefix"] {
             border-right-color: func.get-attribute($variant, base);
           }
@@ -92,7 +107,6 @@ $textfield-theme: (
           border-color: func.get-attribute($variant, hover);
 
           #{$current}__additional-element {
-
             &[data-kind="prefix"] {
               border-right-color: func.get-attribute($variant, hover);
             }
@@ -103,6 +117,15 @@ $textfield-theme: (
           }
         }
       }
+
+      @each $size-name, $size in $textfield-size {
+        &[data-size="#{$size-name}"] {
+          border-radius: func.get-attribute($size, border-radius);
+          height: func.get-attribute($size, height);
+          min-height: func.get-attribute($size, height);
+          padding: func.get-attribute($size, padding);
+        }
+      }
     }
 
     &[data-disabled="true"] {
@@ -110,7 +133,6 @@ $textfield-theme: (
       border-color: var(--GRAYMAUVE600);
 
       #{$current}__additional-element {
-
         &[data-kind="prefix"] {
           border-right-color: var(--GRAYMAUVE600);
         }

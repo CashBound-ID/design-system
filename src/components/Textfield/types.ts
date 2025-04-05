@@ -15,6 +15,8 @@ export interface TextfieldAdditionalProps {
   text?: string;
 }
 
+export type TextfieldSizeType = 'sm' | 'md';
+
 export type TextfieldProps = TextfieldHTMLProps &
   BaseInputProps & {
     /**
@@ -62,6 +64,11 @@ export type TextfieldProps = TextfieldHTMLProps &
      * @default false
      */
     showCounter?: boolean;
+
+    /**
+     * Size of the button
+     */
+    size?: TextfieldSizeType;
 
     /**
      * Element to be displayed the icon at the end of the input field.
