@@ -14,7 +14,6 @@ $textfield-theme: (
     hover: var(--GREENGRASS1000),
   ),
 );
-
 $textfield-size: (
   md: (
     padding: 12px 0px,
@@ -63,6 +62,7 @@ $textfield-size: (
       border-color: var(--VIOLET900);
 
       #{$current}__additional-element {
+
         &[data-kind="prefix"] {
           border-right-color: var(--VIOLET900);
         }
@@ -78,6 +78,7 @@ $textfield-size: (
       border-color: var(--VIOLET900);
 
       #{$current}__additional-element {
+
         &[data-kind="prefix"] {
           border-right-color: var(--VIOLET900);
         }
@@ -93,6 +94,7 @@ $textfield-size: (
         border-color: func.get-attribute($variant, base);
 
         #{$current}__additional-element {
+
           &[data-kind="prefix"] {
             border-right-color: func.get-attribute($variant, base);
           }
@@ -107,6 +109,7 @@ $textfield-size: (
           border-color: func.get-attribute($variant, hover);
 
           #{$current}__additional-element {
+
             &[data-kind="prefix"] {
               border-right-color: func.get-attribute($variant, hover);
             }
@@ -133,6 +136,7 @@ $textfield-size: (
       border-color: var(--GRAYMAUVE600);
 
       #{$current}__additional-element {
+
         &[data-kind="prefix"] {
           border-right-color: var(--GRAYMAUVE600);
         }
