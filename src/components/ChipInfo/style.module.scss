@@ -1,0 +1,28 @@
+@use "sass:map";
+
+@use "../../styles/function" as func;
+
+@use "../../styles/variables" as var;
+
+.chip {
+  align-items: center;
+  background-color: var(--background-color);
+  border: 1px solid;
+  border-color: var(--border-color);
+  border-radius: 24px;
+  display: flex;
+  gap: 8px;
+  padding: 6px 12px;
+  transition: all var.$transition-duration var.$transition-timing-fn;
+  width: fit-content;
+
+  &[data-icon="true"] {
+    border-radius: 24px;
+    padding: 6px 16px 6px 12px;
+  }
+
+  .chip-text,
+  .chip-icon {
+    transition: all var.$transition-duration var.$transition-timing-fn;
+  }
+}

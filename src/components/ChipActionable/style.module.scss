@@ -15,31 +15,31 @@ $chip-theme: (
     text-color: var(--GRAYMAUVE1200),
     icon-color: var(--GRAYMAUVE1200),
     background-color: var(--VIOLET200),
-    border-color: var(--VIOLET400)
+    border-color: var(--VIOLET400),
   ),
   focus: (
     text-color: var(--GRAYMAUVE1100),
     icon-color: var(--GRAYMAUVE1100),
     background-color: var(--WHITE),
-    border-color: var(--GRAYMAUVE300)
+    border-color: var(--GRAYMAUVE300),
   ),
   active: (
     text-color: var(--GRAYMAUVE1200),
     icon-color: var(--GRAYMAUVE1200),
     background-color: var(--VIOLET300),
-    border-color: var(--VIOLET500)
+    border-color: var(--VIOLET500),
   ),
   selected: (
     text-color: var(--GRAYMAUVE1200),
     icon-color: var(--GRAYMAUVE1200),
     background-color: var(--WHITE),
-    border-color: var(--VIOLET800)
+    border-color: var(--VIOLET800),
   ),
   disabled: (
     text-color: rgb(0 0 0 / 30%),
     icon-color: rgb(0 0 0 / 30%),
     background-color: var(--GRAYMAUVE500),
-    border-color: var(--GRAYMAUVE700)
+    border-color: var(--GRAYMAUVE700),
   ),
 );
 
@@ -54,10 +54,7 @@ $chip-theme: (
   padding: 6px 12px;
   transition: all var.$transition-duration var.$transition-timing-fn;
   width: fit-content;
-
-  &[data-clickable="true"]:not([data-disabled="true"], [data-selected="true"]) {
-    cursor: pointer;
-  }
+  cursor: pointer;
 
   &[data-icon="true"] {
     border-radius: 24px;
@@ -78,7 +75,11 @@ $chip-theme: (
   }
 
   &[data-selected="true"] {
-    background-color: func.get-attribute($chip-theme, selected, background-color);
+    background-color: func.get-attribute(
+      $chip-theme,
+      selected,
+      background-color
+    );
     border-color: func.get-attribute($chip-theme, selected, border-color);
 
     .chip-text {
@@ -91,7 +92,11 @@ $chip-theme: (
   }
 
   &[data-disabled="true"] {
-    background-color: func.get-attribute($chip-theme, disabled, background-color);
+    background-color: func.get-attribute(
+      $chip-theme,
+      disabled,
+      background-color
+    );
     border-color: func.get-attribute($chip-theme, disabled, border-color);
 
     .chip-text {
@@ -104,9 +109,12 @@ $chip-theme: (
   }
 
   &:hover {
-
-    &:not([data-disabled="true"], [data-selected="true"]):is([data-clickable="true"]) {
-      background-color: func.get-attribute($chip-theme, hover, background-color);
+    &:not([data-disabled="true"], [data-selected="true"]) {
+      background-color: func.get-attribute(
+        $chip-theme,
+        hover,
+        background-color
+      );
       border-color: func.get-attribute($chip-theme, hover, border-color);
 
       .chip-text {
@@ -120,9 +128,12 @@ $chip-theme: (
   }
 
   &:focus {
-
-    &:not([data-disabled="true"], [data-selected="true"]):is([data-clickable="true"]) {
-      background-color: func.get-attribute($chip-theme, focus, background-color);
+    &:not([data-disabled="true"], [data-selected="true"]) {
+      background-color: func.get-attribute(
+        $chip-theme,
+        focus,
+        background-color
+      );
       border-color: func.get-attribute($chip-theme, focus, border-color);
 
       .chip-text {
@@ -136,9 +147,14 @@ $chip-theme: (
   }
 
   &:active {
-
-    &:not([data-disabled="true"], [data-selected="true"]):is([data-clickable="true"]) {
-      background-color: func.get-attribute($chip-theme, active, background-color);
+    &:not([data-disabled="true"], [data-selected="true"]):is(
+        [data-clickable="true"]
+      ) {
+      background-color: func.get-attribute(
+        $chip-theme,
+        active,
+        background-color
+      );
       border-color: func.get-attribute($chip-theme, active, border-color);
 
       .chip-text {
