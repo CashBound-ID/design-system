@@ -6,7 +6,7 @@ import type { GenericHTMLProps } from '@/types/react';
 
 type TextfieldHTMLProps = Omit<
   GenericHTMLProps<InputHTMLAttributes<HTMLInputElement>>,
-  'onChange' | 'value' | 'disabled' | 'prefix' | 'suffix'
+  'onChange' | 'value' | 'disabled' | 'prefix' | 'suffix' | 'size'
 >;
 
 export interface TextfieldAdditionalProps {
