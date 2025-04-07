@@ -155,18 +155,16 @@ export default [
     plugins: [
       peerDepsExternal({ includeDependencies: true }),
       replace({
-        'import * as styles from': 'import styles from',
-        'import * as style from': 'import style from'
+        'import * as style from': 'import style from',
+        'import * as styles from': 'import styles from'
       }),
       postcss({
         autoModules: false,
         extract: 'styles.css',
         minimize: true,
-        modules: {
-          generateScopedName: '[hash:base64:9]'
-        },
+        modules: { generateScopedName: '[hash:base64:9]' },
         namedExports: true,
-        use: ['sass']
+        use: [['sass', { includePaths: [path.resolve(__dirname, 'src')] }]]
       }),
       resolve({
         mainFields: ['module', 'main']

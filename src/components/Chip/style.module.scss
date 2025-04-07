@@ -1,8 +1,8 @@
 @use "sass:map";
 
-@use "../../styles/function" as func;
+@use "styles/function" as func;
 
-@use "../../styles/variables" as var;
+@use "styles/variables" as var;
 
 $chip-theme: (
   init: (
