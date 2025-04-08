@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import { type ButtonHTMLAttributes } from 'react';
 
 import Icon from '@/components/Icon';
 import Typography from '@/components/Typography';
@@ -9,14 +9,16 @@ import type { GenericHTMLProps } from '@/types/react';
 
 import * as styles from './style.module.scss';
 
-type ChipHTMLProps = GenericHTMLProps<HTMLAttributes<HTMLElement>>;
+type ChipActionableHTMLProps = GenericHTMLProps<
+  ButtonHTMLAttributes<HTMLButtonElement>
+>;
 
-interface ChipProps extends ChipHTMLProps {
+interface ChipActionableProps extends ChipActionableHTMLProps {
   /**
-   * Determines whether the chip is clickable.
-   * When set to `true`, the chip can be interacted with like a button.
+   * Test identifier used for testing purposes.
+   * This attribute helps identify the element during testing.
    */
-  clickable?: boolean;
+  'data-testid'?: string;
 
   /**
    * Indicates whether the chip is disabled.
@@ -37,12 +39,12 @@ interface ChipProps extends ChipHTMLProps {
   selected?: boolean;
 }
 
-const Chip = (props: ChipProps) => {
+const ChipActionable = (props: ChipActionableProps) => {
   const {
-    'aria-label': ariaLabel = 'chip',
+    'aria-label': ariaLabel = 'chip actionable',
     children,
     className,
-    clickable,
+    'data-testid': dataTestId = 'chip-actionable',
     disabled,
     icon,
     selected,
@@ -50,15 +52,14 @@ const Chip = (props: ChipProps) => {
   } = props;
 
   return (
-    <section
+    <button
       {...res}
       aria-label={ariaLabel}
       className={cx(styles['chip'], className)}
       data-disabled={disabled}
       data-selected={selected}
-      data-clickable={clickable}
       data-icon={Boolean(icon)}
-      role={clickable ? 'button' : 'presentation'}
+      data-testid={dataTestId}
     >
       {icon && <Icon className={styles['chip-icon']} icon={icon} size={16} />}
 
@@ -70,8 +71,8 @@ const Chip = (props: ChipProps) => {
       >
         {children}
       </Typography>
-    </section>
+    </button>
   );
 };
 
-export default Chip;
+export default ChipActionable;
