@@ -121,5 +121,9 @@ export const PREVIEW_ICON: Array<{ icon: CashboundIconType; label: string }> = [
   { icon: 'smartphone-line', label: 'smartphone-line' },
   { icon: 'smartphone-fill', label: 'smartphone-fill' },
   { icon: 'secure-fill', label: 'secure-fill' },
-  { icon: 'secure-line', label: 'secure-line' }
+  { icon: 'secure-line', label: 'secure-line' },
+  { icon: 'frame', label: 'frame' },
+  { icon: 'download', label: 'download' },
+  { icon: 'app-installline', label: 'app-installline' },
+  { icon: 'app-installfill', label: 'app-installfill' }
 ];

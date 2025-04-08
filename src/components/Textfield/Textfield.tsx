@@ -45,6 +45,7 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
       required,
       rules,
       showCounter,
+      size = 'sm',
       success,
       suffixIcon,
       suffixText,
@@ -207,6 +208,7 @@ const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             data-error={error && !disabled}
             data-success={success && !disabled}
             data-disabled={disabled}
+            data-size={size}
           >
             <TextfieldAdditionalElement
               kind="prefix"

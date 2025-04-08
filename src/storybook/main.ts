@@ -46,6 +46,7 @@ const config: StorybookConfig = {
             loader: 'sass-loader',
             options: {
               sassOptions: {
+                includePaths: [path.resolve(__dirname, '../src')],
                 outputStyle: 'compressed'
               }
             }
@@ -70,6 +71,7 @@ const config: StorybookConfig = {
             loader: 'sass-loader',
             options: {
               sassOptions: {
+                includePaths: [path.resolve(__dirname, '../src')],
                 outputStyle: 'compressed'
               }
             }
@@ -81,7 +83,8 @@ const config: StorybookConfig = {
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve.alias,
-        '@': path.resolve(__dirname, '../')
+        '@': path.resolve(__dirname, '../'),
+        styles: path.resolve(__dirname, '../styles')
       };
       config.resolve.extensions?.push('.ts', '.tsx');
     }

@@ -1,26 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Chip from '@/components/Chip';
+import ChipInfo from '@/components/ChipInfo';
 
 const meta = {
-  component: Chip,
+  component: ChipInfo,
   parameters: {
-    'component-name': 'Chip',
+    'component-name': 'ChipInfo',
     docs: {},
-    'import-path': '@cashbound-id/design-system/chip',
-    'source-code': 'src/components/Chip'
+    'import-path': '@cashbound-id/design-system/chip-info',
+    'source-code': 'src/components/ChipInfo'
   },
-  title: 'Data Display/Chip'
-} satisfies Meta<typeof Chip>;
+  title: 'Data Display/Chip/Info'
+} satisfies Meta<typeof ChipInfo>;
 
 export default meta;
 
-type Story = StoryObj<typeof Chip>;
+type Story = StoryObj<typeof ChipInfo>;
 
 export const Basic: Story = {
   args: {
     children: 'Label Text',
-    clickable: true,
     icon: 'shape-category-fill'
   },
   name: 'Basic Usage',
@@ -35,8 +34,7 @@ export const Basic: Story = {
 
 export const ChipWithoutIcon: Story = {
   args: {
-    children: 'Label Text',
-    clickable: true
+    children: 'Label Text'
   },
   parameters: {
     docs: {
@@ -48,28 +46,9 @@ export const ChipWithoutIcon: Story = {
   }
 };
 
-export const SelectedChip: Story = {
-  args: {
-    children: 'Label Text',
-    clickable: true,
-    icon: 'shape-category-fill',
-    selected: true
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'You can adding flag if chip has been selected by user with defined props selected is true'
-      }
-    }
-  }
-};
-
 export const SelectedDisabled: Story = {
   args: {
     children: 'Label Text',
-    clickable: true,
-    disabled: true,
     icon: 'shape-category-fill'
   },
   parameters: {
