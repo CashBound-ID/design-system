@@ -1,6 +1,6 @@
-@use "../../../styles/variables" as var;
+@use "styles/variables" as var;
 
-@use "../../../styles/animation/keyframe-fade";
+@use "styles/animation/keyframe-fade";
 
 .overlay {
   animation-duration: 0.15s;

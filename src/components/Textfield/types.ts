@@ -6,7 +6,7 @@ import type { GenericHTMLProps } from '@/types/react';
 
 type TextfieldHTMLProps = Omit<
   GenericHTMLProps<InputHTMLAttributes<HTMLInputElement>>,
-  'onChange' | 'value' | 'disabled' | 'prefix' | 'suffix'
+  'onChange' | 'value' | 'disabled' | 'prefix' | 'suffix' | 'size'
 >;
 
 export interface TextfieldAdditionalProps {
@@ -14,6 +14,8 @@ export interface TextfieldAdditionalProps {
   kind: 'prefix' | 'suffix';
   text?: string;
 }
+
+export type TextfieldSizeType = 'sm' | 'md';
 
 export type TextfieldProps = TextfieldHTMLProps &
   BaseInputProps & {
@@ -62,6 +64,11 @@ export type TextfieldProps = TextfieldHTMLProps &
      * @default false
      */
     showCounter?: boolean;
+
+    /**
+     * Size of the button
+     */
+    size?: TextfieldSizeType;
 
     /**
      * Element to be displayed the icon at the end of the input field.

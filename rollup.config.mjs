@@ -8,7 +8,6 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import { swc } from 'rollup-plugin-swc3';
 
-
 const inputDir = 'src';
 const outputDir = 'dist';
 const baseDir = path.resolve(__dirname, './');
@@ -155,8 +154,8 @@ export default [
     plugins: [
       peerDepsExternal({ includeDependencies: true }),
       replace({
-        'import * as styles from': 'import styles from',
-        'import * as style from': 'import style from'
+        'import * as style from': 'import style from',
+        'import * as styles from': 'import styles from'
       }),
       postcss({
         autoModules: false,
@@ -166,7 +165,7 @@ export default [
           generateScopedName: '[hash:base64:9]'
         },
         namedExports: true,
-        use: ['sass']
+        use: [['sass', { includePaths: [path.resolve(__dirname, 'src')] }]]
       }),
       resolve({
         mainFields: ['module', 'main']

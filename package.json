@@ -10,6 +10,7 @@
     "@eslint/compat": "^1.2.3",
     "@eslint/js": "9.14.0",
     "@fit-hub-indonesia/eslint": "1.5.0",
+    "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-replace": "^6.0.2",

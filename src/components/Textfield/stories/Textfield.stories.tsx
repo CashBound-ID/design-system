@@ -32,6 +32,24 @@ export const Basic: Story = {
   }
 };
 
+export const WithSizeSmall: Story = {
+  args: {
+    label: 'Label',
+    size: 'sm',
+    value: 'hello world',
+    width: '500px'
+  }
+};
+
+export const WithSizeMedium: Story = {
+  args: {
+    label: 'Label',
+    size: 'md',
+    value: 'hello world',
+    width: '500px'
+  }
+};
+
 export const WithClearButton: Story = {
   args: {
     enableClear: true,
