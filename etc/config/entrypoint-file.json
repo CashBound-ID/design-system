@@ -40,8 +40,12 @@
     "name":"checkbox"
   },
   {
-    "file":"./dist/components/Chip",
-    "name":"chip"
+    "file":"./dist/components/ChipActionable",
+    "name":"chip-actionable"
+  },
+  {
+    "file":"./dist/components/ChipInfo",
+    "name":"chip-info"
   },
   {
     "file":"./dist/components/Container",

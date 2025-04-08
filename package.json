@@ -151,10 +151,14 @@
     "checkbox.d.ts",
     "checkbox.esm.js",
     "checkbox.esm.d.ts",
-    "chip.js",
-    "chip.d.ts",
-    "chip.esm.js",
-    "chip.esm.d.ts",
+    "chip-actionable.js",
+    "chip-actionable.d.ts",
+    "chip-actionable.esm.js",
+    "chip-actionable.esm.d.ts",
+    "chip-info.js",
+    "chip-info.d.ts",
+    "chip-info.esm.js",
+    "chip-info.esm.d.ts",
     "container.js",
     "container.d.ts",
     "container.esm.js",
@@ -310,10 +314,15 @@
       "require": "./checkbox.js",
       "types": "./checkbox.d.ts"
     },
-    "./chip": {
-      "import": "./chip.esm.js",
-      "require": "./chip.js",
-      "types": "./chip.d.ts"
+    "./chip-actionable": {
+      "import": "./chip-actionable.esm.js",
+      "require": "./chip-actionable.js",
+      "types": "./chip-actionable.d.ts"
+    },
+    "./chip-info": {
+      "import": "./chip-info.esm.js",
+      "require": "./chip-info.js",
+      "types": "./chip-info.d.ts"
     },
     "./container": {
       "import": "./container.esm.js",

@@ -46,21 +46,6 @@ export const ChipWithoutIcon: Story = {
   }
 };
 
-export const SelectedChip: Story = {
-  args: {
-    children: 'Label Text',
-    icon: 'shape-category-fill'
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'You can adding flag if chip has been selected by user with defined props selected is true'
-      }
-    }
-  }
-};
-
 export const SelectedDisabled: Story = {
   args: {
     children: 'Label Text',

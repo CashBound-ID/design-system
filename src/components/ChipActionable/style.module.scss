@@ -154,8 +154,7 @@ $chip-theme: (
 
   &:active {
 
-    &:not([data-disabled="true"], [data-selected="true"]):is(
-    [data-clickable="true"]) {
+    &:not([data-disabled="true"], [data-selected="true"]) {
       background-color:
         func.get-attribute(
           $chip-theme,
