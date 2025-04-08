@@ -1,8 +1,8 @@
 @use "sass:map";
 
-@use "../../styles/function" as func;
+@use "styles/function" as func;
 
-@use "../../styles/variables" as var;
+@use "styles/variables" as var;
 
 $chip-theme: (
   init: (
@@ -76,11 +76,11 @@ $chip-theme: (
 
   &[data-selected="true"] {
     background-color:
- func.get-attribute(
-      $chip-theme,
-      selected,
-      background-color
-    );
+      func.get-attribute(
+        $chip-theme,
+        selected,
+        background-color
+      );
     border-color: func.get-attribute($chip-theme, selected, border-color);
 
     .chip-text {
@@ -94,11 +94,11 @@ $chip-theme: (
 
   &[data-disabled="true"] {
     background-color:
- func.get-attribute(
-      $chip-theme,
-      disabled,
-      background-color
-    );
+      func.get-attribute(
+        $chip-theme,
+        disabled,
+        background-color
+      );
     border-color: func.get-attribute($chip-theme, disabled, border-color);
 
     .chip-text {
@@ -114,11 +114,11 @@ $chip-theme: (
 
     &:not([data-disabled="true"], [data-selected="true"]) {
       background-color:
- func.get-attribute(
-        $chip-theme,
-        hover,
-        background-color
-      );
+        func.get-attribute(
+          $chip-theme,
+          hover,
+          background-color
+        );
       border-color: func.get-attribute($chip-theme, hover, border-color);
 
       .chip-text {
@@ -135,11 +135,11 @@ $chip-theme: (
 
     &:not([data-disabled="true"], [data-selected="true"]) {
       background-color:
- func.get-attribute(
-        $chip-theme,
-        focus,
-        background-color
-      );
+        func.get-attribute(
+          $chip-theme,
+          focus,
+          background-color
+        );
       border-color: func.get-attribute($chip-theme, focus, border-color);
 
       .chip-text {
@@ -157,11 +157,11 @@ $chip-theme: (
     &:not([data-disabled="true"], [data-selected="true"]):is(
     [data-clickable="true"]) {
       background-color:
- func.get-attribute(
-        $chip-theme,
-        active,
-        background-color
-      );
+        func.get-attribute(
+          $chip-theme,
+          active,
+          background-color
+        );
       border-color: func.get-attribute($chip-theme, active, border-color);
 
       .chip-text {
