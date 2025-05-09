@@ -5,8 +5,8 @@ import {
   BLUE1100,
   GREENCASH200,
   GREENCASH700,
-  GREENCASH900,
-  GREENCASH1100,
+  GREENGRASS900,
+  GREENGRASS1100,
   ORANGE200,
   ORANGE700,
   ORANGE900,
@@ -35,8 +35,8 @@ export const CHIP_TYPE: Record<string, ColorType> = {
   success: {
     background: GREENCASH200,
     border: GREENCASH700,
-    icon: GREENCASH900,
-    text: GREENCASH1100
+    icon: GREENGRASS900,
+    text: GREENGRASS1100
   },
   warning: {
     background: ORANGE200,
